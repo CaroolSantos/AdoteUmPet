@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_register_pet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#FFF"
+    tools:context="ufrpe.carolina.adoteumpet.RegisterPetActivity">
+
+    <ImageView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:srcCompat="@drawable/avatar"
+        android:id="@+id/avatar"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="@string/Avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/avatar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
+        android:id="@+id/btn_avatar" />
+
+    <TextView
+        android:layout_below="@+id/btn_avatar"
+        android:text="Selecione tipo do pet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:id="@+id/txt_tipo"
+        android:textColor="#000"/>
+
+    <Spinner
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_tipo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/tipopet"/>
+
+    <EditText
+        android:layout_below="@+id/tipopet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="@string/Nome_Pet"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:id="@+id/nomepet"
+        android:textColor="#b2b2b2"
+        android:background="@drawable/back"/>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/nomepet"
+        android:id="@+id/sexospet"
+        android:layout_marginTop="10dp">
+
+        <RadioButton
+            android:text="Macho"
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sexomacho"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Fêmea"
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sexofemea"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <EditText
+        android:layout_below="@+id/sexospet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:text="@string/Idade_pet"
+        android:id="@+id/idadepet"
+        android:layout_marginTop="10dp"
+        android:textColor="#b2b2b2"
+        android:background="@drawable/back"/>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/idadepet"
+        android:id="@+id/portepet"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:text="@string/Porte_pequeno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/portopequeno"
+            android:layout_weight="1"
+            android:textColor="#000"/>
+
+        <RadioButton
+            android:text="@string/Porte_medio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/portemedio"
+            android:layout_weight="1"
+            android:textColor="#000"/>
+
+        <RadioButton
+            android:text="@string/Porte_grande"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/portegrande"
+            android:layout_weight="1"
+            android:textColor="#000"/>
+    </RadioGroup>
+
+    <EditText
+        android:layout_below="@+id/portepet"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="@string/Raca_pet"
+        android:ems="10"
+        android:id="@+id/racapet"
+        android:layout_weight="1"
+        android:textColor="#b2b2b2"
+        android:background="@drawable/back"/>
+
+    <EditText
+        android:layout_below="@+id/racapet"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:inputType="textPersonName"
+        android:gravity="top"
+        android:text="@string/Descricao_pet"
+        android:ems="10"
+        android:id="@+id/descricaopet"
+        android:textColor="#b2b2b2"
+        android:background="@drawable/back"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/descricaopet"
+        android:layout_marginTop="10dp"
+        android:id="@+id/layout_phone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/icon_phone"
+            android:id="@+id/iconphone"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/txtphone"
+            android:layout_weight="2"
+            android:background="#F2F2F2"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/layout_phone"
+        android:layout_marginTop="10dp"
+        android:id="@+id/layout_mail">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/icon_mail"
+            android:id="@+id/iconmail"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/txtmail"
+            android:layout_weight="2" />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_below="@+id/layout_mail"
+        android:text="@string/btn_salvar"
+        android:textStyle="bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:id="@+id/btn_salvar" />
+
+</RelativeLayout>

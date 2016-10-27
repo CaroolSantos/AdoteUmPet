@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:title="@string/item_home"/>
+        <item
+            android:id="@+id/nav_perfil"
+            android:title="@string/item_perfil" />
+        <item
+            android:id="@+id/nav_adotar"
+            android:title="@string/item_adotar" />
+        <item
+            android:id="@+id/nav_cadastrar"
+            android:title="@string/item_cadastrar" />
+        <item
+            android:id="@+id/nav_pet_perdido"
+            android:title="@string/item_perdi_pet" />
+        <item
+            android:id="@+id/nav_abrigos"
+            android:title="@string/item_abrigos" />
+        <item
+            android:id="@+id/nav_sair"
+            android:title="@string/item_sair" />
+    </group>
+
+</menu>

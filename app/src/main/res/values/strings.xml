@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">Adote Um Pet</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="openDrawer">open_drawer</string>
+    <string name="closeDrawer">close_drawer</string>
+    <!-- Navigation Drawer menu labels -->
+    <string name="nav_perfil">Perfil</string>
+    <string name="nav_adotar">Adotar um Pet</string>
+    <string name="nav_cadastrar">Cadastrar um Pet</string>
+    <string name="nav_perdi_pet">Perdi um Pet</string>
+    <string name="nav_abrigos">Abrigos</string>
+    <string name="nav_clinicas">Clínicas Associadas</string>
+    <string name="nav_sair">Sair</string>
+    <!-- Toolbar titles when navigation menu item is selected -->
+    <string-array name="nav_item_activity_titles">
+        <item>Perfil</item>
+        <item>Adotar um Pet</item>
+        <item>Perdi um Pet</item>
+        <item>Abrigos</item>
+        <item>Clínicas associadas</item>
+        <item>Sair</item>
+    </string-array>
+    <string name="action_mark_all_read">Mark All as Read</string>
+    <string name="action_clear_all">Clear All</string>
+    <string name="action_logout">Logout</string>
+
+    <!-- Activity_main_drawer -->
+    <string name="item_home">Home</string>
+    <string name="item_perfil">Perfil</string>
+    <string name="item_adotar">Adotar um Pet</string>
+    <string name="item_cadastrar">Cadastrar um Pet</string>
+    <string name="item_perdi_pet">Perdi um Pet</string>
+    <string name="item_abrigos">Abrigos</string>
+    <string name="item_sair">Sair</string>
+
+
+    <string name="action_settings">Settings</string>
+    <string name="facebook_app_id">1685597175088590</string>
+    <string name="Cadastrar">Cadastre-se</string>
+    <string name="nome_cadastro">Nome</string>
+    <string name="senha_cadastro">Senha</string>
+    <string name="senha_confirmacao">Confirme sua senha</string>
+    <string name="email">E-mail</string>
+    <string name="telefone_cadastro">Telefone</string>
+    <string name="data_nascimento">Data de nascimento</string>
+    <string name="Avatar">Adicionar uma foto</string>
+    <string name="Nome_Pet">Nome do Pet</string>
+    <string name="Idade_pet">Idade</string>
+    <string name="Porte_pequeno">Pequeno</string>
+    <string name="Porte_medio">Medio</string>
+    <string name="Porte_grande">Grande</string>
+    <string name="Raca_pet">Informe a raça do Pet</string>
+    <string name="Descricao_pet">Descrição</string>
+    <string name="btn_salvar">Salvar</string>
+    <string name="btn_registrar">Registrar</string>
+    <string name="nome_abrigo">Nome do abrigo</string>
+    <string name="add_imagem_abrigo">Adicionar uma foto</string>
+    <string name="endereco_abrigo">Endereço do abrigo</string>
+    <string name="txt_email">Seu e-mail</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
