@@ -1,9 +1,11 @@
-package ufrpe.carolina.adoteumpet;
+package ufrpe.carolina.adoteumpet.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+
+import ufrpe.carolina.adoteumpet.R;
 
 public class RegisterPetActivity extends AppCompatActivity {
     private String tipo_pet[];

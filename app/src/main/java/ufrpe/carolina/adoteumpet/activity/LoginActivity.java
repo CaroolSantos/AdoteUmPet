@@ -1,4 +1,4 @@
-package ufrpe.carolina.adoteumpet;
+package ufrpe.carolina.adoteumpet.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +8,7 @@ import android.widget.Button;
 
 import com.facebook.FacebookSdk;
 
-import ufrpe.carolina.adoteumpet.activity.MainActivity;
+import ufrpe.carolina.adoteumpet.R;
 
 public class LoginActivity extends AppCompatActivity
         implements View.OnClickListener{

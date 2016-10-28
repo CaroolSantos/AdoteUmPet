@@ -1,7 +1,9 @@
-package ufrpe.carolina.adoteumpet;
+package ufrpe.carolina.adoteumpet.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import ufrpe.carolina.adoteumpet.R;
 
 public class RegisterShelterActivity extends AppCompatActivity {
 
