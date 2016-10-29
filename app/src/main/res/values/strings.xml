@@ -35,6 +35,9 @@
     <string name="item_abrigos">Abrigos</string>
     <string name="item_sair">Sair</string>
 
+    <!-- Activity_register -->
+    <string name="date_selected"></string>
+
 
     <string name="action_settings">Settings</string>
     <string name="facebook_app_id">1685597175088590</string>
