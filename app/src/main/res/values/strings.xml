@@ -67,6 +67,10 @@
     <string name="endereco_abrigo">Endereço do abrigo</string>
     <string name="txt_email">Seu e-mail</string>
 
+    <!-- Tela de Perfil do Pet -->
+    <string name="nome_perfil_pet">Toddy</string>
+    <string name="descricao_perfil_pet">Este é o Toddy! Tem dois anos, é dócil, se dar bem com todo mundo, tem uma bolinha no umbigo, rabo cortado e tem microchip. Pesa entre 4 e 5 Kg.</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
