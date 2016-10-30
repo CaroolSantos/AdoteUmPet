@@ -1,198 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_register"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/background_register"
-    tools:context="ufrpe.carolina.adoteumpet.activity.RegisterActivity">
+    android:fitsSystemWindows="true"
+    tools:context="ufrpe.carolina.adoteumpet.activity.Main2Activity">
 
-    <TextView
-        android:text="@string/nome_cadastro"
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/nomecadastro"
-        android:textColor="#FFF"/>
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-    <EditText
-        android:layout_below="@+id/nomecadastro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="@string/nome_cadastro"
-        android:ems="10"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="7dp"
-        android:id="@+id/edt_nome"
-        android:textColorHint="@color/colorHint"
-        android:textColor="#000"
-        android:background="#F2F2F2"
-        android:textCursorDrawable="@drawable/color_cursor"/>
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-    <TextView
-        android:layout_below="@+id/edt_nome"
-        android:layout_marginTop="15dp"
-        android:text="@string/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/emailcadastro"
-        android:textColor="#FFF"/>
+    </android.support.design.widget.AppBarLayout>
 
-    <EditText
-        android:layout_below="@+id/emailcadastro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:textColorHint="@color/colorHint"
-        android:hint="@string/txt_email"
-        android:ems="10"
-        android:layout_marginTop="7dp"
-        android:id="@+id/edt_email"
-        android:textColor="#000"
-        android:background="#F2F2F2"
-        android:textCursorDrawable="@drawable/color_cursor"/>/>
+    <include layout="@layout/content_register" />
 
-    <TextView
-        android:text="@string/telefone_cadastro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/telefonecadastro"
-        android:layout_below="@+id/edt_email"
-        android:layout_marginTop="15dp"
-        android:textColor="#FFF"/>
+</android.support.design.widget.CoordinatorLayout>
 
-    <EditText
-        android:layout_below="@+id/telefonecadastro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:textColorHint="@color/colorHint"
-        android:ems="10"
-        android:hint="@string/telefone_cadastro"
-        android:layout_marginTop="7dp"
-        android:id="@+id/edt_telefone"
-        android:textColor="#000"
-        android:background="#F2F2F2"
-        android:textCursorDrawable="@drawable/color_cursor"/>
 
-    <TextView
-        android:layout_below="@+id/edt_telefone"
-        android:text="@string/senha_cadastro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/senhacadastro"
-        android:layout_marginTop="15dp"
-        android:textColor="#FFF"/>
 
-    <EditText
-        android:layout_below="@+id/senhacadastro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/edt_senha"
-        android:layout_marginTop="7dp"
-        android:textColor="#000"
-        android:background="#F2F2F2"
-        android:textCursorDrawable="@drawable/color_cursor"/>/>
-
-    <TextView
-        android:layout_below="@+id/edt_senha"
-        android:text="@string/senha_confirmacao"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/senhaconfirmacao"
-        android:layout_marginTop="15dp"
-        android:textColor="#FFF"/>
-
-    <EditText
-        android:layout_below="@+id/senhaconfirmacao"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:layout_marginTop="7dp"
-        android:id="@+id/edt_confirmacaosenha"
-        android:textColor="#000"
-        android:background="#F2F2F2"
-        android:textCursorDrawable="@drawable/color_cursor"/>/>
-
-    <TextView
-        android:layout_below="@+id/edt_confirmacaosenha"
-        android:text="@string/data_nascimento"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/datanasccadastro"
-        android:layout_marginTop="15dp"
-        android:textColor="#FFF"/>
-
-    <EditText
-        android:layout_below="@+id/datanasccadastro"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:inputType="none"
-        android:ems="10"
-        android:id="@+id/edt_dt_nascimento"
-        android:layout_marginTop="7dp"
-        android:textColor="#000"
-        android:background="#F2F2F2"
-        android:text="@string/date_selected"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textCursorDrawable="@drawable/color_cursor"/>
-
-    <RadioGroup
-            android:layout_width="374dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_below="@+id/edt_dt_nascimento"
-            android:id="@+id/opcoes_sexo"
-            android:layout_marginTop="15dp">
-
-            <RadioButton
-                android:text="Feminino"
-                android:textColor="#FFF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/sexofeminino"
-                android:layout_weight="1" />
-
-            <RadioButton
-                android:text="Masculino"
-                android:textColor="#FFF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/sexomasculino"
-                android:layout_weight="1" />
-        </RadioGroup>
-
-    <Button
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/opcoes_sexo"
-        android:text="@string/btn_registrar"
-        android:textStyle="bold"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_registrar"
-        android:background="@color/colorBtn"/>
-
-</RelativeLayout>
-    </LinearLayout>
-</ScrollView>
