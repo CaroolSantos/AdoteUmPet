@@ -13,12 +13,12 @@ import ufrpe.carolina.adoteumpet.R;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link CadastrarPetFragment.OnFragmentInteractionListener} interface
+ * {@link AdoptPetFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link CadastrarPetFragment#newInstance} factory method to
+ * Use the {@link AdoptPetFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CadastrarPetFragment extends Fragment {
+public class AdoptPetFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -30,7 +30,7 @@ public class CadastrarPetFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public CadastrarPetFragment() {
+    public AdoptPetFragment() {
         // Required empty public constructor
     }
 
@@ -40,11 +40,11 @@ public class CadastrarPetFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CadastrarPetFragment.
+     * @return A new instance of fragment AdoptPetFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CadastrarPetFragment newInstance(String param1, String param2) {
-        CadastrarPetFragment fragment = new CadastrarPetFragment();
+    public static AdoptPetFragment newInstance(String param1, String param2) {
+        AdoptPetFragment fragment = new AdoptPetFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -65,7 +65,7 @@ public class CadastrarPetFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_register_pet, container, false);
+        return inflater.inflate(R.layout.fragment_adotar_pet, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

@@ -52,8 +52,17 @@ public class PetAdapter extends ArrayAdapter<Pet>{
         }
 
         Pet pet = data[position];
+        //TODO alterar lógica quando carregar dados da API
+        if(position == 0){
+            holder.img_Pet.setImageResource(R.drawable.toddy);
+        }else if(position == 1){
+            holder.img_Pet.setImageResource(R.drawable.rock);
+        }else if(position == 2){
+            holder.img_Pet.setImageResource(R.drawable.gato);
+        }else{
+            holder.img_Pet.setImageResource(R.drawable.logo_new);
+        }
         holder.txt_nome_pet.setText(pet.nome);
-        holder.img_Pet.setImageResource(R.drawable.logo_new);
         holder.txt_especie_pet.setText(pet.especie);
         holder.txt_sexo_pet.setText(pet.sexo);
 

@@ -16,7 +16,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -27,13 +26,13 @@ import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 import ufrpe.carolina.adoteumpet.R;
-import ufrpe.carolina.adoteumpet.fragment.AbrigosFragment;
-import ufrpe.carolina.adoteumpet.fragment.AdotarPetFragment;
-import ufrpe.carolina.adoteumpet.fragment.CadastrarPetFragment;
+import ufrpe.carolina.adoteumpet.fragment.RegisterPetFragment;
 import ufrpe.carolina.adoteumpet.fragment.HomeFragment;
-import ufrpe.carolina.adoteumpet.fragment.PerfilFragment;
-import ufrpe.carolina.adoteumpet.fragment.PetPerdidoFragment;
-import ufrpe.carolina.adoteumpet.fragment.configuracoesFragment;
+import ufrpe.carolina.adoteumpet.fragment.ProfileFragment;
+import ufrpe.carolina.adoteumpet.fragment.LostPetFragment;
+import ufrpe.carolina.adoteumpet.fragment.RegisterShelterFragment;
+import ufrpe.carolina.adoteumpet.fragment.ShelterFragment;
+import ufrpe.carolina.adoteumpet.fragment.SettingsFragment;
 import ufrpe.carolina.adoteumpet.other.CircleTransform;
 
 public class MainActivity extends AppCompatActivity {
@@ -57,10 +56,10 @@ public class MainActivity extends AppCompatActivity {
     // tags used to attach the fragments
     private static final String TAG_HOME = "home";
     private static final String TAG_PERFIL = "perfil";
-    private static final String TAG_ADOTE = "adotar um pet";
-    private static final String TAG_CADASTRAR_PET = "cadastrar um pet";
-    private static final String TAG_PERDI_PET = "perdi um pet";
+    private static final String TAG_CADASTRAR_PET = "cadastro_pet";
+    private static final String TAG_PERDI_PET = "perdi_pet";
     private static final String TAG_ABRIGOS = "abrigos";
+    private static final String TAG_CADASTRO_ABRIGO = "cadastro_abrigo";
     private static final String TAG_CONFIGURACOES = "configuracoes";
     public static String CURRENT_TAG = TAG_HOME;
 
@@ -151,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
                 .into(imgProfile);
 
         // showing dot next to notifications label
-        navigationView.getMenu().getItem(3).setActionView(R.layout.menu_dot);
+        //navigationView.getMenu().getItem(3).setActionView(R.layout.menu_dot);
     }
 
     private void loadHomeFragment() {
@@ -205,30 +204,28 @@ public class MainActivity extends AppCompatActivity {
                 return homeFragment;
             case 1:
                 // perfil
-                PerfilFragment perfilFragment = new PerfilFragment();
+                ProfileFragment perfilFragment = new ProfileFragment();
                 return perfilFragment;
             case 2:
-                // adotar pet
-                AdotarPetFragment adotarPetFragment = new AdotarPetFragment();
-                return adotarPetFragment;
-            case 3:
-                // cadastrar um pet
-                CadastrarPetFragment cadastrarPetFragment = new CadastrarPetFragment();
+                // cadastrar pet
+                RegisterPetFragment cadastrarPetFragment = new RegisterPetFragment();
                 return cadastrarPetFragment;
-
-            case 4:
+            case 3:
                 // perdi um pet
-                PetPerdidoFragment petPerdidoFragment = new PetPerdidoFragment();
+                LostPetFragment petPerdidoFragment = new LostPetFragment();
                 return petPerdidoFragment;
 
-            case 5:
+            case 4:
                 // abrigos
-                AbrigosFragment abrigosFragment = new AbrigosFragment();
-                return abrigosFragment;
-
+                ShelterFragment shelterFragment = new ShelterFragment();
+                return shelterFragment;
+            case 5:
+                //cadastro abrigos
+                RegisterShelterFragment registerShelterFragment = new RegisterShelterFragment();
+                return registerShelterFragment;
             case 6:
-                // sair
-                configuracoesFragment configuracoesFragment = new configuracoesFragment();
+                // configurações
+                SettingsFragment configuracoesFragment = new SettingsFragment();
                 return configuracoesFragment;
             default:
                 return new HomeFragment();
@@ -261,21 +258,21 @@ public class MainActivity extends AppCompatActivity {
                         navItemIndex = 1;
                         CURRENT_TAG = TAG_PERFIL;
                         break;
-                    case R.id.nav_adotar:
-                        navItemIndex = 2;
-                        CURRENT_TAG = TAG_ADOTE;
-                        break;
                     case R.id.nav_cadastrar:
-                        navItemIndex = 3;
+                        navItemIndex = 2;
                         CURRENT_TAG = TAG_CADASTRAR_PET;
                         break;
                     case R.id.nav_pet_perdido:
-                        navItemIndex = 4;
+                        navItemIndex = 3;
                         CURRENT_TAG = TAG_PERDI_PET;
                         break;
                     case R.id.nav_abrigos:
-                        navItemIndex = 5;
+                        navItemIndex = 4;
                         CURRENT_TAG = TAG_ABRIGOS;
+                        break;
+                    case R.id.nav_cadastro_abrigo:
+                        navItemIndex = 5;
+                        CURRENT_TAG = TAG_CADASTRO_ABRIGO;
                         break;
                     case R.id.nav_Configuracoes:
                         navItemIndex = 6;
@@ -358,10 +355,10 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_logout) {
+       /* if (id == R.id.action_logout) {
             Toast.makeText(getApplicationContext(), "Logout user!", Toast.LENGTH_LONG).show();
             return true;
-        }
+        }*/
         return super.onOptionsItemSelected(item);
     }
 
