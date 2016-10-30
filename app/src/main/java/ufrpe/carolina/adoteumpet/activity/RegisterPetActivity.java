@@ -21,7 +21,7 @@ public class RegisterPetActivity extends AppCompatActivity {
         tipo_pet[2]="Ave";
         tipo_pet[3]="Reptil";
         tipo_pet[4]="Jabuti";
-        Spinner s = (Spinner) findViewById(R.id.tipopet);
+        Spinner s = (Spinner) findViewById(R.id.especiepet);
         ArrayAdapter adapter = new ArrayAdapter(this,
                 android.R.layout.simple_spinner_item, tipo_pet);
         s.setAdapter(adapter);

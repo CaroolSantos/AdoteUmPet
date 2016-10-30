@@ -7,4 +7,7 @@
     <color name="colorBtn">#2ECC71</color>
     <color name="colorHint">#b2b2b2</color>
     <color name="colorItemNavigationView">#0c6a36</color>
+    <color name="colorNomePet_Listview">#000</color>
+    <color name="colorEspeciePet_listview">#939393</color>
+    <color name="colorSexoPet_listview">#939393</color>
 </resources>
