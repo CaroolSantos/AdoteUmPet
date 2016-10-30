@@ -3,8 +3,6 @@ package ufrpe.carolina.adoteumpet.activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -22,7 +20,6 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -36,7 +33,7 @@ import ufrpe.carolina.adoteumpet.fragment.CadastrarPetFragment;
 import ufrpe.carolina.adoteumpet.fragment.HomeFragment;
 import ufrpe.carolina.adoteumpet.fragment.PerfilFragment;
 import ufrpe.carolina.adoteumpet.fragment.PetPerdidoFragment;
-import ufrpe.carolina.adoteumpet.fragment.SairFragment;
+import ufrpe.carolina.adoteumpet.fragment.configuracoesFragment;
 import ufrpe.carolina.adoteumpet.other.CircleTransform;
 
 public class MainActivity extends AppCompatActivity {
@@ -47,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView imgNavHeaderBg, imgProfile;
     private TextView txtName, txtWebsite;
     private Toolbar toolbar;
-    private FloatingActionButton fab;
+
 
     // urls to load navigation header background image
     // and profile image
@@ -64,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG_CADASTRAR_PET = "cadastrar um pet";
     private static final String TAG_PERDI_PET = "perdi um pet";
     private static final String TAG_ABRIGOS = "abrigos";
-    private static final String TAG_SAIR = "sair";
+    private static final String TAG_CONFIGURACOES = "configuracoes";
     public static String CURRENT_TAG = TAG_HOME;
 
     // toolbar titles respected to selected nav menu item
@@ -92,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
-        fab = (FloatingActionButton) findViewById(R.id.fab);
+
 
         // Navigation view header
         navHeader = navigationView.getHeaderView(0);
@@ -104,13 +101,6 @@ public class MainActivity extends AppCompatActivity {
         // load toolbar titles from string resources
         activityTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 /*
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -146,14 +136,14 @@ public class MainActivity extends AppCompatActivity {
         txtName.setText("Carool Santos");
         txtWebsite.setText("a.caroolinasantos@gmail.com");
 
-        // loading header background image
-        Glide.with(this).load(urlNavHeaderBg)
-                .crossFade()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(imgNavHeaderBg);
-
-        // Loading profile image
-        Glide.with(this).load(urlProfileImg)
+//        // loading header background image
+//        Glide.with(this).load(urlNavHeaderBg)
+//                .crossFade()
+//                .diskCacheStrategy(DiskCacheStrategy.ALL)
+//                .into(imgNavHeaderBg);
+//
+//        // Loading profile image
+        Glide.with(this).load(R.drawable.avatar_ana)
                 .crossFade()
                 .thumbnail(0.5f)
                 .bitmapTransform(new CircleTransform(this))
@@ -175,9 +165,6 @@ public class MainActivity extends AppCompatActivity {
         // just close the navigation drawer
         if (getSupportFragmentManager().findFragmentByTag(CURRENT_TAG) != null) {
             drawer.closeDrawers();
-
-            // show or hide the fab button
-            toggleFab();
             return;
         }
 
@@ -202,9 +189,6 @@ public class MainActivity extends AppCompatActivity {
         if (mPendingRunnable != null) {
             mHandler.post(mPendingRunnable);
         }
-
-        // show or hide the fab button
-        toggleFab();
 
         //Closing drawer on item click
         drawer.closeDrawers();
@@ -244,8 +228,8 @@ public class MainActivity extends AppCompatActivity {
 
             case 6:
                 // sair
-                SairFragment sairFragment = new SairFragment();
-                return sairFragment;
+                configuracoesFragment configuracoesFragment = new configuracoesFragment();
+                return configuracoesFragment;
             default:
                 return new HomeFragment();
         }
@@ -293,9 +277,9 @@ public class MainActivity extends AppCompatActivity {
                         navItemIndex = 5;
                         CURRENT_TAG = TAG_ABRIGOS;
                         break;
-                    case R.id.nav_sair:
+                    case R.id.nav_Configuracoes:
                         navItemIndex = 6;
-                        CURRENT_TAG = TAG_SAIR;
+                        CURRENT_TAG = TAG_CONFIGURACOES;
                         break;
                     default:
                         navItemIndex = 0;
@@ -379,13 +363,6 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-    // show or hide the fab
-    private void toggleFab() {
-        if (navItemIndex == 0)
-            fab.show();
-        else
-            fab.hide();
     }
 
     /**

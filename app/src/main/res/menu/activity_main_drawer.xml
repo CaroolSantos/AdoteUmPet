@@ -4,25 +4,32 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:title="@string/item_home"/>
+            android:title="@string/item_home"
+            android:icon="@drawable/ic_home_black_24dp"/>
         <item
             android:id="@+id/nav_perfil"
-            android:title="@string/item_perfil" />
+            android:title="@string/item_perfil"
+            android:icon="@drawable/ic_account_circle_black_24dp"/>
         <item
             android:id="@+id/nav_adotar"
-            android:title="@string/item_adotar" />
+            android:title="@string/item_adotar"
+            android:icon="@drawable/ic_pets_black_24dp"/>
         <item
             android:id="@+id/nav_cadastrar"
-            android:title="@string/item_cadastrar" />
+            android:title="@string/item_cadastrar"
+            android:icon="@drawable/ic_add_circle_black_24dp"/>
         <item
             android:id="@+id/nav_pet_perdido"
-            android:title="@string/item_perdi_pet" />
+            android:title="@string/item_perdi_pet"
+            android:icon="@drawable/ic_search_black_24dp"/>
         <item
             android:id="@+id/nav_abrigos"
-            android:title="@string/item_abrigos" />
+            android:title="@string/item_abrigos"
+            android:icon="@drawable/ic_store_black_24dp"/>
         <item
-            android:id="@+id/nav_sair"
-            android:title="@string/item_sair" />
+            android:id="@+id/nav_Configuracoes"
+            android:title="@string/item_configuracoes"
+            android:icon="@drawable/ic_settings_black_24dp"/>
     </group>
 
 </menu>

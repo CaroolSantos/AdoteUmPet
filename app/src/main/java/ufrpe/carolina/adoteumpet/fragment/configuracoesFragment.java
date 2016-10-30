@@ -13,12 +13,12 @@ import ufrpe.carolina.adoteumpet.R;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link SairFragment.OnFragmentInteractionListener} interface
+ * {@link configuracoesFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link SairFragment#newInstance} factory method to
+ * Use the {@link configuracoesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SairFragment extends Fragment {
+public class configuracoesFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -30,7 +30,7 @@ public class SairFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public SairFragment() {
+    public configuracoesFragment() {
         // Required empty public constructor
     }
 
@@ -40,11 +40,11 @@ public class SairFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment SairFragment.
+     * @return A new instance of fragment configuracoesFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static SairFragment newInstance(String param1, String param2) {
-        SairFragment fragment = new SairFragment();
+    public static configuracoesFragment newInstance(String param1, String param2) {
+        configuracoesFragment fragment = new configuracoesFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

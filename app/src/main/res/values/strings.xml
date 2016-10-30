@@ -33,7 +33,7 @@
     <string name="item_cadastrar">Cadastrar um Pet</string>
     <string name="item_perdi_pet">Perdi um Pet</string>
     <string name="item_abrigos">Abrigos</string>
-    <string name="item_sair">Sair</string>
+    <string name="item_configuracoes">Configurações</string>
 
     <!-- Activity_register -->
     <string name="date_selected"></string>
