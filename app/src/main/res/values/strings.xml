@@ -49,6 +49,9 @@
     <string name="telefone_cadastro">Telefone</string>
     <string name="data_nascimento">Data de nascimento</string>
     <string name="Avatar">Adicionar uma foto</string>
+
+    <!-- Cadastrar um pet -->
+    <string name="Especie_pet">Selecione a espécie do Pet</string>
     <string name="Nome_Pet">Nome do Pet</string>
     <string name="Idade_pet">Idade</string>
     <string name="Porte_pequeno">Pequeno</string>
