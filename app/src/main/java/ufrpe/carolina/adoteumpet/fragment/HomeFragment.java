@@ -1,16 +1,19 @@
 package ufrpe.carolina.adoteumpet.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import ufrpe.carolina.adoteumpet.R;
 import ufrpe.carolina.adoteumpet.activity.MainActivity;
+import ufrpe.carolina.adoteumpet.activity.ProfilePetActivity;
 import ufrpe.carolina.adoteumpet.adapter.PetAdapter;
 import ufrpe.carolina.adoteumpet.entity.Pet;
 
@@ -77,6 +80,19 @@ public class HomeFragment extends Fragment {
                 new Pet("", "Rock", "Cachorro", "Macho"),
                 new Pet("", "Miau", "Gato", "Macho")
         };
+
+
+        listPet.setTextFilterEnabled(true);
+
+// Bind onclick event handler
+        listPet.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+
+                Intent it = new Intent(getActivity(), ProfilePetActivity.class);
+                startActivity(it);
+            }
+        });
 
         PetAdapter adapter = new PetAdapter(getActivity(), R.layout.listview_item_row, lista_pet);
         listPet.setAdapter(adapter);
