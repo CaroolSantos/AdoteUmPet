@@ -9,12 +9,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import ufrpe.carolina.adoteumpet.R;
-import ufrpe.carolina.adoteumpet.fragment.dummy.DummyContent;
+import ufrpe.carolina.adoteumpet.adapter.ShelterAdapter;
+import ufrpe.carolina.adoteumpet.entity.Shelter;
 import ufrpe.carolina.adoteumpet.fragment.dummy.DummyContent.DummyItem;
-
-import java.util.List;
 
 /**
  * A fragment representing a list of Items.
@@ -59,9 +59,23 @@ public class ShelterFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_shelter_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_shelter, container, false);
 
-        // Set the adapter
+        ListView listShelter = (ListView)view.findViewById(R.id.listViewShelter);
+
+        Shelter lista_shelter[] = new Shelter[]{
+                new Shelter("AATAN","Rua Maria Quitéria, 123, Cordeiro - Recife-PE","Cadastro realizado em 25/10/2016"),
+        new Shelter("Abrigo Animal","Rua Maria Quitéria, 123, Cordeiro - Recife-PE","Cadastro realizado em 25/10/2016"),
+        new Shelter("Abrigo da Lazica","Rua Maria Quitéria, 123, Cordeiro - Recife-PE","Cadastro realizado em 25/10/2016"),
+        new Shelter("Abrigo Flora e Fauna","Rua Maria Quitéria, 123, Cordeiro - Recife-PE","Cadastro realizado em 25/10/2016"),
+        new Shelter("Abrigo Salas","Rua Maria Quitéria, 123, Cordeiro - Recife-PE","Cadastro realizado em 25/10/2016"),
+                new Shelter("Abrigo da Lazica","Rua Maria Quitéria, 123, Cordeiro - Recife-PE","Cadastro realizado em 25/10/2016")
+        };
+
+        ShelterAdapter adapter = new ShelterAdapter(getActivity(),R.layout.listview_shelter_item_row,lista_shelter);
+        listShelter.setAdapter(adapter);
+
+        /*// Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
@@ -72,7 +86,7 @@ public class ShelterFragment extends Fragment {
             }
             //TODO corrigir isso
             //recyclerView.setAdapter(new MyShelterRecyclerViewAdapter(DummyContent.ITEMS, mListener));
-        }
+        }*/
         return view;
     }
 
@@ -80,12 +94,12 @@ public class ShelterFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnListFragmentInteractionListener) {
+       /* if (context instanceof OnListFragmentInteractionListener) {
             mListener = (OnListFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnListFragmentInteractionListener");
-        }
+        }*/
     }
 
     @Override

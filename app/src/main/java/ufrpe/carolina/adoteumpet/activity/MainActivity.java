@@ -1,5 +1,6 @@
 package ufrpe.carolina.adoteumpet.activity;
 
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView imgNavHeaderBg, imgProfile;
     private TextView txtName, txtWebsite;
     private Toolbar toolbar;
+    private ActionBarDrawerToggle toggle;
 
 
     // urls to load navigation header background image
@@ -81,14 +83,17 @@ public class MainActivity extends AppCompatActivity {
         //utilizado pelo fb para registrar dados dos usuários
         AppEventsLogger.activateApp(this);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mHandler = new Handler();
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
-
+        toggle = new ActionBarDrawerToggle(this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        toggle.setDrawerIndicatorEnabled(true);
+        drawer.setDrawerListener(toggle);
 
         // Navigation view header
         navHeader = navigationView.getHeaderView(0);
@@ -359,7 +364,22 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Logout user!", Toast.LENGTH_LONG).show();
             return true;
         }*/
-        return super.onOptionsItemSelected(item);
+        //return super.onOptionsItemSelected(item);
+        return toggle != null && toggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        if (toggle != null)
+            toggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (toggle != null)
+            toggle.onConfigurationChanged(newConfig);
     }
 
     /**
