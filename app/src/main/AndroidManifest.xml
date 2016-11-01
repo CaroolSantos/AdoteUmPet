@@ -50,7 +50,8 @@
         <activity
             android:name=".activity.ProfilePetActivity"
             android:label="@string/title_activity_profile_pet"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".activity.ProfileShelterActivity"></activity>
     </application>
 
 </manifest>
