@@ -227,6 +227,7 @@ public class MainActivity extends AppCompatActivity {
             case 5:
                 //cadastro abrigos
                 RegisterShelterFragment registerShelterFragment = new RegisterShelterFragment();
+
                 return registerShelterFragment;
             case 6:
                 // configurações
