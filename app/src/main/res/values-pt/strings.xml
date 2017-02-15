@@ -1,0 +1,94 @@
+<resources>
+    <!-- config -->
+    <string name="app_name">Adote Um Pet</string>
+    <string name="facebook_app_id">1685597175088590</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="openDrawer">open_drawer</string>
+    <string name="closeDrawer">close_drawer</string>
+
+    <!-- Navigation Drawer menu labels -->
+    <string name="nav_perfil">Meu Perfil</string>
+    <string name="nav_adotar">Adotar um Pet</string>
+    <string name="nav_cadastrar">Cadastrar um Pet</string>
+    <string name="nav_perdi_pet">Perdi um Pet</string>
+    <string name="nav_abrigos">Abrigos</string>
+    <string name="nav_cadastro_abrigo">Cadastrar um Abrigo</string>
+    <string name="nav_configuracoes">Configurações</string>
+
+    <!-- Toolbar titles when navigation menu item is selected -->
+    <string-array name="nav_item_activity_titles">
+        <item>Início</item>
+        <item>Meu Perfil</item>
+        <item>Cadastrar um Pet</item>
+        <item>Perdi um Pet</item>
+        <item>Abrigos</item>
+        <item>Cadastrar um Abrigo</item>
+        <item>Configurações</item>
+    </string-array>
+    <string name="action_mark_all_read">Mark All as Read</string>
+    <string name="action_clear_all">Clear All</string>
+    <string name="action_logout">Logout</string>
+
+    <!-- Activity_main_drawer -->
+    <string name="item_home">Início</string>
+    <string name="item_perfil">Meu Perfil</string>
+    <string name="item_cadastrar">Cadastrar um Pet</string>
+    <string name="item_perdi_pet">Perdi um Pet</string>
+    <string name="item_abrigos">Abrigos</string>
+    <string name="item_cadastro_abrigo">Cadastrar um abrigo</string>
+    <string name="item_configuracoes">Configurações</string>
+
+    <!-- Login -->
+    <string name="Cadastrar">Cadastre-se</string>
+
+    <!-- Activity_register -->
+    <string name="actionBar_title">Cadastro de usuário</string>
+    <string name="date_selected"></string>
+    <string name="nome_cadastro">Nome</string>
+    <string name="senha_cadastro">Senha</string>
+    <string name="senha_confirmacao">Confirme sua senha</string>
+    <string name="email">E-mail</string>
+    <string name="telefone_cadastro">Telefone</string>
+    <string name="data_nascimento">Data de nascimento</string>
+    <string name="Avatar">Adicionar uma foto</string>
+    <string name="sexo_feminino">Feminino</string>
+    <string name="sexo_masculino">Masculino</string>
+
+    <!-- Activity Profile Pet -->
+    <string name="actionBarProfilePet_title">Perfil do Pet</string>
+    <string name="txtView_queroadotar">Quero adotar!</string>
+
+    <!-- Cadastrar um pet -->
+    <string name="Especie_pet">Selecione a espécie do Pet</string>
+    <string name="Nome_Pet">Nome do Pet</string>
+    <string name="Idade_pet">Idade</string>
+    <string name="Porte_pequeno">Pequeno</string>
+    <string name="Porte_medio">Medio</string>
+    <string name="Porte_grande">Grande</string>
+    <string name="Raca_pet">Informe a raça do Pet</string>
+    <string name="Descricao_pet">Descrição</string>
+    <string name="btn_salvar">Salvar</string>
+    <string name="btn_registrar">Registrar</string>
+    <string name="nome_abrigo">Nome do abrigo</string>
+    <string name="add_imagem_abrigo">Adicionar uma foto</string>
+    <string name="endereco_abrigo">Endereço do abrigo</string>
+    <string name="txt_email">Seu e-mail</string>
+
+    <!-- Tela de Perfil do Pet -->
+    <string name="txtView_nome_perfil_pet">Toddy</string>
+    <string name="txtView_descricao_perfil_pet">Este é o Toddy! Tem dois anos, é dócil, se dar bem com todo mundo, tem uma bolinha no umbigo, rabo cortado e tem microchip. Pesa entre 4 e 5 Kg.</string>
+    <string name="txtView_sexoPet">Sexo: Macho</string>
+    <string name="txtView_idadePet">Idade: 2 anos</string>
+    <string name="txtView_portePet">Porte: Pequeno</string>
+    <string name="txtView_racaPet">Raça: Yorkshire</string>
+    <string name="txtView_telefone">(81) 98888-8888</string>
+    <string name="txtView_email">queroadotar@adoteumpet.com</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_profile_pet">Detalhes do Pet</string>
+
+</resources>

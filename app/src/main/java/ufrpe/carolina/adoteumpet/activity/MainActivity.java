@@ -32,8 +32,8 @@ import ufrpe.carolina.adoteumpet.fragment.HomeFragment;
 import ufrpe.carolina.adoteumpet.fragment.ProfileFragment;
 import ufrpe.carolina.adoteumpet.fragment.LostPetFragment;
 import ufrpe.carolina.adoteumpet.fragment.RegisterShelterFragment;
-import ufrpe.carolina.adoteumpet.fragment.ShelterFragment;
 import ufrpe.carolina.adoteumpet.fragment.SettingsFragment;
+import ufrpe.carolina.adoteumpet.fragment.ShelterFragment;
 import ufrpe.carolina.adoteumpet.other.CircleTransform;
 
 public class MainActivity extends AppCompatActivity {
@@ -227,6 +227,7 @@ public class MainActivity extends AppCompatActivity {
             case 5:
                 //cadastro abrigos
                 RegisterShelterFragment registerShelterFragment = new RegisterShelterFragment();
+
                 return registerShelterFragment;
             case 6:
                 // configurações

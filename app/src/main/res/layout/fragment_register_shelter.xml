@@ -1,13 +1,149 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ufrpe.carolina.adoteumpet.fragment.RegisterShelterFragment">
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
 
-</FrameLayout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_register_shelter"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/background_register"
+    tools:context="ufrpe.carolina.adoteumpet.activity.RegisterShelterActivity">
+
+
+    <ImageView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:srcCompat="@drawable/icon_shelter"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/shelter" />
+
+    <Button
+        android:layout_below="@+id/shelter"
+        android:text="@string/add_imagem_abrigo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
+        android:id="@+id/btn_abrigo"
+        android:background="@color/colorBtn"/>
+
+    <EditText
+        android:layout_below="@+id/btn_abrigo"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:inputType="textPersonName"
+        android:hint="@string/nome_abrigo"
+        android:ems="10"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingTop="5dp"
+        android:layout_marginTop="24dp"
+        android:id="@+id/nome_abrigo"
+        android:textColorHint="@color/colorHint"
+        android:textColor="#000"
+        android:background="#F2F2F2"
+        android:textCursorDrawable="@drawable/color_cursor"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nome_abrigo"
+        android:layout_marginTop="16dp"
+        android:id="@+id/layout_phone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            app:srcCompat="@drawable/icon_phone"
+            android:id="@+id/icon_phone"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/txtphone"
+            android:layout_weight="2"
+            android:textColor="#000"
+            android:background="#F2F2F2"
+            android:textCursorDrawable="@drawable/color_cursor"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/layout_phone"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:id="@+id/layout_mail">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            app:srcCompat="@drawable/icon_mail"
+            android:id="@+id/iconmail"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="7dp"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/txtmail"
+            android:layout_weight="2"
+            android:textColor="#000"
+            android:background="#F2F2F2"
+            android:textCursorDrawable="@drawable/color_cursor"/>
+    </LinearLayout>
+
+
+    <EditText
+        android:layout_below="@+id/layout_mail"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:inputType="textPostalAddress"
+        android:hint="@string/endereco_abrigo"
+        android:ems="10"
+        android:id="@+id/end_abrigo"
+        android:textColorHint="@color/colorHint"
+        android:background="#F2F2F2"
+        android:textCursorDrawable="@drawable/color_cursor"/>
+
+    <Button
+        android:layout_below="@+id/end_abrigo"
+        android:text="@string/btn_salvar"
+        android:textStyle="bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:id="@+id/btn_salvar"
+        android:textColor="#FFF"
+        android:background="@color/colorPrimary"/>
+</RelativeLayout>
+    </LinearLayout>
+</ScrollView>
