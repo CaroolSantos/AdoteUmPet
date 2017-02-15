@@ -7,7 +7,8 @@
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/relativeLayout">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -48,7 +49,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_toLeftOf="@+id/favorite_pet"
-                    android:src="@drawable/ic_share" />
+                    android:src="@drawable/icon_share" />
 
                 <ImageView
                     android:id="@+id/favorite_pet"
@@ -58,7 +59,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginRight="16dp"
-                    android:src="@drawable/ic_favorite" />
+                    android:src="@drawable/icon_favorite" />
 
 
                 <TextView
@@ -146,7 +147,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_phone"
+                        app:srcCompat="@drawable/icon_phone"
                         android:id="@+id/imgView_iconPhone"
                         android:layout_marginRight="10dp"/>
 
@@ -168,7 +169,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_mail"
+                        app:srcCompat="@drawable/icon_mail"
                         android:id="@+id/imgView_iconMail"
                         android:layout_marginRight="10dp"/>
 
@@ -188,16 +189,12 @@
         </RelativeLayout>
     </ScrollView>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:id="@+id/relativeLayout">
 
         <Button
             android:background="@color/colorPrimary"
@@ -206,8 +203,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="Quero adotar!"
-            android:drawableLeft="@drawable/ic_pets_white"
+            android:text="@string/txtView_queroadotar"
+            android:drawableLeft="@drawable/ic_pets_white_24dp"
             android:textSize="24sp"
             android:textColor="@color/colorAccent"
             />
