@@ -1,5 +1,8 @@
 package ufrpe.carolina.adoteumpet.fragment;
 
+
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -10,12 +13,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import ufrpe.carolina.adoteumpet.R;
 import ufrpe.carolina.adoteumpet.activity.MainActivity;
 import ufrpe.carolina.adoteumpet.activity.ProfilePetActivity;
 import ufrpe.carolina.adoteumpet.adapter.PetAdapter;
 import ufrpe.carolina.adoteumpet.entity.Pet;
+
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -88,9 +94,19 @@ public class HomeFragment extends Fragment {
         listPet.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
+                if (isTablet()){
+                    ProfileFragment perfilFragment = new ProfileFragment();
+                    FragmentManager fm = getFragmentManager();
+                    FragmentTransaction ft = fm.beginTransaction();
+                    ft.replace(R.id.detalhe, perfilFragment);
+                    ft.commit();
+                    Toast.makeText(getApplicationContext(), "Tablet!!", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Intent it = new Intent(getActivity(), ProfilePetActivity.class);
+                    startActivity(it);
+                }
 
-                Intent it = new Intent(getActivity(), ProfilePetActivity.class);
-                startActivity(it);
             }
         });
 
@@ -98,6 +114,10 @@ public class HomeFragment extends Fragment {
         listPet.setAdapter(adapter);
 
         return v;
+    }
+
+    private boolean isTablet(){
+        return getActivity().findViewById(R.id.detalhe) != null;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

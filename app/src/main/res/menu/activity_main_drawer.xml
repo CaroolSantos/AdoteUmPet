@@ -15,10 +15,7 @@
             android:id="@+id/nav_cadastrar"
             android:title="@string/item_cadastrar"
             android:icon="@drawable/ic_add_circle_black_24dp"/>
-        <item
-            android:id="@+id/nav_pet_perdido"
-            android:title="@string/item_perdi_pet"
-            android:icon="@drawable/ic_search_black_24dp"/>
+
         <item
             android:id="@+id/nav_abrigos"
             android:title="@string/item_abrigos"

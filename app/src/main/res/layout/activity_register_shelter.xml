@@ -22,13 +22,17 @@
         android:id="@+id/shelter" />
 
     <Button
-        android:layout_below="@+id/shelter"
-        android:text="@string/add_imagem_abrigo"
+        android:textColor="#FFF"
+        android:text="@string/Add_photo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/shelter"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="3dp"
-        android:id="@+id/btn_abrigo" />
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp"
+        android:id="@+id/btn_abrigo"
+        android:background="@color/colorBtn"/>
 
     <EditText
         android:layout_below="@+id/btn_abrigo"
