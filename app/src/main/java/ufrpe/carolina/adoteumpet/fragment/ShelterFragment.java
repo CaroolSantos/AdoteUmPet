@@ -1,6 +1,7 @@
 package ufrpe.carolina.adoteumpet.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -9,9 +10,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import ufrpe.carolina.adoteumpet.R;
+import ufrpe.carolina.adoteumpet.activity.ProfileShelterActivity;
 import ufrpe.carolina.adoteumpet.adapter.ShelterAdapter;
 import ufrpe.carolina.adoteumpet.entity.Shelter;
 import ufrpe.carolina.adoteumpet.fragment.dummy.DummyContent.DummyItem;
@@ -71,6 +74,17 @@ public class ShelterFragment extends Fragment {
         new Shelter("Abrigo Salas","Rua Maria Quitéria, 123, Cordeiro - Recife-PE","Cadastro realizado em 25/10/2016"),
                 new Shelter("Abrigo da Lazica","Rua Maria Quitéria, 123, Cordeiro - Recife-PE","Cadastro realizado em 25/10/2016")
         };
+
+        listShelter.setTextFilterEnabled(true);
+
+// Bind onclick event handler
+        listShelter.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                Intent it = new Intent(getActivity(), ProfileShelterActivity.class);
+                startActivity(it);
+            }
+        });
 
         ShelterAdapter adapter = new ShelterAdapter(getActivity(),R.layout.listview_shelter_item_row,lista_shelter);
         listShelter.setAdapter(adapter);

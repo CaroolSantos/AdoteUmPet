@@ -9,7 +9,12 @@ public class Shelter {
     public String Endereco;
     public String DataCadastro;
 
+    public Shelter(){
+        super();
+    }
+
     public Shelter(String mNome, String mEndereco, String mDataCadastro){
+        super();
         this.Nome = mNome;
         this.Endereco = mEndereco;
         this.DataCadastro = mDataCadastro;

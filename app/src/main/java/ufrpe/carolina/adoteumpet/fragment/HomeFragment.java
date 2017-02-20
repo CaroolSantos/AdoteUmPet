@@ -88,7 +88,6 @@ public class HomeFragment extends Fragment {
         listPet.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-
                 Intent it = new Intent(getActivity(), ProfilePetActivity.class);
                 startActivity(it);
             }
