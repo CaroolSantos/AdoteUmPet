@@ -268,10 +268,6 @@ public class MainActivity extends AppCompatActivity {
                         navItemIndex = 2;
                         CURRENT_TAG = TAG_CADASTRAR_PET;
                         break;
-                    case R.id.nav_pet_perdido:
-                        navItemIndex = 3;
-                        CURRENT_TAG = TAG_PERDI_PET;
-                        break;
                     case R.id.nav_abrigos:
                         navItemIndex = 4;
                         CURRENT_TAG = TAG_ABRIGOS;

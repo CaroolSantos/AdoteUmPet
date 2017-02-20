@@ -75,6 +75,10 @@
     <string name="add_imagem_abrigo">Adicionar uma foto</string>
     <string name="endereco_abrigo">Endereço do abrigo</string>
     <string name="txt_email">Seu e-mail</string>
+    <string name="seelct">Selecione</string>
+    <string name="ParaAdocao">Para adoção</string>
+    <string name="Perdido">Perdido</string>
+    <string name="Add_photo">Adicione uma foto</string>
 
     <!-- Tela de Perfil do Pet -->
     <string name="txtView_nome_perfil_pet">Toddy</string>
@@ -85,6 +89,7 @@
     <string name="txtView_racaPet">Raça: Yorkshire</string>
     <string name="txtView_telefone">(81) 98888-8888</string>
     <string name="txtView_email">queroadotar@adoteumpet.com</string>
+    <string name="InformacoesCadastrais">"Cadastrado em 10/12/2016 por @CaroolSantos para Adoção."</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
