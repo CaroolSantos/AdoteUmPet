@@ -62,29 +62,41 @@
                 android:id="@+id/especiepet"
                 />
 
-            <EditText
-                android:layout_below="@+id/especiepet"
-                android:layout_width="match_parent"
+            <RadioGroup
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:hint="@string/Nome_Pet"
-                android:ems="10"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:paddingTop="5dp"
-                android:layout_marginTop="7dp"
-                android:id="@+id/edt_nomepet"
-                android:textColorHint="@color/colorHint"
-                android:textColor="#000"
-                android:background="#F2F2F2"
-                android:textCursorDrawable="@drawable/color_cursor"/>
+                android:orientation="horizontal"
+                android:layout_below="@+id/especiepet"
+                android:id="@+id/AdocaoOuPerdido"
+                android:layout_marginTop="15dp">
+
+                <RadioButton
+                    android:text="@string/ParaAdocao"
+                    android:textColor="#FFF"
+                    android:buttonTint="#fff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ParaAdocao"
+                    android:layout_weight="1" />
+
+                <RadioButton
+                    android:text="@string/Perdido"
+                    android:textColor="#FFF"
+                    android:buttonTint="#fff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/PetPerdido"
+                    android:layout_weight="1"/>
+            </RadioGroup>
+
+
 
             <RadioGroup
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_below="@+id/edt_nomepet"
-                android:id="@+id/sexospet"
+                android:layout_below="@+id/AdocaoOuPerdido"
+                android:id="@+id/sexopet"
                 android:layout_marginTop="15dp">
 
                 <RadioButton
@@ -103,11 +115,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/sexofemea"
-                    android:layout_weight="2" />
+                    android:layout_weight="1" />
             </RadioGroup>
-
             <EditText
-                android:layout_below="@+id/sexospet"
+                android:layout_below="@+id/sexopet"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:inputType="number"
@@ -120,10 +131,24 @@
                 android:background="#F2F2F2"
                 android:textCursorDrawable="@drawable/color_cursor"/>
 
+            <EditText
+                android:layout_below="@+id/idadepet"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="@string/Raca_pet"
+                android:ems="10"
+                android:id="@+id/racapet"
+                android:layout_weight="1"
+                android:textColorHint="@color/colorHint"
+                android:background="#F2F2F2"
+                android:textCursorDrawable="@drawable/color_cursor"/>
+
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/idadepet"
+                android:layout_below="@+id/racapet"
                 android:id="@+id/portepet"
                 android:layout_marginTop="15dp"
                 android:orientation="horizontal">
@@ -132,7 +157,7 @@
                     android:text="@string/Porte_pequeno"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/portopequeno"
+                    android:id="@+id/portepequeno"
                     android:layout_weight="1"
                     android:textColor="#FFF"
                     android:buttonTint="#fff"/>
@@ -156,22 +181,27 @@
                     android:buttonTint="#fff"/>
             </RadioGroup>
 
+
+
             <EditText
                 android:layout_below="@+id/portepet"
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:hint="@string/Raca_pet"
+                android:hint="@string/Nome_Pet"
                 android:ems="10"
-                android:id="@+id/racapet"
-                android:layout_weight="1"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:paddingTop="5dp"
+                android:layout_marginTop="7dp"
+                android:id="@+id/edt_nomepet"
                 android:textColorHint="@color/colorHint"
+                android:textColor="#000"
                 android:background="#F2F2F2"
                 android:textCursorDrawable="@drawable/color_cursor"/>
 
             <EditText
-                android:layout_below="@+id/racapet"
+                android:layout_below="@+id/edt_nomepet"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"

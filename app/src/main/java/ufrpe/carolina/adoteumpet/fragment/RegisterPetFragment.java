@@ -80,6 +80,7 @@ public class RegisterPetFragment extends Fragment implements AdapterView.OnItemS
         spinner.setOnItemSelectedListener(this);
 
         List<String> especies = new ArrayList<String>();
+        especies.add(getResources().getString(R.string.select));
         especies.add("Cachorro");
         especies.add("Gato");
 

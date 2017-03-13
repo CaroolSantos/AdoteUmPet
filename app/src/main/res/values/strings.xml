@@ -55,6 +55,7 @@
     <string name="Add_photo">Add a photo</string>
     <string name="sexo_feminino">Female</string>
     <string name="sexo_masculino">Male</string>
+    <string name="select">Select</string>
 
     <!-- Activity Profile Pet -->
     <string name="actionBarProfilePet_title">Pet Profile</string>
@@ -75,6 +76,9 @@
     <string name="add_imagem_abrigo">Add a photo</string>
     <string name="endereco_abrigo">Address of shelter</string>
     <string name="txt_email">Your email</string>
+    <string name="ParaAdocao">For adoption</string>
+    <string name="Perdido">Lost</string>
+
 
 
     <!-- Tela de Perfil do Pet -->
@@ -86,6 +90,7 @@
     <string name="txtView_racaPet">Breed: Yorkshire</string>
     <string name="txtView_telefone">(81) 98888-8888</string>
     <string name="txtView_email">queroadotar@adoteumpet.com</string>
+    <string name="InformacoesCadastrais">"Registered 10/12/2016 by @CaroolSantos for Adoption."</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
