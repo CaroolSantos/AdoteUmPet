@@ -37,7 +37,6 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             tools:replace="android:theme" />
         <activity android:name=".activity.RegisterActivity" />
-        <activity android:name=".activity.RegisterPetActivity" />
         <activity android:name=".activity.RegisterShelterActivity" />
         <!--
      ATTENTION: This was auto-generated to add Google Play services to your project for

@@ -7,8 +7,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import ufrpe.carolina.adoteumpet.R;
+import ufrpe.carolina.adoteumpet.other.CircleTransform;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -64,8 +69,16 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.content_profile_pet, container, false);
+        ImageView imagemProfile = (ImageView) v.findViewById(R.id.pet_profile_photo);
+        Glide.with(this).load(R.drawable.toddy)
+                .crossFade()
+                .thumbnail(0.5f)
+                .bitmapTransform(new CircleTransform(getActivity()))
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(imagemProfile);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_profile_pet, container, false);
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

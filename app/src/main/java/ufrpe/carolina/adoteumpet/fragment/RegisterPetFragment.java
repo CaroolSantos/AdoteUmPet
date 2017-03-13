@@ -1,5 +1,6 @@
 package ufrpe.carolina.adoteumpet.fragment;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,8 +8,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import ufrpe.carolina.adoteumpet.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,7 +27,7 @@ import ufrpe.carolina.adoteumpet.R;
  * Use the {@link RegisterPetFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RegisterPetFragment extends Fragment {
+public class RegisterPetFragment extends Fragment implements AdapterView.OnItemSelectedListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -64,8 +73,24 @@ public class RegisterPetFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cadastrar_pet, container, false);
+        View view = inflater.inflate(R.layout.fragment_cadastrar_pet, container, false);
+
+        Spinner spinner = (Spinner) view.findViewById(R.id.especiepet);
+        // Spinner click listener
+        spinner.setOnItemSelectedListener(this);
+
+        List<String> especies = new ArrayList<String>();
+        especies.add("Cachorro");
+        especies.add("Gato");
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, especies);
+
+        // Drop down layout style - list view with radio button
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(dataAdapter);
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -90,6 +115,20 @@ public class RegisterPetFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String item = parent.getItemAtPosition(position).toString();
+
+        // Showing selected spinner item
+        Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 
     /**

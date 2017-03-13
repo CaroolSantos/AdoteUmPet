@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="0dp"
+    android:layout_weight="1"
+    android:layout_height="match_parent"
+    tools:context="ufrpe.carolina.adoteumpet.fragment.HomeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ListView
+        android:id="@+id/listViewPet"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        />
+
+
+
+</FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/detalhe"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1">
+
+    </FrameLayout>
+</LinearLayout>

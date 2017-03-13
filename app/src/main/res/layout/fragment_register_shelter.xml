@@ -32,12 +32,15 @@
         android:id="@+id/shelter" />
 
     <Button
-        android:layout_below="@+id/shelter"
-        android:text="@string/add_imagem_abrigo"
+        android:textColor="#FFF"
+        android:text="@string/Add_photo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/shelter"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="3dp"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp"
         android:id="@+id/btn_abrigo"
         android:background="@color/colorBtn"/>
 
@@ -70,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
-            app:srcCompat="@drawable/icon_phone"
+            app:srcCompat="@drawable/icon_phone_white"
             android:id="@+id/icon_phone"
             android:layout_weight="1" />
 
@@ -100,8 +103,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            app:srcCompat="@drawable/icon_mail"
+            app:srcCompat="@drawable/icon_mail_white"
             android:id="@+id/iconmail"
             android:layout_weight="1" />
 
@@ -123,11 +125,12 @@
 
     <EditText
         android:layout_below="@+id/layout_mail"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="100dp"
         android:inputType="textPostalAddress"
         android:hint="@string/endereco_abrigo"
+        android:gravity="top"
         android:ems="10"
         android:id="@+id/end_abrigo"
         android:textColorHint="@color/colorHint"
