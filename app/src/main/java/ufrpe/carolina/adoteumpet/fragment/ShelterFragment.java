@@ -68,10 +68,10 @@ public class ShelterFragment extends Fragment {
 
         Shelter lista_shelter[] = new Shelter[]{
                 new Shelter("AATAN","Rua Maria Quitéria, 123, Cordeiro - Recife-PE","Cadastro realizado em 25/10/2016"),
-        new Shelter("Abrigo Animal","Rua Maria Quitéria, 123, Cordeiro - Recife-PE","Cadastro realizado em 25/10/2016"),
-        new Shelter("Abrigo da Lazica","Rua Maria Quitéria, 123, Cordeiro - Recife-PE","Cadastro realizado em 25/10/2016"),
-        new Shelter("Abrigo Flora e Fauna","Rua Maria Quitéria, 123, Cordeiro - Recife-PE","Cadastro realizado em 25/10/2016"),
-        new Shelter("Abrigo Salas","Rua Maria Quitéria, 123, Cordeiro - Recife-PE","Cadastro realizado em 25/10/2016"),
+                new Shelter("Abrigo Animal","Rua Maria Quitéria, 123, Cordeiro - Recife-PE","Cadastro realizado em 25/10/2016"),
+                new Shelter("Abrigo da Lazica","Rua Maria Quitéria, 123, Cordeiro - Recife-PE","Cadastro realizado em 25/10/2016"),
+                new Shelter("Abrigo Flora e Fauna","Rua Maria Quitéria, 123, Cordeiro - Recife-PE","Cadastro realizado em 25/10/2016"),
+                new Shelter("Abrigo Salas","Rua Maria Quitéria, 123, Cordeiro - Recife-PE","Cadastro realizado em 25/10/2016"),
                 new Shelter("Abrigo da Lazica","Rua Maria Quitéria, 123, Cordeiro - Recife-PE","Cadastro realizado em 25/10/2016")
         };
 

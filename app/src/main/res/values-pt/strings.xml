@@ -42,6 +42,7 @@
 
     <!-- Login -->
     <string name="Cadastrar">Cadastre-se</string>
+    <string name="face_login_error">Erro ao carregar dados do Facebook.</string>
 
     <!-- Activity_register -->
     <string name="actionBar_title">Cadastro de usuário</string>

@@ -5,6 +5,7 @@ package ufrpe.carolina.adoteumpet.entity;
  */
 
 public class Pet {
+    public int Id;
     public String urlImagem;
     public String nome;
     public String especie;

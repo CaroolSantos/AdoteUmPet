@@ -71,9 +71,9 @@ public class ShelterAdapter extends ArrayAdapter<Shelter>{
             shelterHolder.imgViewShelter.setImageResource(R.drawable.logo_new);
         }
 
-        shelterHolder.txtViewNome.setText(shelter.Nome);
-        shelterHolder.txtViewEndereco.setText(shelter.Endereco);
-        shelterHolder.txtViewDataCadastro.setText(shelter.DataCadastro);
+        shelterHolder.txtViewNome.setText(shelter.Name);
+        shelterHolder.txtViewEndereco.setText(shelter.Address);
+        shelterHolder.txtViewDataCadastro.setText(shelter.RegisterDate);
 
         return row;
     }

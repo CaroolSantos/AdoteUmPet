@@ -3,17 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="ufrpe.carolina.adoteumpet">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
-        <uses-permission android:name="android.permission.INTERNET" />
+
 
         <activity
             android:name=".activity.SplashScreenActivity"

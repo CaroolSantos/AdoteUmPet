@@ -42,6 +42,7 @@
 
     <!-- Login -->
     <string name="Cadastrar">Register</string>
+    <string name="face_login_error">Error. Facebook retrieving data.</string>
 
     <!-- Activity_register -->
     <string name="actionBar_title">User registration</string>

@@ -29,7 +29,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:src="@drawable/ic_phone_black" />
+                android:src="@drawable/ic_account_circle_black_24dp" />
 
             <TextView
                 android:id="@+id/tvNumber1"
@@ -65,7 +65,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:background="@drawable/toggle_selector"
+
                 android:checked="true"
                 android:padding="6dp"
                 android:textOff=""
@@ -87,7 +87,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:src="@drawable/ic_phone_black"
+
                 android:visibility="invisible" />
 
             <TextView
@@ -124,7 +124,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:background="@drawable/toggle_selector"
+
                 android:checked="false"
                 android:padding="6dp"
                 android:textOff=""
@@ -132,7 +132,7 @@
 
         </RelativeLayout>
 
-        <include layout="@layout/item_divider" />
+
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -148,7 +148,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:src="@drawable/ic_email_black" />
+                android:src="@drawable/ic_account_circle_black_24dp" />
 
             <TextView
                 android:id="@+id/tvNumber3"
@@ -188,7 +188,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:background="@drawable/toggle_selector"
+
                 android:checked="true"
                 android:padding="6dp"
                 android:textOff=""
@@ -210,7 +210,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:src="@drawable/ic_email_black"
+                android:src="@drawable/ic_account_circle_black_24dp"
                 android:visibility="invisible" />
 
             <TextView
@@ -251,14 +251,14 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:background="@drawable/toggle_selector"
+
                 android:padding="6dp"
                 android:textOff=""
                 android:textOn="" />
 
         </RelativeLayout>
 
-        <include layout="@layout/item_divider" />
+
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -274,7 +274,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:src="@drawable/ic_location_on_black" />
+                android:src="@drawable/ic_account_circle_black_24dp" />
 
             <TextView
                 android:id="@+id/tvNumber5"
@@ -314,7 +314,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:background="@drawable/toggle_selector"
+
                 android:checked="true"
                 android:padding="6dp"
                 android:textOff=""
@@ -336,7 +336,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:src="@drawable/ic_email_black"
+                android:src="@drawable/ic_account_circle_black_24dp"
                 android:visibility="invisible" />
 
             <TextView
@@ -377,14 +377,13 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:background="@drawable/toggle_selector"
+
                 android:padding="6dp"
                 android:textOff=""
                 android:textOn="" />
 
         </RelativeLayout>
 
-        <include layout="@layout/item_divider" />
 
         <LinearLayout
             android:layout_width="match_parent"
