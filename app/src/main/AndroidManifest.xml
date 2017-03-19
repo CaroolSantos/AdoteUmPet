@@ -13,12 +13,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
-
-
 
         <activity
             android:name=".activity.SplashScreenActivity"
@@ -55,7 +52,11 @@
             android:name=".activity.ProfilePetActivity"
             android:label="@string/title_activity_profile_pet"
             android:theme="@style/AppTheme" />
-        <activity android:name=".activity.ProfileShelterActivity"></activity>
+        <activity android:name=".activity.ProfileShelterActivity" />
+        <activity
+            android:name=".activity.FilterActivity"
+            android:label="@string/title_activity_filter"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

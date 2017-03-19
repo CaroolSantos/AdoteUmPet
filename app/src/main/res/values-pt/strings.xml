@@ -97,4 +97,21 @@
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_profile_pet">Detalhes do Pet</string>
 
+    <!-- Tela de Filtros -->
+    <string name="select_portepet">Selecione o porte do pet</string>
+    <string name="select_sexopet">Selecione o sexo do pet</string>
+    <string name="select_localizacao">Animais próximos a</string>
+    <string name="btn_filtrar"> Filtrar</string>
+    <string name="especie_cachorro">Cachorro</string>
+    <string name="especie_gato">Gato</string>
+    <string name="especie_passaro">Pássaro</string>
+    <string name="porte_pequeno">Pequeno</string>
+    <string name="porte_medio">Médio</string>
+    <string name="porte_grande">Grande</string>
+    <string name="genero_femea">Fêmea</string>
+    <string name="genero_macho">Macho</string>
+    <string name="nao_restringir">Não restringir</string>
+    <string name="localizacao_cidade">Sua cidade</string>
+    <string name="localizacao_estado">Seu estado</string>
+
 </resources>

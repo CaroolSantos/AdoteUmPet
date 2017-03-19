@@ -1,5 +1,6 @@
 package ufrpe.carolina.adoteumpet.activity;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
@@ -351,17 +352,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (item.getItemId()) {
+            case R.id.action_filter:
+                Intent it = new Intent(this, FilterActivity.class);
+                startActivity(it);
+        }
 
-        //noinspection SimplifiableIfStatement
-       /* if (id == R.id.action_logout) {
-            Toast.makeText(getApplicationContext(), "Logout user!", Toast.LENGTH_LONG).show();
-            return true;
-        }*/
-        //return super.onOptionsItemSelected(item);
         return toggle != null && toggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
