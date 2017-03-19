@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.InputType;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -35,6 +36,7 @@ public class RegisterActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(R.string.actionBar_title);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         btnRegistrar = (Button) findViewById(R.id.btn_registrar);
         btnRegistrar.setOnClickListener(this);
@@ -80,4 +82,18 @@ public class RegisterActivity extends AppCompatActivity
             Intent it = new Intent(RegisterActivity.this, MainActivity.class);
             startActivity(it);
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // app icon in action bar clicked; go home
+                this.finish();
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 }
