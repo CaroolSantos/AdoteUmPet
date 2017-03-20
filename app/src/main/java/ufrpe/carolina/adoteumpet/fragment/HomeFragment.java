@@ -82,10 +82,11 @@ public class HomeFragment extends Fragment {
         ListView listPet = (ListView)v.findViewById(R.id.listViewPet);
 
         Pet lista_pet[] = new Pet[]{
-                new Pet("", "Toddy", "Cachorro", "Macho", "Para adoção"),
-                new Pet("", "Rock", "Cachorro", "Macho", "Pet perdido"),
-                new Pet("", "Miau", "Gato", "Macho", "Para adoção")
+                new Pet(null,"", "Toddy", "Cachorro", "Macho", "Para adoção"),
+                new Pet(null,"", "Rock", "Cachorro", "Macho", "Pet perdido"),
+                new Pet(null,"", "Miau", "Gato", "Macho", "Para adoção")
         };
+
 
 
         listPet.setTextFilterEnabled(true);
