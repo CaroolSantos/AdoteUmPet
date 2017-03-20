@@ -186,6 +186,7 @@
                 android:background="@drawable/shape_edittext_rounded_borders"
                 android:textCursorDrawable="@drawable/color_cursor"
                 android:hint="@string/estado"
+                android:paddingLeft="7dp"
                 android:textColorHint="@color/colorHint"
                 android:layout_marginTop="7dp"/>
 
@@ -203,6 +204,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txt_cidade"
+                android:paddingLeft="7dp"
                 android:background="@drawable/shape_edittext_rounded_borders"
                 android:textCursorDrawable="@drawable/color_cursor"
                 android:hint="@string/cidade"

@@ -29,14 +29,14 @@
         app:srcCompat="@drawable/icon_shelter"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/shelter" />
+        android:id="@+id/shelterAvatar" />
 
     <Button
         android:textColor="#FFF"
         android:text="@string/Add_photo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/shelter"
+        android:layout_below="@+id/shelterAvatar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="3dp"
         android:paddingRight="30dp"
@@ -58,7 +58,8 @@
         android:id="@+id/nome_abrigo"
         android:textColorHint="@color/colorHint"
         android:textColor="#000"
-        android:background="#F2F2F2"
+        android:background="@drawable/shape_edittext_rounded_borders"
+        android:paddingLeft="7dp"
         android:textCursorDrawable="@drawable/color_cursor"/>
 
     <LinearLayout
@@ -88,7 +89,8 @@
             android:id="@+id/txtphone"
             android:layout_weight="2"
             android:textColor="#000"
-            android:background="#F2F2F2"
+            android:background="@drawable/shape_edittext_rounded_borders"
+            android:paddingLeft="7dp"
             android:textCursorDrawable="@drawable/color_cursor"/>
     </LinearLayout>
 
@@ -118,24 +120,27 @@
             android:id="@+id/txtmail"
             android:layout_weight="2"
             android:textColor="#000"
-            android:background="#F2F2F2"
+            android:background="@drawable/shape_edittext_rounded_borders"
+            android:paddingLeft="7dp"
             android:textCursorDrawable="@drawable/color_cursor"/>
     </LinearLayout>
 
 
     <EditText
-        android:layout_below="@+id/layout_mail"
-        android:layout_marginTop="10dp"
+        android:id="@+id/end_abrigo"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:inputType="textPostalAddress"
-        android:hint="@string/endereco_abrigo"
-        android:gravity="top"
+        android:layout_below="@+id/layout_mail"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_edittext_rounded_borders"
         android:ems="10"
-        android:id="@+id/end_abrigo"
+        android:gravity="top"
+        android:hint="@string/endereco_abrigo"
+        android:inputType="textMultiLine|textPostalAddress"
+        android:paddingLeft="7dp"
+        android:singleLine="false"
         android:textColorHint="@color/colorHint"
-        android:background="#F2F2F2"
-        android:textCursorDrawable="@drawable/color_cursor"/>
+        android:textCursorDrawable="@drawable/color_cursor" />
 
     <Button
         android:layout_below="@+id/end_abrigo"

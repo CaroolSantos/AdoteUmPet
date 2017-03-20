@@ -190,6 +190,62 @@ public class ApiHttp {
         }
     }
 
+    public boolean registrarAbrigo(Context ctx, String name, String phone, String email, String address, String idUserApp) throws Exception{
+        String url = BASE_URL + "/RegisterShelter";
+        HttpURLConnection conexao = abrirConexao(url,"POST",true);
+
+        OutputStream os = conexao.getOutputStream();
+        os.write(registerShelterToJsonBytes(name,
+                phone,
+                email,
+                address,
+                idUserApp));
+        os.flush();
+        os.close();
+
+        int responseCode = conexao.getResponseCode();
+        Log.d("Response API REGISTER",String.valueOf(responseCode));
+
+        if(responseCode == HttpURLConnection.HTTP_OK){
+            InputStream is = conexao.getInputStream();
+            String s = streamToString(is);
+            is.close();
+
+            JSONObject json = new JSONObject(s);
+            Log.d("API RESPONSE",json.toString());
+            String Code = json.getString("Code");
+            String IdShelter = json.getString("Id");
+            String Msg = json.getString("Msg");
+
+            if(Code.equals("OK")){
+                return true;
+            }
+            return false;
+        }else{
+            throw new RuntimeException("Erro");
+        }
+    }
+
+    private byte[] registerShelterToJsonBytes(String name, String phone, String email, String address, String idUserApp) {
+        try{
+            JSONObject jsonShelterViewModel = new JSONObject();
+            jsonShelterViewModel.put("Name",phone);
+            jsonShelterViewModel.put("Phone",phone);
+            jsonShelterViewModel.put("Email",email);
+            jsonShelterViewModel.put("Address",address);
+            jsonShelterViewModel.put("IdUserApp",idUserApp);
+
+            String json = jsonShelterViewModel.toString();
+            Log.d("shelterToJsonBytes",json);
+            return json.getBytes();
+
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
     private byte[] registerPetToJsonBytes(String specie, String status, String gender, String age, String breed, String size, String name, String description, String phone, String email, String idUserApp) {
         try{
             JSONObject jsonPetViewModel = new JSONObject();
@@ -343,6 +399,7 @@ public class ApiHttp {
         }
         return new String(baos.toByteArray());
     }
+
 
 
 }

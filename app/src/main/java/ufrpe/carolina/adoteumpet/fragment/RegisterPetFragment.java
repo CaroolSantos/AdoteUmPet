@@ -1,12 +1,18 @@
 package ufrpe.carolina.adoteumpet.fragment;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,12 +22,17 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import ufrpe.carolina.adoteumpet.R;
@@ -62,6 +73,10 @@ public class RegisterPetFragment extends Fragment implements AdapterView.OnItemS
     private TextView edtPhone;
     private TextView edtEmail;
     private Button btnsalvar;
+    private Button btnAvatar;
+    private ImageView imgvAvatar;
+    private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1888;
+    private ProgressDialog pdia;
 
 
     private OnFragmentInteractionListener mListener;
@@ -112,8 +127,12 @@ public class RegisterPetFragment extends Fragment implements AdapterView.OnItemS
         edtDescricao = (EditText) view.findViewById(R.id.descricaopet);
         edtPhone = (EditText) view.findViewById(R.id.txtphone);
         edtEmail = (EditText) view.findViewById(R.id.txtmail);
+        btnAvatar = (Button) view.findViewById(R.id.btn_avatar);
+        imgvAvatar = (ImageView) view.findViewById(R.id.avatar_pet);
         // Spinner click listener
         slctEspecie.setOnItemSelectedListener(this);
+        pdia = new ProgressDialog(getActivity());
+        pdia.setMessage(getResources().getString(R.string.carregando));
 
         List<String> especies = new ArrayList<String>();
         especies.add(getResources().getString(R.string.select));
@@ -127,6 +146,15 @@ public class RegisterPetFragment extends Fragment implements AdapterView.OnItemS
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         slctEspecie.setAdapter(dataAdapter);
+
+        btnAvatar.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent,
+                        CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+            }
+        });
 
         btnsalvar = (Button) view.findViewById(R.id.btn_salvar);
         btnsalvar.setOnClickListener(new View.OnClickListener() {
@@ -192,11 +220,15 @@ public class RegisterPetFragment extends Fragment implements AdapterView.OnItemS
                     Toast.makeText(getActivity(),getResources().getString(R.string.email_vazio),Toast.LENGTH_LONG).show();
                     return;
                 }
+
+                Log.i("REGISTER FIELDS","OK - API");
+                pdia.show();
                 RegisterPet registerPet = new RegisterPet();
                 registerPet.execute(
                         slctEspecie.getSelectedItem().toString(),
                         statusAdocao,
                         gender,
+                        edtIdadePet.getText().toString(),
                         edtRacaPet.getText().toString(),
                         rgPorte,
                         edtNomePet.getText().toString(),
@@ -207,6 +239,29 @@ public class RegisterPetFragment extends Fragment implements AdapterView.OnItemS
             }
         });
         return view;
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
+            if (resultCode == Activity.RESULT_OK) {
+
+                Bitmap bmp = (Bitmap) data.getExtras().get("data");
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+
+                bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                byte[] byteArray = stream.toByteArray();
+
+                // convert byte array to Bitmap
+
+                Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0,
+                        byteArray.length);
+
+                imgvAvatar.setImageBitmap(bitmap);
+
+            }
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -238,7 +293,7 @@ public class RegisterPetFragment extends Fragment implements AdapterView.OnItemS
         String item = parent.getItemAtPosition(position).toString();
 
         // Showing selected spinner item
-        Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+        //Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
 
     }
 
@@ -264,15 +319,9 @@ public class RegisterPetFragment extends Fragment implements AdapterView.OnItemS
 
     class RegisterPet extends AsyncTask<String,String,String> {
         private Exception exception;
-        private ProgressDialog pdia;
 
-        @Override
-        protected void onPreExecute(){
-            super.onPreExecute();
-            pdia = new ProgressDialog(getActivity());
-            pdia.setMessage(getResources().getString(R.string.carregando));
-            pdia.show();
-        }
+
+
 
 
         protected String doInBackground(String... args) {
@@ -309,6 +358,13 @@ public class RegisterPetFragment extends Fragment implements AdapterView.OnItemS
                             AdoteUmPetSharedPreferences.getUserId(getApplicationContext()));
 
                     if(registrado){
+                        getActivity().runOnUiThread(new Runnable(){
+
+                            @Override
+                            public void run(){
+                                Toast.makeText(getActivity(),getResources().getString(R.string.cadastro_pet_sucesso),Toast.LENGTH_LONG).show();
+                            }
+                        });
                         Intent it = new Intent(getActivity(), MainActivity.class);
                         startActivity(it);
                     }else{

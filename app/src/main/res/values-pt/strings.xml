@@ -106,6 +106,8 @@
     <string name="nomepet_vazio">Informe o nome</string>
     <string name="descricao_vazio">Descreva o pet</string>
 
+    <string name="cadastro_pet_sucesso">Pet registrado</string>
+
     <!-- Tela de Perfil do Pet -->
     <string name="txtView_nome_perfil_pet">Toddy</string>
     <string name="txtView_descricao_perfil_pet">Este é o Toddy! Tem dois anos, é dócil, se dar bem com todo mundo, tem uma bolinha no umbigo, rabo cortado e tem microchip. Pesa entre 4 e 5 Kg.</string>
@@ -139,5 +141,12 @@
     <string name="localizacao_cidade">Sua cidade</string>
     <string name="localizacao_estado">Seu estado</string>
     <string name="title_activity_filter">Filtros</string>
+
+    <!-- RegisterShelterFragment -->
+    <string name="abrigo_nome_vazio">Preencha o nome</string>
+    <string name="abrigo_telefone_vazio">Preencha o telefone</string>
+    <string name="abrigo_email_vazio">Preencha o e-mail</string>
+    <string name="abrigo_endereco_vazio">Preencha o endereço</string>
+    <string name="abrigo_cadastro_sucesso">Abrigo registrado</string>
 
 </resources>
