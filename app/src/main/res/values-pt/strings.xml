@@ -74,6 +74,7 @@
     <string name="sexo_vazio">Selecione o sexo</string>
 
     <string name="erro_registrar">Ops, aconteceu algo de errado. Tente novamente mais tarde.</string>
+    <string name="carregando">Carregando...</string>
 
     <!-- Activity Profile Pet -->
     <string name="actionBarProfilePet_title">Perfil do Pet</string>

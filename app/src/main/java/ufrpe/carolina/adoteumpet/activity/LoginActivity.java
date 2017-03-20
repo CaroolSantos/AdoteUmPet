@@ -191,11 +191,20 @@ public class LoginActivity extends AppCompatActivity
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
-    class FacebookLogin extends AsyncTask<String,Void,Void> {
+    class FacebookLogin extends AsyncTask<String,String,String> {
 
         private Exception exception;
+        protected ProgressDialog pdia;
 
-        protected Void doInBackground(String... args) {
+        @Override
+        protected void onPreExecute(){
+            super.onPreExecute();
+            pdia = new ProgressDialog(LoginActivity.this);
+            pdia.setMessage(getResources().getString(R.string.carregando));
+            pdia.show();
+        }
+
+        protected String doInBackground(String... args) {
             try {
                 //Post para API
 
@@ -210,7 +219,7 @@ public class LoginActivity extends AppCompatActivity
                 ApiHttp api = new ApiHttp(getApplicationContext());
 
                 try {
-                    boolean logado = api.acessarComFacebook(null,
+                    boolean logado = api.acessarComFacebook(getApplicationContext(),
                             name,
                             email,
                             gender,
@@ -234,16 +243,26 @@ public class LoginActivity extends AppCompatActivity
             return null;
         }
 
-        protected void onPostExecute() {
-            // TODO: check this.exception
-
+        @Override
+        protected void onPostExecute(String result){
+            super.onPostExecute(result);
+            pdia.dismiss();
         }
     }
 
-    class Login extends AsyncTask<String,Void,Void>{
+    class Login extends AsyncTask<String,String,String>{
         private Exception exception;
+        private ProgressDialog pdia;
 
-        protected Void doInBackground(String... args) {
+        @Override
+        protected void onPreExecute(){
+            super.onPreExecute();
+            pdia = new ProgressDialog(LoginActivity.this);
+            pdia.setMessage(getResources().getString(R.string.carregando));
+            pdia.show();
+        }
+
+        protected String doInBackground(String... args) {
             try {
                 //Post para API
 
@@ -282,6 +301,12 @@ public class LoginActivity extends AppCompatActivity
                 return null;
             }
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result){
+            super.onPostExecute(result);
+            pdia.dismiss();
         }
     }
 }

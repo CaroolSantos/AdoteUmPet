@@ -82,7 +82,7 @@ public class ApiHttp {
         }
     }
 
-    public boolean acessarComFacebook(Integer Id,String Nome, String Email,String Sexo,String IdFacebook) throws Exception{
+    public boolean acessarComFacebook(Context ctx,String Nome, String Email,String Sexo,String IdFacebook) throws Exception{
         String url = BASE_URL + "/LoginFacebook";
         HttpURLConnection conexao = abrirConexao(url,"POST",true);
 
@@ -103,8 +103,14 @@ public class ApiHttp {
             String Code = json.getString("Code");
             String IdUserApp = json.getString("Id");
             String Msg = json.getString("Msg");
-            //TODO salvar Id em sharedPreferences
-            return true;
+
+            if(Code.equals("OK")){
+                AdoteUmPetSharedPreferences.setUserId(ctx,IdUserApp);
+                return true;
+            }else{
+                return false;
+            }
+
         }else{
             throw new RuntimeException("Erro");
         }
@@ -112,7 +118,7 @@ public class ApiHttp {
 
     }
 
-    public boolean registrarUserApp(String Name, String Email, String Phone, String Password,String Birthday, String State, String City,String Gender) throws Exception{
+    public boolean registrarUserApp(Context ctx,String Name, String Email, String Phone, String Password,String Birthday, String State, String City,String Gender) throws Exception{
         String url = BASE_URL + "/RegisterUserApp";
         HttpURLConnection conexao = abrirConexao(url,"POST",true);
 
@@ -134,9 +140,9 @@ public class ApiHttp {
             String Code = json.getString("Code");
             String IdUserApp = json.getString("Id");
             String Msg = json.getString("Msg");
-            //TODO salvar Id em sharedPreferences
 
             if(Code.equals("OK")){
+                AdoteUmPetSharedPreferences.setUserId(ctx,IdUserApp);
                 return true;
             }
             return false;

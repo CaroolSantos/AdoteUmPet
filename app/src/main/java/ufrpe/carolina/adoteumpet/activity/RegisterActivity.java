@@ -2,6 +2,7 @@ package ufrpe.carolina.adoteumpet.activity;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.provider.MediaStore;
@@ -124,7 +125,7 @@ public class RegisterActivity extends AppCompatActivity
             String gender = "false";
             Log.i("GENDER",Integer.toString(rgGender.getCheckedRadioButtonId()));
 
-                if(rgGender.getCheckedRadioButtonId() == 1){
+                if(rgGender.getCheckedRadioButtonId() == R.id.sexomasculino){
                     gender = "true";
                 }
 
@@ -190,10 +191,20 @@ public class RegisterActivity extends AppCompatActivity
         }
     }
 
-    class Register extends AsyncTask<String,Void,Void> {
+    class Register extends AsyncTask<String,String,String> {
         private Exception exception;
+        private ProgressDialog pdia;
 
-        protected Void doInBackground(String... args) {
+        @Override
+        protected void onPreExecute(){
+            super.onPreExecute();
+            pdia = new ProgressDialog(RegisterActivity.this);
+            pdia.setMessage(getResources().getString(R.string.carregando));
+            pdia.show();
+        }
+
+
+        protected String doInBackground(String... args) {
             try {
                 //Post para API
 
@@ -211,7 +222,7 @@ public class RegisterActivity extends AppCompatActivity
                 ApiHttp api = new ApiHttp(getApplicationContext());
 
                 try {
-                    boolean registrado = api.registrarUserApp(name,email,phone,password,birthday,state,city,gender);
+                    boolean registrado = api.registrarUserApp(getApplicationContext(),name,email,phone,password,birthday,state,city,gender);
 
                     if(registrado){
                         Intent it = new Intent(RegisterActivity.this, MainActivity.class);
@@ -238,6 +249,12 @@ public class RegisterActivity extends AppCompatActivity
                 return null;
             }
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result){
+            super.onPostExecute(result);
+            pdia.dismiss();
         }
     }
 }
