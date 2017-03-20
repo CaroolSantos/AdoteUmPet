@@ -1,8 +1,11 @@
 package ufrpe.carolina.adoteumpet.fragment;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -22,7 +25,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ufrpe.carolina.adoteumpet.R;
+import ufrpe.carolina.adoteumpet.activity.MainActivity;
 import ufrpe.carolina.adoteumpet.activity.RegisterActivity;
+import ufrpe.carolina.adoteumpet.other.AdoteUmPetSharedPreferences;
+import ufrpe.carolina.adoteumpet.other.ApiHttp;
+
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 
 /**
@@ -184,8 +192,8 @@ public class RegisterPetFragment extends Fragment implements AdapterView.OnItemS
                     Toast.makeText(getActivity(),getResources().getString(R.string.email_vazio),Toast.LENGTH_LONG).show();
                     return;
                 }
-                Register register = new Register();
-                register.execute(
+                RegisterPet registerPet = new RegisterPet();
+                registerPet.execute(
                         slctEspecie.getSelectedItem().toString(),
                         statusAdocao,
                         gender,
@@ -252,5 +260,86 @@ public class RegisterPetFragment extends Fragment implements AdapterView.OnItemS
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    class RegisterPet extends AsyncTask<String,String,String> {
+        private Exception exception;
+        private ProgressDialog pdia;
+
+        @Override
+        protected void onPreExecute(){
+            super.onPreExecute();
+            pdia = new ProgressDialog(getActivity());
+            pdia.setMessage(getResources().getString(R.string.carregando));
+            pdia.show();
+        }
+
+
+        protected String doInBackground(String... args) {
+            try {
+                //Post para API
+
+                String specie = args[0];
+                String status = args[1];
+                String gender = args[2];
+                String age = args[3];
+                String breed = args[4];
+                String size = args[5];
+                String name = args[6];
+                String description = args[7];
+                String phone = args[8];
+                String email = args[9];
+
+
+                Log.d("TASK","REGISTER");
+
+                ApiHttp api = new ApiHttp(getApplicationContext());
+
+                try {
+                    boolean registrado = api.registrarPet(getApplicationContext(),specie,
+                            status,
+                            gender,
+                            age,
+                            breed,
+                            size,
+                            name,
+                            description,
+                            phone,
+                            email,
+                            AdoteUmPetSharedPreferences.getUserId(getApplicationContext()));
+
+                    if(registrado){
+                        Intent it = new Intent(getActivity(), MainActivity.class);
+                        startActivity(it);
+                    }else{
+
+                         getActivity().runOnUiThread(new Runnable(){
+
+                            @Override
+                            public void run(){
+                                Toast.makeText(getActivity(),getResources().getString(R.string.erro_registrar),Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+                    }
+                } catch (Exception e) {
+
+                    e.printStackTrace();
+                }
+
+
+            } catch (Exception e) {
+                this.exception = e;
+
+                return null;
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result){
+            super.onPostExecute(result);
+            pdia.dismiss();
+        }
     }
 }

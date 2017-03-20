@@ -151,6 +151,71 @@ public class ApiHttp {
         }
     }
 
+    public boolean registrarPet(Context ctx, String specie, String status, String gender, String age, String breed, String size, String name, String description, String phone, String email, String idUserApp) throws Exception{
+        String url = BASE_URL + "/RegisterPet";
+        HttpURLConnection conexao = abrirConexao(url,"POST",true);
+
+        OutputStream os = conexao.getOutputStream();
+        os.write(registerPetToJsonBytes(specie,status,gender,age,
+                breed,
+                size,
+                name,
+                description,
+                phone,
+                email,
+                idUserApp));
+        os.flush();
+        os.close();
+
+        int responseCode = conexao.getResponseCode();
+        Log.d("Response API REGISTER",String.valueOf(responseCode));
+
+        if(responseCode == HttpURLConnection.HTTP_OK){
+            InputStream is = conexao.getInputStream();
+            String s = streamToString(is);
+            is.close();
+
+            JSONObject json = new JSONObject(s);
+            Log.d("API RESPONSE",json.toString());
+            String Code = json.getString("Code");
+            String IdPet = json.getString("Id");
+            String Msg = json.getString("Msg");
+
+            if(Code.equals("OK")){
+                return true;
+            }
+            return false;
+        }else{
+            throw new RuntimeException("Erro");
+        }
+    }
+
+    private byte[] registerPetToJsonBytes(String specie, String status, String gender, String age, String breed, String size, String name, String description, String phone, String email, String idUserApp) {
+        try{
+            JSONObject jsonPetViewModel = new JSONObject();
+            jsonPetViewModel.put("Specie",specie);
+            jsonPetViewModel.put("Status",status);
+            jsonPetViewModel.put("Gender",gender);
+            jsonPetViewModel.put("Age",age);
+            jsonPetViewModel.put("Breed",breed);
+            jsonPetViewModel.put("Size",size);
+            jsonPetViewModel.put("Name",name);
+            jsonPetViewModel.put("Description",description);
+            jsonPetViewModel.put("Phone",phone);
+            jsonPetViewModel.put("Email",email);
+            jsonPetViewModel.put("IdUserApp",idUserApp);
+
+            String json = jsonPetViewModel.toString();
+            Log.d("UserToJsonBytes",json);
+            return json.getBytes();
+
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
     private byte[] registerDataToJsonBytes(String name, String email, String phone, String password, String birthday, String state, String city, String gender) {
         try{
             JSONObject jsonRegisterUserAppViewModel = new JSONObject();
@@ -278,4 +343,6 @@ public class ApiHttp {
         }
         return new String(baos.toByteArray());
     }
+
+
 }
