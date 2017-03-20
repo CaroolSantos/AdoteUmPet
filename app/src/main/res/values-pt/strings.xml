@@ -43,6 +43,10 @@
     <!-- Login -->
     <string name="Cadastrar">Cadastre-se</string>
     <string name="face_login_error">Erro ao carregar dados do Facebook.</string>
+    <string name="ou">OU</string>
+    <string name="entrar">Entrar</string>
+    <string name="email_ou_senha_invalidos">Preencha e-mail e senha.</string>
+    <string name="dados_invalidos">E-mail e/ou senha incorretos</string>
 
     <!-- Activity_register -->
     <string name="actionBar_title">Cadastro de usuário</string>
@@ -56,6 +60,22 @@
     <string name="Avatar">Adicionar uma foto</string>
     <string name="sexo_feminino">Feminino</string>
     <string name="sexo_masculino">Masculino</string>
+    <string name="select">Selecione</string>
+    <string name="estado">Estado</string>
+    <string name="cidade">Cidade</string>
+
+    <string name="nome_vazio">Preencha seu nome</string>
+    <string name="email_vazio">Preencha seu E-mail</string>
+    <string name="telefone_vazio">Preencha seu telefone</string>
+    <string name="datanascimento_vazio">Preencha sua data de nascimento</string>
+    <string name="senha_vazio">Digite sua senha</string>
+    <string name="confirma_senha_vazio">Confirme sua senha</string>
+    <string name="confirma_senha_errado">Senhas diferentes</string>
+    <string name="estado_vazio">Fill state</string>
+    <string name="cidade_vazio">Fill city</string>
+    <string name="sexo_vazio">Selecione o sexo</string>
+
+    <string name="erro_registrar">Ops, aconteceu algo de errado. Tente novamente mais tarde.</string>
 
     <!-- Activity Profile Pet -->
     <string name="actionBarProfilePet_title">Perfil do Pet</string>

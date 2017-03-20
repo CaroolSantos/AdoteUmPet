@@ -43,6 +43,10 @@
     <!-- Login -->
     <string name="Cadastrar">Register</string>
     <string name="face_login_error">Error. Facebook retrieving data.</string>
+    <string name="ou">OR</string>
+    <string name="entrar">Login</string>
+    <string name="email_ou_senha_invalidos">Fill e-mail and password</string>
+    <string name="dados_invalidos">Wrong E-mail and/or password</string>
 
     <!-- Activity_register -->
     <string name="actionBar_title">User registration</string>
@@ -50,13 +54,28 @@
     <string name="nome_cadastro">Name</string>
     <string name="senha_cadastro">Password</string>
     <string name="senha_confirmacao">Confirm your password</string>
-    <string name="email">Email</string>
+    <string name="email">E-mail</string>
     <string name="telefone_cadastro">Phone</string>
     <string name="data_nascimento">Date of birth</string>
     <string name="Add_photo">Add a photo</string>
     <string name="sexo_feminino">Female</string>
     <string name="sexo_masculino">Male</string>
     <string name="select">Select</string>
+    <string name="estado">State</string>
+    <string name="cidade">City</string>
+
+    <string name="nome_vazio">Fill Name</string>
+    <string name="email_vazio">Fill E-mail</string>
+    <string name="telefone_vazio">Fill Phone</string>
+    <string name="datanascimento_vazio">Fill Birthday</string>
+    <string name="senha_vazio">Fill Password</string>
+    <string name="confirma_senha_vazio">Confirm Password</string>
+    <string name="confirma_senha_errado">Different Passwords</string>
+    <string name="estado_vazio">Fill state</string>
+    <string name="cidade_vazio">Fill city</string>
+    <string name="sexo_vazio">Select gender</string>
+
+    <string name="erro_registrar">Ops, something wrong. Try again later.</string>
 
     <!-- Activity Profile Pet -->
     <string name="actionBarProfilePet_title">Pet Profile</string>

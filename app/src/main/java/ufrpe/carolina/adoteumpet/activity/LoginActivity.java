@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.facebook.CallbackManager;
@@ -36,8 +37,11 @@ public class LoginActivity extends AppCompatActivity
         implements View.OnClickListener{
 
     private Button btnCadastro;
-    private LoginButton loginButton;
+    private LoginButton facebookLoginButton;
     private CallbackManager callbackManager;
+    private Button btnLogin;
+    private EditText edtEmail;
+    private EditText edtPassword;
     private ProgressDialog progressDialog;
 
     @Override
@@ -48,14 +52,32 @@ public class LoginActivity extends AppCompatActivity
 
         setContentView(R.layout.activity_login);
 
+        btnLogin = (Button) findViewById(R.id.btnLogin);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                edtEmail = (EditText)findViewById(R.id.editTextEmail);
+                edtPassword = (EditText)findViewById(R.id.editTextPassword);
+
+                if(edtEmail.getText().toString().isEmpty() || edtPassword.getText().toString().isEmpty()){
+                    Toast.makeText(LoginActivity.this,getResources().getString(R.string.email_ou_senha_invalidos).toString(),Toast.LENGTH_SHORT).show();
+                }else{
+                    Login login = new Login();
+                    login.execute(edtEmail.getText().toString(),edtPassword.getText().toString());
+                }
+
+            }
+        });
+
         btnCadastro = (Button) findViewById(R.id.cadastro);
         btnCadastro.setOnClickListener(this);
 
-        loginButton = (LoginButton) findViewById(R.id.login_button);
-        loginButton.setReadPermissions(Arrays.asList("public_profile","email"));
+        facebookLoginButton = (LoginButton) findViewById(R.id.login_button);
+        facebookLoginButton.setReadPermissions(Arrays.asList("public_profile","email"));
 
         // Callback registration para botão de login do facebook
-        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+        facebookLoginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 //em caso de sucesso recolhe informações necessárias e passa para API
@@ -76,7 +98,7 @@ public class LoginActivity extends AppCompatActivity
 
                         Bundle bFacebookData = getFacebookData(object);
 
-                        RetrieveUserData r = new RetrieveUserData();
+                        FacebookLogin r = new FacebookLogin();
                         r.execute(bFacebookData.getString("name"),
                                 bFacebookData.getString("email"),
                                 bFacebookData.getString("gender"),
@@ -169,7 +191,7 @@ public class LoginActivity extends AppCompatActivity
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
-    class RetrieveUserData extends AsyncTask<String,Void,Void> {
+    class FacebookLogin extends AsyncTask<String,Void,Void> {
 
         private Exception exception;
 
@@ -214,7 +236,52 @@ public class LoginActivity extends AppCompatActivity
 
         protected void onPostExecute() {
             // TODO: check this.exception
-            // TODO: do something with the feed
+
+        }
+    }
+
+    class Login extends AsyncTask<String,Void,Void>{
+        private Exception exception;
+
+        protected Void doInBackground(String... args) {
+            try {
+                //Post para API
+
+                String email = args[0];
+                String password = args[1];
+
+                Log.d("TASK","LOGIN");
+
+                ApiHttp api = new ApiHttp(getApplicationContext());
+
+                try {
+                    boolean logado = api.login(email,password);
+
+                    if(logado){
+                        Intent it = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(it);
+                    }else{
+                        runOnUiThread(new Runnable(){
+
+                            @Override
+                            public void run(){
+                                Toast.makeText(LoginActivity.this,getResources().getString(R.string.dados_invalidos),Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                    }
+                } catch (Exception e) {
+
+                    e.printStackTrace();
+                }
+
+
+            } catch (Exception e) {
+                this.exception = e;
+
+                return null;
+            }
+            return null;
         }
     }
 }

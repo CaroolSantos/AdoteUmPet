@@ -32,6 +32,7 @@ public class ApiHttp {
     }
 
     private HttpURLConnection abrirConexao(String url, String metodo,boolean doOutput) throws Exception{
+
         URL urlCon = new URL(url);
         HttpURLConnection conexao = (HttpURLConnection)urlCon.openConnection();
         conexao.setReadTimeout(15000);
@@ -39,11 +40,46 @@ public class ApiHttp {
         conexao.setRequestMethod(metodo);
         conexao.setDoInput(true);
         conexao.setDoOutput(doOutput);
+
         if(doOutput){
             conexao.addRequestProperty("Content-Type","application/json");
         }
+
         conexao.connect();
         return conexao;
+    }
+
+    public boolean login(String Email, String Password) throws Exception{
+        String url = BASE_URL + "/Login";
+        HttpURLConnection conexao = abrirConexao(url,"POST",true);
+
+        OutputStream os = conexao.getOutputStream();
+        os.write(loginToJsonBytes(Email,Password));
+        os.flush();
+        os.close();
+
+        int responseCode = conexao.getResponseCode();
+        Log.d("Response API LOGIN",String.valueOf(responseCode));
+
+        if(responseCode == HttpURLConnection.HTTP_OK){
+            InputStream is = conexao.getInputStream();
+            String s = streamToString(is);
+            is.close();
+
+            JSONObject json = new JSONObject(s);
+            Log.d("API RESPONSE",json.toString());
+            String Code = json.getString("Code");
+            String IdUserApp = json.getString("Id");
+            String Msg = json.getString("Msg");
+            //TODO salvar Id em sharedPreferences
+
+            if(Code.equals("OK")){
+                return true;
+            }
+            return false;
+        }else{
+            throw new RuntimeException("Erro");
+        }
     }
 
     public boolean acessarComFacebook(Integer Id,String Nome, String Email,String Sexo,String IdFacebook) throws Exception{
@@ -51,12 +87,12 @@ public class ApiHttp {
         HttpURLConnection conexao = abrirConexao(url,"POST",true);
 
         OutputStream os = conexao.getOutputStream();
-        os.write(userToJsonBytes(Nome,Email,Sexo,IdFacebook));
+        os.write(facebookUserToJsonBytes(Nome,Email,Sexo,IdFacebook));
         os.flush();
         os.close();
 
         int responseCode = conexao.getResponseCode();
-        Log.d("Response API",String.valueOf(responseCode));
+        Log.d("Response API FACE LOGIN",String.valueOf(responseCode));
 
         if(responseCode == HttpURLConnection.HTTP_OK){
             InputStream is = conexao.getInputStream();
@@ -76,7 +112,63 @@ public class ApiHttp {
 
     }
 
-    private byte[] userToJsonBytes(String Nome, String Email,String Sexo,String IdFacebook){
+    public boolean registrarUserApp(String Name, String Email, String Phone, String Password,String Birthday, String State, String City,String Gender) throws Exception{
+        String url = BASE_URL + "/RegisterUserApp";
+        HttpURLConnection conexao = abrirConexao(url,"POST",true);
+
+        OutputStream os = conexao.getOutputStream();
+        os.write(registerDataToJsonBytes(Name,Email,Phone,Password,Birthday,State,City,Gender));
+        os.flush();
+        os.close();
+
+        int responseCode = conexao.getResponseCode();
+        Log.d("Response API REGISTER",String.valueOf(responseCode));
+
+        if(responseCode == HttpURLConnection.HTTP_OK){
+            InputStream is = conexao.getInputStream();
+            String s = streamToString(is);
+            is.close();
+
+            JSONObject json = new JSONObject(s);
+            Log.d("API RESPONSE",json.toString());
+            String Code = json.getString("Code");
+            String IdUserApp = json.getString("Id");
+            String Msg = json.getString("Msg");
+            //TODO salvar Id em sharedPreferences
+
+            if(Code.equals("OK")){
+                return true;
+            }
+            return false;
+        }else{
+            throw new RuntimeException("Erro");
+        }
+    }
+
+    private byte[] registerDataToJsonBytes(String name, String email, String phone, String password, String birthday, String state, String city, String gender) {
+        try{
+            JSONObject jsonRegisterUserAppViewModel = new JSONObject();
+            jsonRegisterUserAppViewModel.put("Name",name);
+            jsonRegisterUserAppViewModel.put("Email",email);
+            jsonRegisterUserAppViewModel.put("Phone",phone);
+            jsonRegisterUserAppViewModel.put("Password",password);
+            jsonRegisterUserAppViewModel.put("Birthday",birthday);
+            jsonRegisterUserAppViewModel.put("State",state);
+            jsonRegisterUserAppViewModel.put("City",city);
+            jsonRegisterUserAppViewModel.put("Gender",gender);
+
+            String json = jsonRegisterUserAppViewModel.toString();
+            Log.d("RegisterDataToJsonBytes",json);
+            return json.getBytes();
+
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    private byte[] facebookUserToJsonBytes(String Nome, String Email,String Sexo,String IdFacebook){
         try{
             JSONObject jsonLoginFacebookViewModel = new JSONObject();
             jsonLoginFacebookViewModel.put("Nome",Nome);
@@ -95,13 +187,23 @@ public class ApiHttp {
         return null;
     }
 
-    private void registrarUserApp(String Nome, String Email, String sexo, String Telefone, String DataNascimento, String Senha){
+    private byte[] loginToJsonBytes(String Email,String Password){
+        try{
+            JSONObject jsonLoginViewModel = new JSONObject();
+            jsonLoginViewModel.put("Email",Email);
+            jsonLoginViewModel.put("Password",Password);
 
+            String json = jsonLoginViewModel.toString();
+            Log.d("UserToJsonBytes",json);
+            return json.getBytes();
+
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
-    private void login(String email, String Password){
-
-    }
 
     private List<Pet> getPets() throws Exception{
         String url = BASE_URL + "/Pets";
