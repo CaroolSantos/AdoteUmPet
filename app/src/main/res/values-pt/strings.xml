@@ -69,8 +69,8 @@
     <string name="senha_vazio">Digite sua senha</string>
     <string name="confirma_senha_vazio">Confirme sua senha</string>
     <string name="confirma_senha_errado">Senhas diferentes</string>
-    <string name="estado_vazio">Fill state</string>
-    <string name="cidade_vazio">Fill city</string>
+    <string name="estado_vazio">Preencha o estado</string>
+    <string name="cidade_vazio">Preencha a cidade</string>
     <string name="sexo_vazio">Selecione o sexo</string>
 
     <string name="erro_registrar">Ops, aconteceu algo de errado. Tente novamente mais tarde.</string>
@@ -98,6 +98,12 @@
     <string name="ParaAdocao">Para adoção</string>
     <string name="Perdido">Perdido</string>
     <string name="Add_photo">Adicione uma foto</string>
+
+    <string name="status_vazio">Selecione uma opção</string>
+    <string name="raca_vazio">Informe a raça</string>
+    <string name="porte_vazio">Informe o porte</string>
+    <string name="nomepet_vazio">Informe o nome</string>
+    <string name="descricao_vazio">Descreva o pet</string>
 
     <!-- Tela de Perfil do Pet -->
     <string name="txtView_nome_perfil_pet">Toddy</string>

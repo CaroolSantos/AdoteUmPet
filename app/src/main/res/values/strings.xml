@@ -98,6 +98,12 @@
     <string name="ParaAdocao">For adoption</string>
     <string name="Perdido">Lost</string>
 
+    <string name="status_vazio">Select a option</string>
+    <string name="raca_vazio">Fill Breed</string>
+    <string name="porte_vazio">Fill</string>
+    <string name="nomepet_vazio">Fill Name</string>
+    <string name="descricao_vazio">Describe the pet</string>
+
 
     <!-- Tela de Perfil do Pet -->
     <string name="txtView_nome_perfil_pet">Toddy</string>

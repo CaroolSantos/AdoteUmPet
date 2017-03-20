@@ -10,17 +10,19 @@ public class Pet {
     public String nome;
     public String especie;
     public String sexo;
+    public String tagPet;
 
     public Pet(){
         super();
     }
 
-    public Pet(String urlImagem, String nomePet, String especiePet, String sexoPet){
+    public Pet(String urlImagem, String nomePet, String especiePet, String sexoPet, String tagPet){
         super();
         this.urlImagem = urlImagem;
         this.nome = nomePet;
         this.especie = especiePet;
         this.sexo = sexoPet;
+        this.tagPet = tagPet;
     }
 
 }

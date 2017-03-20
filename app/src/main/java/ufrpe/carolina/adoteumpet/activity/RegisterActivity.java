@@ -124,7 +124,7 @@ public class RegisterActivity extends AppCompatActivity
             String gender = "false";
             Log.i("GENDER",Integer.toString(rgGender.getCheckedRadioButtonId()));
 
-                if(rgGender.getCheckedRadioButtonId() == 1){
+                if(rgGender.getCheckedRadioButtonId() == R.id.sexomasculino){
                     gender = "true";
                 }
 

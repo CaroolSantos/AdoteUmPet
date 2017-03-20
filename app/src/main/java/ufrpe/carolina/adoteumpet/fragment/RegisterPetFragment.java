@@ -5,18 +5,24 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import ufrpe.carolina.adoteumpet.R;
+import ufrpe.carolina.adoteumpet.activity.RegisterActivity;
 
 
 /**
@@ -36,6 +42,19 @@ public class RegisterPetFragment extends Fragment implements AdapterView.OnItemS
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private Spinner slctEspecie;
+    private RadioGroup statusPet;
+    private RadioGroup rgGender;
+    private TextView edtIdadePet;
+    private TextView edtRacaPet;
+    private RadioGroup rgPorte;
+    private TextView edtNomePet;
+    private TextView edtDescricao;
+    private TextView edtPhone;
+    private TextView edtEmail;
+    private Button btnsalvar;
+
 
     private OnFragmentInteractionListener mListener;
 
@@ -75,9 +94,18 @@ public class RegisterPetFragment extends Fragment implements AdapterView.OnItemS
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_cadastrar_pet, container, false);
 
-        Spinner spinner = (Spinner) view.findViewById(R.id.especiepet);
+        slctEspecie = (Spinner) view.findViewById(R.id.especiepet);
+        statusPet = (RadioGroup) view.findViewById(R.id.AdocaoOuPerdido);
+        rgGender = (RadioGroup) view.findViewById(R.id.sexopet);
+        edtIdadePet = (EditText) view.findViewById(R.id.idadepet);
+        edtRacaPet = (EditText) view.findViewById(R.id.racapet);
+        rgPorte = (RadioGroup) view.findViewById(R.id.portepet);
+        edtNomePet = (EditText) view.findViewById(R.id.edt_nomepet);
+        edtDescricao = (EditText) view.findViewById(R.id.descricaopet);
+        edtPhone = (EditText) view.findViewById(R.id.txtphone);
+        edtEmail = (EditText) view.findViewById(R.id.txtmail);
         // Spinner click listener
-        spinner.setOnItemSelectedListener(this);
+        slctEspecie.setOnItemSelectedListener(this);
 
         List<String> especies = new ArrayList<String>();
         especies.add(getResources().getString(R.string.select));
@@ -90,8 +118,86 @@ public class RegisterPetFragment extends Fragment implements AdapterView.OnItemS
         // Drop down layout style - list view with radio button
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        spinner.setAdapter(dataAdapter);
+        slctEspecie.setAdapter(dataAdapter);
 
+        btnsalvar = (Button) view.findViewById(R.id.btn_salvar);
+        btnsalvar.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                if(statusPet.getCheckedRadioButtonId() == -1){
+                    Toast.makeText(getActivity(),getResources().getString(R.string.status_vazio),Toast.LENGTH_LONG).show();
+                    return;
+                }
+                String statusAdocao = "false";
+
+                if(statusPet.getCheckedRadioButtonId() == R.id.PetPerdido){
+                    statusAdocao = "true";
+                }
+
+                if(rgGender.getCheckedRadioButtonId() == -1){
+                    Toast.makeText(getActivity(),getResources().getString(R.string.sexo_vazio),Toast.LENGTH_LONG).show();
+                    return;
+                }
+                String gender = "false";
+
+                if(rgGender.getCheckedRadioButtonId() == R.id.sexomacho){
+                    gender = "true";
+                }
+
+                if(edtRacaPet.getText().toString().isEmpty()){
+                    Toast.makeText(getActivity(),getResources().getString(R.string.raca_vazio),Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                if(rgPorte.getCheckedRadioButtonId() == -1){
+                    Toast.makeText(getActivity(),getResources().getString(R.string.porte_vazio),Toast.LENGTH_LONG).show();
+                    return;
+                }
+                String rgPorte = "false";
+
+                if(statusPet.getCheckedRadioButtonId() == R.id.portepequeno){
+                    rgPorte = "pequeno";
+                } else if (statusPet.getCheckedRadioButtonId() == R.id.portemedio) {
+                    rgPorte = "medio";
+                } else {
+                    rgPorte = "grande";
+                }
+
+                if(edtNomePet.getText().toString().isEmpty()){
+                    Toast.makeText(getActivity(),getResources().getString(R.string.nomepet_vazio),Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                if(edtDescricao.getText().toString().isEmpty()){
+                    Toast.makeText(getActivity(),getResources().getString(R.string.descricao_vazio),Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                if(edtPhone.getText().toString().isEmpty()){
+                    Toast.makeText(getActivity(),getResources().getString(R.string.telefone_vazio),Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                if(edtEmail.getText().toString().isEmpty()){
+                    Toast.makeText(getActivity(),getResources().getString(R.string.email_vazio),Toast.LENGTH_LONG).show();
+                    return;
+                }
+                Register register = new Register();
+                register.execute(
+                        slctEspecie.getSelectedItem().toString(),
+                        statusAdocao,
+                        gender,
+                        edtRacaPet.getText().toString(),
+                        rgPorte,
+                        edtNomePet.getText().toString(),
+                        edtDescricao.getText().toString(),
+                        edtPhone.getText().toString(),
+                        edtEmail.getText().toString()
+                );
+            }
+        });
         return view;
     }
 
