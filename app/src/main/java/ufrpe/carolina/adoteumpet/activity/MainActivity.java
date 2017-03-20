@@ -1,5 +1,6 @@
 package ufrpe.carolina.adoteumpet.activity;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
@@ -59,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG_HOME = "home";
     private static final String TAG_PERFIL = "perfil";
     private static final String TAG_CADASTRAR_PET = "cadastro_pet";
-    private static final String TAG_PERDI_PET = "perdi_pet";
     private static final String TAG_ABRIGOS = "abrigos";
     private static final String TAG_CADASTRO_ABRIGO = "cadastro_abrigo";
     private static final String TAG_CONFIGURACOES = "configuracoes";
@@ -216,20 +216,15 @@ public class MainActivity extends AppCompatActivity {
                 RegisterPetFragment cadastrarPetFragment = new RegisterPetFragment();
                 return cadastrarPetFragment;
             case 3:
-                // perdi um pet
-                LostPetFragment petPerdidoFragment = new LostPetFragment();
-                return petPerdidoFragment;
-
-            case 4:
                 // abrigos
                 ShelterFragment shelterFragment = new ShelterFragment();
                 return shelterFragment;
-            case 5:
+            case 4:
                 //cadastro abrigos
                 RegisterShelterFragment registerShelterFragment = new RegisterShelterFragment();
 
                 return registerShelterFragment;
-            case 6:
+            case 5:
                 // configurações
                 SettingsFragment configuracoesFragment = new SettingsFragment();
                 return configuracoesFragment;
@@ -269,15 +264,15 @@ public class MainActivity extends AppCompatActivity {
                         CURRENT_TAG = TAG_CADASTRAR_PET;
                         break;
                     case R.id.nav_abrigos:
-                        navItemIndex = 4;
+                        navItemIndex = 3;
                         CURRENT_TAG = TAG_ABRIGOS;
                         break;
                     case R.id.nav_cadastro_abrigo:
-                        navItemIndex = 5;
+                        navItemIndex = 4;
                         CURRENT_TAG = TAG_CADASTRO_ABRIGO;
                         break;
                     case R.id.nav_Configuracoes:
-                        navItemIndex = 6;
+                        navItemIndex = 5;
                         CURRENT_TAG = TAG_CONFIGURACOES;
                         break;
                     default:
@@ -351,17 +346,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (item.getItemId()) {
+            case R.id.action_filter:
+                Intent it = new Intent(this, FilterActivity.class);
+                startActivity(it);
+        }
 
-        //noinspection SimplifiableIfStatement
-       /* if (id == R.id.action_logout) {
-            Toast.makeText(getApplicationContext(), "Logout user!", Toast.LENGTH_LONG).show();
-            return true;
-        }*/
-        //return super.onOptionsItemSelected(item);
         return toggle != null && toggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 

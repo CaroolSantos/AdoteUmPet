@@ -22,7 +22,6 @@
         <item>Home</item>
         <item>My Profile</item>
         <item>Register a Pet</item>
-        <item>Lost a Pet</item>
         <item>Shelter</item>
         <item>Register a Shelter</item>
         <item>Settings</item>
@@ -100,7 +99,6 @@
     <string name="Perdido">Lost</string>
 
 
-
     <!-- Tela de Perfil do Pet -->
     <string name="txtView_nome_perfil_pet">Toddy</string>
     <string name="txtView_descricao_perfil_pet">This is the Toddy! Two years old, is docile, get along with everybody, have a ball at the navel, cut tail and has microchip. Weighs between 4 and 5 kg.</string>
@@ -116,5 +114,24 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_profile_pet">Pet Details</string>
+
+    <!-- Tela de Filtros -->
+    <string name="select_portepet">Select the pet size</string>
+    <string name="select_sexopet">Select the gender of the pet</string>
+    <string name="select_localizacao">Animals around</string>
+    <string name="btn_filtrar"> Filter</string>
+    <string name="title_activity_filter">Filter</string>
+    <string name="especie_cachorro">Dog</string>
+    <string name="especie_gato">Cat</string>
+    <string name="especie_passaro">Bird</string>
+    <string name="porte_pequeno">Small</string>
+    <string name="porte_medio">Medium</string>
+    <string name="porte_grande">Large</string>
+    <string name="genero_femea">Female</string>
+    <string name="genero_macho">Male</string>
+    <string name="nao_restringir">Don`t restrict</string>
+    <string name="localizacao_cidade">Your city</string>
+    <string name="localizacao_estado">Seu estado</string>
+
 
 </resources>

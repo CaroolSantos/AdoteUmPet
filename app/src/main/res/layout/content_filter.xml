@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_main2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="ufrpe.carolina.adoteumpet.activity.FilterActivity"
+    tools:showIn="@layout/activity_filter"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+>
+
+        <CheckBox
+            android:id="@+id/pet_perdido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Pet perdido" />
+
+        <TextView
+            android:id="@+id/select_especiepet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/pet_perdido"
+            android:text="@string/Especie_pet" />
+
+        <Spinner
+            android:id="@+id/spinner_especie"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/select_especiepet"/>
+
+        <TextView
+            android:id="@+id/select_portepet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/select_portepet"
+            android:layout_below="@id/spinner_especie"/>
+
+        <Spinner
+            android:id="@+id/spinner_porte"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/select_portepet"/>
+
+        <TextView
+            android:id="@+id/select_generopet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/select_sexopet"
+            android:layout_below="@id/spinner_porte"/>
+
+        <Spinner
+            android:id="@+id/spinner_genero"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/select_generopet"/>
+
+        <TextView
+            android:id="@+id/select_localizacao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/select_localizacao"
+            android:layout_below="@id/spinner_genero"/>
+
+        <Spinner
+            android:id="@+id/spinner_localizacao"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/select_localizacao"/>
+
+        <Button
+            android:id="@+id/btn_filtrar"
+            android:textStyle="bold"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="#fff"
+            android:background="@color/colorPrimary"
+            android:textColor="#FFF"
+            android:layout_marginTop="15dp"
+            android:text="@string/btn_filtrar"
+            android:layout_below="@id/spinner_localizacao"/>
+
+
+
+</LinearLayout>
+       </ScrollView>
+    </RelativeLayout>

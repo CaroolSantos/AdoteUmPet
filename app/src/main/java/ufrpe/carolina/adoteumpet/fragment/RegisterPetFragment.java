@@ -81,8 +81,9 @@ public class RegisterPetFragment extends Fragment implements AdapterView.OnItemS
 
         List<String> especies = new ArrayList<String>();
         especies.add(getResources().getString(R.string.select));
-        especies.add("Cachorro");
-        especies.add("Gato");
+        especies.add(getResources().getString(R.string.especie_cachorro));
+        especies.add(getResources().getString(R.string.especie_gato));
+        especies.add(getResources().getString(R.string.especie_passaro));
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, especies);
 
