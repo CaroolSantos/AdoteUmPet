@@ -33,6 +33,12 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:id="@+id/txt_nome_pet" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_tagPet"
+            android:textColor="@color/colorEspeciePet_listview"
+            android:textSize="15dp"/>
 
         <LinearLayout
             android:orientation="horizontal"
@@ -55,6 +61,8 @@
                 android:layout_weight="1"
                 android:textSize="18dp"/>
         </LinearLayout>
+
+
     </LinearLayout>
 
 </LinearLayout>

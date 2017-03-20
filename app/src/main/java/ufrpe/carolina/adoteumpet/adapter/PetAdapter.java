@@ -43,6 +43,7 @@ public class PetAdapter extends ArrayAdapter<Pet>{
             holder.txt_nome_pet = (TextView)row.findViewById(R.id.txt_nome_pet);
             holder.txt_especie_pet = (TextView)row.findViewById(R.id.txt_especie_pet);
             holder.txt_sexo_pet = (TextView)row.findViewById(R.id.txt_sexo_pet);
+            holder.txt_tagPet = (TextView)row.findViewById(R.id.txt_tagPet);
 
             row.setTag(holder);
         }
@@ -65,6 +66,7 @@ public class PetAdapter extends ArrayAdapter<Pet>{
         holder.txt_nome_pet.setText(pet.nome);
         holder.txt_especie_pet.setText(pet.especie);
         holder.txt_sexo_pet.setText(pet.sexo);
+        holder.txt_tagPet.setText(pet.tagPet);
 
         return row;
     }
@@ -75,5 +77,6 @@ public class PetAdapter extends ArrayAdapter<Pet>{
         TextView txt_nome_pet;
         TextView txt_especie_pet;
         TextView txt_sexo_pet;
+        TextView txt_tagPet;
     }
 }

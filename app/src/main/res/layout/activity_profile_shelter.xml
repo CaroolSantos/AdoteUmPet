@@ -42,6 +42,6 @@
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_profile_shelter" />
-    
+
 
 </android.support.design.widget.CoordinatorLayout>
