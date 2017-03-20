@@ -332,7 +332,7 @@ public class ApiHttp {
     }
 
 
-    private List<Pet> getPets() throws Exception{
+    public List<Pet> getPets() throws Exception{
         String url = BASE_URL + "/Pets";
         HttpURLConnection conexao = abrirConexao(url,"GET",false);
         List<Pet> pets = new ArrayList<Pet>();
@@ -358,7 +358,7 @@ public class ApiHttp {
         return pets;
     }
 
-    private Pet getPet(int Id) throws Exception{
+    public Pet getPet(int Id) throws Exception{
         String url = BASE_URL + "/Pets/" + Integer.toString(Id);
         HttpURLConnection conexao = abrirConexao(url,"GET",false);
         Pet pet = new Pet();
@@ -381,7 +381,7 @@ public class ApiHttp {
         return pet;
     }
 
-    private List<Shelter> getShelters() throws Exception{
+    public List<Shelter> getShelters() throws Exception{
         String url = BASE_URL + "/Shelters";
         HttpURLConnection conexao = abrirConexao(url,"GET",false);
         List<Shelter> shelters = new ArrayList<Shelter>();
@@ -407,7 +407,7 @@ public class ApiHttp {
         return shelters;
     }
 
-    private Shelter getShelter(int Id) throws Exception{
+    public Shelter getShelter(int Id) throws Exception{
         String url = BASE_URL + "/Shelters/" + Integer.toString(Id);
         HttpURLConnection conexao = abrirConexao(url,"GET",false);
         Shelter shelter = new Shelter();

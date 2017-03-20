@@ -12,6 +12,8 @@ import android.widget.TextView;
 import ufrpe.carolina.adoteumpet.R;
 import ufrpe.carolina.adoteumpet.entity.Pet;
 
+import static com.facebook.FacebookSdk.getApplicationContext;
+
 /**
  * Created by ana.carolina.a.silva on 10/30/2016.
  */
@@ -64,9 +66,28 @@ public class PetAdapter extends ArrayAdapter<Pet>{
             holder.img_Pet.setImageResource(R.drawable.logo_new);
         }
         holder.txt_nome_pet.setText(pet.nome);
-        holder.txt_especie_pet.setText(pet.especie);
-        holder.txt_sexo_pet.setText(pet.sexo);
-        holder.txt_tagPet.setText(pet.tagPet);
+        if(pet.especie == "1"){
+            holder.txt_especie_pet.setText(getApplicationContext().getResources().getString(R.string.especie_cachorro));
+        }else if(pet.especie == "2"){
+            holder.txt_especie_pet.setText(getApplicationContext().getResources().getString(R.string.especie_gato));
+        }else{
+            holder.txt_especie_pet.setText(getApplicationContext().getResources().getString(R.string.especie_passaro));
+        }
+
+        if(pet.sexo == "true"){
+            holder.txt_sexo_pet.setText(getApplicationContext().getResources().getString(R.string.genero_macho));
+        }else{
+            holder.txt_sexo_pet.setText(getApplicationContext().getResources().getString(R.string.genero_femea));
+        }
+
+
+
+        if(pet.tagPet == "false"){
+            holder.txt_tagPet.setText(getApplicationContext().getResources().getString(R.string.para_adocao));
+        }else{
+            holder.txt_tagPet.setText(getApplicationContext().getResources().getString(R.string.perdido));
+        }
+
 
         return row;
     }

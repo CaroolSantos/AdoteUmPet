@@ -1,6 +1,8 @@
 package ufrpe.carolina.adoteumpet.fragment;
 
 
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.content.Context;
@@ -8,6 +10,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +18,17 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 import ufrpe.carolina.adoteumpet.R;
 import ufrpe.carolina.adoteumpet.activity.MainActivity;
 import ufrpe.carolina.adoteumpet.activity.ProfilePetActivity;
 import ufrpe.carolina.adoteumpet.adapter.PetAdapter;
 import ufrpe.carolina.adoteumpet.entity.Pet;
+import ufrpe.carolina.adoteumpet.other.AdoteUmPetSharedPreferences;
+import ufrpe.carolina.adoteumpet.other.ApiHttp;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
@@ -40,6 +49,9 @@ public class HomeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private ListView listPet;
+    private ProgressDialog pdia;
 
     private OnFragmentInteractionListener mListener;
 
@@ -79,8 +91,9 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_home, container, false);
-        ListView listPet = (ListView)v.findViewById(R.id.listViewPet);
-
+        listPet = (ListView)v.findViewById(R.id.listViewPet);
+        pdia = new ProgressDialog(getActivity());
+        pdia.setMessage(getResources().getString(R.string.carregando));
         Pet lista_pet[] = new Pet[]{
                 new Pet(null,"", "Toddy", "Cachorro", "Macho", "Para adoção"),
                 new Pet(null,"", "Rock", "Cachorro", "Macho", "Pet perdido"),
@@ -110,9 +123,9 @@ public class HomeFragment extends Fragment {
 
             }
         });
-
-        PetAdapter adapter = new PetAdapter(getActivity(), R.layout.listview_item_row, lista_pet);
-        listPet.setAdapter(adapter);
+        pdia.show();
+        CarregarListaPet task = new CarregarListaPet();
+        task.execute();
 
         return v;
     }
@@ -158,5 +171,48 @@ public class HomeFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    class CarregarListaPet extends AsyncTask<String,String,Pet[]> {
+        private Exception exception;
+
+        protected Pet[] doInBackground(String... args) {
+            try {
+
+                Log.d("TASK","REGISTER");
+
+                ApiHttp api = new ApiHttp(getApplicationContext());
+
+                try {
+                    List<Pet> pets = api.getPets();
+
+                    Pet[] petsArr = new Pet[pets.size()];
+                    petsArr = pets.toArray(petsArr);
+
+                    for(Pet p : petsArr)
+                        Log.i("PET",p.nome);
+
+                    return petsArr;
+                } catch (Exception e) {
+
+                    e.printStackTrace();
+                }
+
+
+            } catch (Exception e) {
+                this.exception = e;
+
+                return null;
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Pet[] result){
+            //super.onPostExecute(result);
+            PetAdapter adapter = new PetAdapter(getActivity(), R.layout.listview_item_row, result);
+            listPet.setAdapter(adapter);
+            pdia.dismiss();
+        }
     }
 }
