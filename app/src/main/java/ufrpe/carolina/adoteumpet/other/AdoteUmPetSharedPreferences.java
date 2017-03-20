@@ -35,7 +35,7 @@ public class AdoteUmPetSharedPreferences {
         editor.putString(PREF_PHOTOURL, photoUrl);
         editor.commit();
     }
-    
+
     public static String getPhotoUrl(Context ctx)
     {
         return getSharedPreferences(ctx).getString(PREF_PHOTOURL, "");

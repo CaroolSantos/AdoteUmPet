@@ -22,11 +22,11 @@
             android:icon="@drawable/ic_store_black_24dp"/>
         <item
             android:id="@+id/nav_cadastro_abrigo"
-            android:title="@string/item_buscar_abrigo"
+            android:title="@string/item_cadastro_abrigo"
             android:icon="@drawable/ic_cadastro_abrigo_24dp"/>
         <item
             android:id="@+id/nav_buscar_abrigo"
-            android:title="@string/item_cadastro_abrigo"
+            android:title="@string/item_buscar_abrigo"
             android:icon="@drawable/ic_store_black_24dp"/>
         <item
             android:id="@+id/nav_Sair"
