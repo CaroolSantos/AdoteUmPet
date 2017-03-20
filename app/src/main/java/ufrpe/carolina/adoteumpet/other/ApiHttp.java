@@ -230,7 +230,7 @@ public class ApiHttp {
     private byte[] registerShelterToJsonBytes(String name, String phone, String email, String address, String idUserApp) {
         try{
             JSONObject jsonShelterViewModel = new JSONObject();
-            jsonShelterViewModel.put("Name",phone);
+            jsonShelterViewModel.put("Name",name);
             jsonShelterViewModel.put("Phone",phone);
             jsonShelterViewModel.put("Email",email);
             jsonShelterViewModel.put("Address",address);
@@ -404,8 +404,7 @@ public class ApiHttp {
                         shelterJSON.getString("Phone"),
                         shelterJSON.getString("Email"),
                         shelterJSON.getString("Address"),
-                        shelterJSON.getString("PhotoUrl"),
-                        shelterJSON.getString("Status")
+                        shelterJSON.getString("PhotoUrl")
                 );
                 shelters.add(s);
             }
@@ -431,7 +430,7 @@ public class ApiHttp {
             shelter.Phone = json.getString("Phone");
             shelter.Email = json.getString("Email");
             shelter.Address = json.getString("Address");
-            shelter.Status = json.getString("Status");
+
         }
 
         return shelter;

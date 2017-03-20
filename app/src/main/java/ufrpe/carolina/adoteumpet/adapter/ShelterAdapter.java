@@ -73,7 +73,7 @@ public class ShelterAdapter extends ArrayAdapter<Shelter>{
 
         shelterHolder.txtViewNome.setText(shelter.Name);
         shelterHolder.txtViewEndereco.setText(shelter.Address);
-        shelterHolder.txtViewDataCadastro.setText(shelter.RegisterDate);
+        shelterHolder.txtViewDataCadastro.setText(shelter.Phone);
 
         return row;
     }

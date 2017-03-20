@@ -101,6 +101,8 @@ public class ShelterFragment extends Fragment {
         });
 
 
+        CarregarListaShelter task = new CarregarListaShelter();
+        task.execute();
 
         /*// Set the adapter
         if (view instanceof RecyclerView) {

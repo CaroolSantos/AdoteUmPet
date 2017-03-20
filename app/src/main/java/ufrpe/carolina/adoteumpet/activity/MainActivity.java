@@ -229,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
                 return registerShelterFragment;
             case 5:
                 // buscar abrigo
-                MeusAbrigosFragment buscarAbrigosFragment = new MeusAbrigosFragment();
+                ShelterFragment buscarAbrigosFragment = new ShelterFragment();
                 return buscarAbrigosFragment;
             case 6:
                 //sair

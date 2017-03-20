@@ -13,7 +13,7 @@ public class Shelter {
     public String photoUrl;
     public Integer IdUserApp;
     public String RegisterDate;
-    public String Status;
+
 
 
 
@@ -40,7 +40,7 @@ public class Shelter {
         this.RegisterDate = mRegisterDate;
     }
 
-    public Shelter(int id, String name, String phone, String email, String address, String photoUrl, String status) {
+    public Shelter(int id, String name, String phone, String email, String address, String photoUrl) {
         super();
         this.Id = id;
         this.Name = name;
@@ -48,6 +48,6 @@ public class Shelter {
         this.Email = email;
         this.Address = address;
         this.photoUrl = photoUrl;
-        this.Status = status;
+
     }
 }
