@@ -87,7 +87,7 @@
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/InformacoesCadastrais"
+
                     android:id="@+id/Txt_InformacoesCadastrais"
                     android:layout_margin="5dp"/>
 
@@ -97,7 +97,7 @@
                     android:layout_margin="5dp"
                     android:padding="20dp"
                     android:id="@+id/profile_pet_description"
-                    android:text="@string/txtView_descricao_perfil_pet" />
+                     />
 
 
                 <LinearLayout
@@ -107,14 +107,14 @@
 
                     <TextView
                         android:layout_marginLeft="24dp"
-                        android:text="@string/txtView_sexoPet"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtView_sexopet"
                         android:layout_weight="1" />
 
                     <TextView
-                        android:text="@string/txtView_idadePet"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtView_idadepet"
@@ -132,14 +132,14 @@
 
 
                     <TextView
-                        android:text="@string/txtView_portePet"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtView_portepet"
                         android:layout_weight="1"/>
 
                     <TextView
-                        android:text="@string/txtView_racaPet"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtView_racapet"
@@ -162,7 +162,7 @@
 
                     <TextView
                         android:layout_marginTop="5dp"
-                        android:text="@string/txtView_telefone"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtView_telefone" />
@@ -185,7 +185,7 @@
                     <TextView
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="10dp"
-                        android:text="@string/txtView_email"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtView_email" />

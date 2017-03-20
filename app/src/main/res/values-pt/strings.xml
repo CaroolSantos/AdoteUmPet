@@ -20,11 +20,12 @@
     <!-- Toolbar titles when navigation menu item is selected -->
     <string-array name="nav_item_activity_titles">
         <item>Início</item>
-        <item>Meu Perfil</item>
+        <item>Meus Pets</item>
         <item>Cadastrar um Pet</item>
         <item>Abrigos</item>
         <item>Cadastrar um Abrigo</item>
-        <item>Configurações</item>
+        <item>Procurar abrigo</item>
+        <item>Sair</item>
     </string-array>
     <string name="action_mark_all_read">Mark All as Read</string>
     <string name="action_clear_all">Clear All</string>

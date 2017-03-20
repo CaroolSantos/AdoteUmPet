@@ -70,8 +70,7 @@ public class ProfilePetActivity extends AppCompatActivity {
         txtView_racapet = (TextView) findViewById(R.id.txtView_racapet);
         txtView_telefone = (TextView) findViewById(R.id.txtView_telefone);
         txtView_email = (TextView) findViewById(R.id.txtView_email);
-        pdia = new ProgressDialog(this);
-        pdia.setMessage(getResources().getString(R.string.carregando));
+
 
         ImageView sharepet = (ImageView) findViewById(R.id.share_pet);
         sharepet.setOnClickListener(new View.OnClickListener() {
@@ -84,10 +83,6 @@ public class ProfilePetActivity extends AppCompatActivity {
 
             ;
         });
-
-        pdia.show();
-        CarregarProfilePet task = new CarregarProfilePet();
-        task.execute(Integer.toString(value));
         ImageView imagemProfile = (ImageView) findViewById(R.id.pet_profile_photo);
         Glide.with(this).load(R.drawable.logo_new)
                 .crossFade()
@@ -95,6 +90,13 @@ public class ProfilePetActivity extends AppCompatActivity {
                 .bitmapTransform(new CircleTransform(this))
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imagemProfile);
+        pdia = new ProgressDialog(this);
+        pdia.setMessage(getResources().getString(R.string.carregando));
+        pdia.show();
+        CarregarProfilePet task = new CarregarProfilePet();
+        task.execute(Integer.toString(value));
+
+
 
     }
     @Override
