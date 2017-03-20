@@ -150,4 +150,8 @@
     <string name="abrigo_endereco_vazio">Preencha o endereço</string>
     <string name="abrigo_cadastro_sucesso">Abrigo registrado</string>
 
+    <!-- HomeFragment-->
+    <string name="para_adocao">Para Adoção</string>
+    <string name="perdido">Perdido</string>
+
 </resources>

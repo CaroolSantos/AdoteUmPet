@@ -150,4 +150,8 @@
     <string name="abrigo_endereco_vazio">Fill address</string>
     <string name="abrigo_cadastro_sucesso">Shelter registered</string>
 
+    <!-- HomeFragment-->
+    <string name="para_adocao">To adopt</string>
+    <string name="perdido">lost Pet</string>
+
 </resources>
