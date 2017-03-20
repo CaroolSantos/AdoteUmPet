@@ -55,6 +55,7 @@ public class PetAdapter extends ArrayAdapter<Pet>{
         }
 
         Pet pet = data[position];
+        holder.Id = pet.Id;
         //TODO alterar lógica quando carregar dados da API
         if(position == 0){
             holder.img_Pet.setImageResource(R.drawable.toddy);
@@ -95,6 +96,7 @@ public class PetAdapter extends ArrayAdapter<Pet>{
     static class PetHolder
     {
         ImageView img_Pet;
+        int Id;
         TextView txt_nome_pet;
         TextView txt_especie_pet;
         TextView txt_sexo_pet;

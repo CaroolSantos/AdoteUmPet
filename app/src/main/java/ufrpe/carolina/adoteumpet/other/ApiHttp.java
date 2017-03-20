@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ufrpe.carolina.adoteumpet.entity.Pet;
+import ufrpe.carolina.adoteumpet.entity.ProfilePet;
 import ufrpe.carolina.adoteumpet.entity.Shelter;
 
 /**
@@ -358,10 +359,10 @@ public class ApiHttp {
         return pets;
     }
 
-    public Pet getPet(int Id) throws Exception{
+    public ProfilePet getProfilePet(int Id) throws Exception{
         String url = BASE_URL + "/Pets/" + Integer.toString(Id);
         HttpURLConnection conexao = abrirConexao(url,"GET",false);
-        Pet pet = new Pet();
+        ProfilePet pet = new ProfilePet();
 
         if(conexao.getResponseCode() == HttpURLConnection.HTTP_OK){
             InputStream is = conexao.getInputStream();
@@ -371,11 +372,17 @@ public class ApiHttp {
             JSONObject json = new JSONObject(s);
             Log.d("API RESPONSE",json.toString());
             pet.Id = json.getInt("Id");
-            pet.urlImagem = json.getString("PhotoUrl");
-            pet.nome = json.getString("Name");
-            pet.especie = json.getString("IdSpecies");
-            pet.sexo = json.getString("Sex");
-            pet.tagPet = json.getString("Status");
+            pet.PhotoUrl = json.getString("PhotoUrl");
+            pet.Name = json.getString("Name");
+            pet.Status = json.getString("Status");
+            pet.Description = json.getString("Description");
+            pet.Gender = json.getString("Gender");
+            pet.Age = json.getString("Age");
+            pet.Size = json.getString("Size");
+            pet.Breed = json.getString("Breed");
+            pet.ContactPhone = json.getString("ContactPhone");
+            pet.ContactEmail = json.getString("ContactEmail");
+            pet.ContactName = json.getString("ContactName");
         }
 
         return pet;

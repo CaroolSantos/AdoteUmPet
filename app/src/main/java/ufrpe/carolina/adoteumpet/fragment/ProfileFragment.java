@@ -75,7 +75,7 @@ public class ProfileFragment extends Fragment {
         View v = inflater.inflate(R.layout.content_profile_pet, container, false);
         ImageView imagemProfile = (ImageView) v.findViewById(R.id.pet_profile_photo);
 
-        Glide.with(this).load(R.drawable.toddy)
+        Glide.with(this).load(R.drawable.logo_new)
                 .crossFade()
                 .thumbnail(0.5f)
                 .bitmapTransform(new CircleTransform(getActivity()))

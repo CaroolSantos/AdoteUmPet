@@ -1,23 +1,33 @@
 package ufrpe.carolina.adoteumpet.fragment;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import java.util.List;
+
 import ufrpe.carolina.adoteumpet.R;
 import ufrpe.carolina.adoteumpet.activity.ProfileShelterActivity;
+import ufrpe.carolina.adoteumpet.adapter.PetAdapter;
 import ufrpe.carolina.adoteumpet.adapter.ShelterAdapter;
+import ufrpe.carolina.adoteumpet.entity.Pet;
 import ufrpe.carolina.adoteumpet.entity.Shelter;
 import ufrpe.carolina.adoteumpet.fragment.dummy.DummyContent.DummyItem;
+import ufrpe.carolina.adoteumpet.other.ApiHttp;
+
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 /**
  * A fragment representing a list of Items.
@@ -32,6 +42,9 @@ public class ShelterFragment extends Fragment {
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
+
+    private ListView listShelter;
+    private ProgressDialog pdia;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -64,8 +77,9 @@ public class ShelterFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_shelter, container, false);
 
-        ListView listShelter = (ListView)view.findViewById(R.id.listViewShelter);
-
+        listShelter = (ListView)view.findViewById(R.id.listViewShelter);
+        pdia = new ProgressDialog(getActivity());
+        pdia.setMessage(getResources().getString(R.string.carregando));
         Shelter lista_shelter[] = new Shelter[]{
                 new Shelter("AATAN","Rua Maria Quitéria, 123, Cordeiro - Recife-PE","Cadastro realizado em 25/10/2016"),
                 new Shelter("Abrigo Animal","Rua Maria Quitéria, 123, Cordeiro - Recife-PE","Cadastro realizado em 25/10/2016"),
@@ -86,8 +100,7 @@ public class ShelterFragment extends Fragment {
             }
         });
 
-        ShelterAdapter adapter = new ShelterAdapter(getActivity(),R.layout.listview_shelter_item_row,lista_shelter);
-        listShelter.setAdapter(adapter);
+
 
         /*// Set the adapter
         if (view instanceof RecyclerView) {
@@ -135,5 +148,48 @@ public class ShelterFragment extends Fragment {
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
         void onListFragmentInteraction(DummyItem item);
+    }
+
+    class CarregarListaShelter extends AsyncTask<String,String,Shelter[]> {
+        private Exception exception;
+
+        protected Shelter[] doInBackground(String... args) {
+            try {
+
+                Log.d("TASK","REGISTER");
+
+                ApiHttp api = new ApiHttp(getApplicationContext());
+
+                try {
+                    List<Shelter> shelters = api.getShelters();
+
+                    Shelter[] sheltersArr = new Shelter[shelters.size()];
+                    sheltersArr = shelters.toArray(sheltersArr);
+
+                    for(Shelter s : sheltersArr)
+                        Log.i("SHELTER",s.Name);
+
+                    return sheltersArr;
+                } catch (Exception e) {
+
+                    e.printStackTrace();
+                }
+
+
+            } catch (Exception e) {
+                this.exception = e;
+
+                return null;
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Shelter[] result){
+            //super.onPostExecute(result);
+            ShelterAdapter adapter = new ShelterAdapter(getActivity(), R.layout.listview_shelter_item_row, result);
+            listShelter.setAdapter(adapter);
+            pdia.dismiss();
+        }
     }
 }

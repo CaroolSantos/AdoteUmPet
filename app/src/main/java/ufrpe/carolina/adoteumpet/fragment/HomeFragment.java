@@ -117,7 +117,14 @@ public class HomeFragment extends Fragment {
                     Toast.makeText(getApplicationContext(), "Tablet!!", Toast.LENGTH_LONG).show();
                 }
                 else{
+                    Pet tmp=(Pet) parent.getItemAtPosition(position);
+                    Log.i("SELECTED PET",tmp.Id.toString());
+
                     Intent it = new Intent(getActivity(), ProfilePetActivity.class);
+                    Bundle b = new Bundle();
+                    b.putInt("Id", tmp.Id); //Your id
+                    it.putExtras(b); //Put your id to your next Intent
+
                     startActivity(it);
                 }
 
