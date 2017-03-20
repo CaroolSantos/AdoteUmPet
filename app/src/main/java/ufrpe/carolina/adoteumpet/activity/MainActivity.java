@@ -28,6 +28,8 @@ import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 import ufrpe.carolina.adoteumpet.R;
+import ufrpe.carolina.adoteumpet.fragment.MeusAbrigosFragment;
+import ufrpe.carolina.adoteumpet.fragment.MeusPetsFragment;
 import ufrpe.carolina.adoteumpet.fragment.RegisterPetFragment;
 import ufrpe.carolina.adoteumpet.fragment.HomeFragment;
 import ufrpe.carolina.adoteumpet.fragment.ProfileFragment;
@@ -57,12 +59,13 @@ public class MainActivity extends AppCompatActivity {
     public static int navItemIndex = 0;
 
     // tags used to attach the fragments
-    private static final String TAG_HOME = "home";
-    private static final String TAG_PERFIL = "perfil";
+    private static final String TAG_HOME = "Buscar_pet";
+    private static final String TAG_MEUSPETS = "Meus_pets";
     private static final String TAG_CADASTRAR_PET = "cadastro_pet";
-    private static final String TAG_ABRIGOS = "abrigos";
+    private static final String TAG_MEUSABRIGOS = "Meus_abrigos";
     private static final String TAG_CADASTRO_ABRIGO = "cadastro_abrigo";
-    private static final String TAG_CONFIGURACOES = "configuracoes";
+    private static final String TAG_BUSCAR_ABRIGO = "Buscar_abrigo";
+    private static final String TAG_SAIR = "Sair";
     public static String CURRENT_TAG = TAG_HOME;
 
     // toolbar titles respected to selected nav menu item
@@ -204,30 +207,35 @@ public class MainActivity extends AppCompatActivity {
     private Fragment getHomeFragment() {
         switch (navItemIndex) {
             case 0:
-                // home
+                // buscar pet
                 HomeFragment homeFragment = new HomeFragment();
                 return homeFragment;
             case 1:
-                // perfil
-                ProfileFragment perfilFragment = new ProfileFragment();
-                return perfilFragment;
+                // meus pets
+                MeusPetsFragment meuspetsFragment = new MeusPetsFragment();
+                return meuspetsFragment;
             case 2:
                 // cadastrar pet
                 RegisterPetFragment cadastrarPetFragment = new RegisterPetFragment();
                 return cadastrarPetFragment;
             case 3:
-                // abrigos
-                ShelterFragment shelterFragment = new ShelterFragment();
-                return shelterFragment;
+                // meus abrigos
+                MeusAbrigosFragment meusAbrigosFragment = new MeusAbrigosFragment();
+                return meusAbrigosFragment;
             case 4:
                 //cadastro abrigos
                 RegisterShelterFragment registerShelterFragment = new RegisterShelterFragment();
 
                 return registerShelterFragment;
             case 5:
-                // configurações
-                SettingsFragment configuracoesFragment = new SettingsFragment();
-                return configuracoesFragment;
+                // buscar abrigo
+                MeusAbrigosFragment buscarAbrigosFragment = new MeusAbrigosFragment();
+                return buscarAbrigosFragment;
+            case 6:
+                //sair
+                SettingsFragment settingsFragment = new SettingsFragment();
+                return settingsFragment;
+
             default:
                 return new HomeFragment();
         }
@@ -251,13 +259,13 @@ public class MainActivity extends AppCompatActivity {
                 //Check to see which item was being clicked and perform appropriate action
                 switch (menuItem.getItemId()) {
                     //Replacing the main content with ContentFragment Which is our Inbox View;
-                    case R.id.nav_home:
+                    case R.id.nav_meuspets:
                         navItemIndex = 0;
                         CURRENT_TAG = TAG_HOME;
                         break;
                     case R.id.nav_perfil:
                         navItemIndex = 1;
-                        CURRENT_TAG = TAG_PERFIL;
+                        CURRENT_TAG = TAG_MEUSPETS;
                         break;
                     case R.id.nav_cadastrar:
                         navItemIndex = 2;
@@ -265,15 +273,19 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_abrigos:
                         navItemIndex = 3;
-                        CURRENT_TAG = TAG_ABRIGOS;
+                        CURRENT_TAG = TAG_MEUSABRIGOS;
                         break;
                     case R.id.nav_cadastro_abrigo:
                         navItemIndex = 4;
                         CURRENT_TAG = TAG_CADASTRO_ABRIGO;
                         break;
-                    case R.id.nav_Configuracoes:
+                    case R.id.nav_buscar_abrigo:
                         navItemIndex = 5;
-                        CURRENT_TAG = TAG_CONFIGURACOES;
+                        CURRENT_TAG = TAG_BUSCAR_ABRIGO;
+                        break;
+                    case R.id.nav_Sair:
+                        navItemIndex = 6;
+                        CURRENT_TAG = TAG_SAIR;
                         break;
                     default:
                         navItemIndex = 0;

@@ -145,7 +145,6 @@ public class RegisterActivity extends AppCompatActivity
             }
         });
 
-
     }
     @Override
     protected Dialog onCreateDialog (int id){

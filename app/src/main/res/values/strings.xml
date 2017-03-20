@@ -32,12 +32,13 @@
 
     <!-- Activity_main_drawer -->
     <string name="item_home">Home</string>
-    <string name="item_perfil">My Profile</string>
+    <string name="item_meuspets">My Pets</string>
     <string name="item_cadastrar">Register a Pet</string>
     <string name="item_perdi_pet">Lost a Pet</string>
     <string name="item_abrigos">Shelter</string>
     <string name="item_cadastro_abrigo">Register a Shelter</string>
-    <string name="item_configuracoes">Settings</string>
+    <string name="item_buscar_abrigo">Find Shelter</string>
+    <string name="item_sair">Exit</string>
 
     <!-- Login -->
     <string name="Cadastrar">Register</string>

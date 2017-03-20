@@ -7,8 +7,8 @@
             android:title="@string/item_home"
             android:icon="@drawable/ic_pets_black_24dp"/>
         <item
-            android:id="@+id/nav_perfil"
-            android:title="@string/item_perfil"
+            android:id="@+id/nav_meuspets"
+            android:title="@string/item_meuspets"
             android:icon="@drawable/ic_account_circle_black_24dp"/>
 
         <item
@@ -22,12 +22,16 @@
             android:icon="@drawable/ic_store_black_24dp"/>
         <item
             android:id="@+id/nav_cadastro_abrigo"
-            android:title="@string/item_cadastro_abrigo"
+            android:title="@string/item_buscar_abrigo"
             android:icon="@drawable/ic_cadastro_abrigo_24dp"/>
         <item
-            android:id="@+id/nav_Configuracoes"
-            android:title="@string/item_configuracoes"
-            android:icon="@drawable/ic_settings_black_24dp"/>
+            android:id="@+id/nav_buscar_abrigo"
+            android:title="@string/item_cadastro_abrigo"
+            android:icon="@drawable/ic_store_black_24dp"/>
+        <item
+            android:id="@+id/nav_Sair"
+            android:title="@string/item_sair"
+            android:icon="@drawable/icon_exit"/>
     </group>
 
 </menu>

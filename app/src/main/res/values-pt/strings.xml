@@ -32,11 +32,12 @@
 
     <!-- Activity_main_drawer -->
     <string name="item_home">Início</string>
-    <string name="item_perfil">Meu Perfil</string>
+    <string name="item_meuspets">Meus Pets</string>
     <string name="item_cadastrar">Cadastrar um Pet</string>
     <string name="item_abrigos">Abrigos</string>
     <string name="item_cadastro_abrigo">Cadastrar um abrigo</string>
-    <string name="item_configuracoes">Configurações</string>
+    <string name="item_buscar_abrigo">Procurar abrigos</string>
+    <string name="item_sair">Sair</string>
 
     <!-- Login -->
     <string name="Cadastrar">Cadastre-se</string>
