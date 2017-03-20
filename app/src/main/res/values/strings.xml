@@ -22,7 +22,6 @@
         <item>Home</item>
         <item>My Profile</item>
         <item>Register a Pet</item>
-        <item>Lost a Pet</item>
         <item>Shelter</item>
         <item>Register a Shelter</item>
         <item>Settings</item>
@@ -102,7 +101,7 @@
     <string name="select_sexopet">Select the gender of the pet</string>
     <string name="select_localizacao">Animals around</string>
     <string name="btn_filtrar"> Filter</string>
-    <string name="title_activity_filter">FilterActivity</string>
+    <string name="title_activity_filter">Filter</string>
     <string name="especie_cachorro">Dog</string>
     <string name="especie_gato">Cat</string>
     <string name="especie_passaro">Bird</string>

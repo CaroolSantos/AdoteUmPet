@@ -4,15 +4,18 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import ufrpe.carolina.adoteumpet.R;
+import ufrpe.carolina.adoteumpet.activity.ProfilePetActivity;
 import ufrpe.carolina.adoteumpet.other.CircleTransform;
 
 /**
@@ -71,6 +74,7 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.content_profile_pet, container, false);
         ImageView imagemProfile = (ImageView) v.findViewById(R.id.pet_profile_photo);
+
         Glide.with(this).load(R.drawable.toddy)
                 .crossFade()
                 .thumbnail(0.5f)

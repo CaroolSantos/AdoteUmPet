@@ -60,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG_HOME = "home";
     private static final String TAG_PERFIL = "perfil";
     private static final String TAG_CADASTRAR_PET = "cadastro_pet";
-    private static final String TAG_PERDI_PET = "perdi_pet";
     private static final String TAG_ABRIGOS = "abrigos";
     private static final String TAG_CADASTRO_ABRIGO = "cadastro_abrigo";
     private static final String TAG_CONFIGURACOES = "configuracoes";
@@ -217,20 +216,15 @@ public class MainActivity extends AppCompatActivity {
                 RegisterPetFragment cadastrarPetFragment = new RegisterPetFragment();
                 return cadastrarPetFragment;
             case 3:
-                // perdi um pet
-                LostPetFragment petPerdidoFragment = new LostPetFragment();
-                return petPerdidoFragment;
-
-            case 4:
                 // abrigos
                 ShelterFragment shelterFragment = new ShelterFragment();
                 return shelterFragment;
-            case 5:
+            case 4:
                 //cadastro abrigos
                 RegisterShelterFragment registerShelterFragment = new RegisterShelterFragment();
 
                 return registerShelterFragment;
-            case 6:
+            case 5:
                 // configurações
                 SettingsFragment configuracoesFragment = new SettingsFragment();
                 return configuracoesFragment;
@@ -270,15 +264,15 @@ public class MainActivity extends AppCompatActivity {
                         CURRENT_TAG = TAG_CADASTRAR_PET;
                         break;
                     case R.id.nav_abrigos:
-                        navItemIndex = 4;
+                        navItemIndex = 3;
                         CURRENT_TAG = TAG_ABRIGOS;
                         break;
                     case R.id.nav_cadastro_abrigo:
-                        navItemIndex = 5;
+                        navItemIndex = 4;
                         CURRENT_TAG = TAG_CADASTRO_ABRIGO;
                         break;
                     case R.id.nav_Configuracoes:
-                        navItemIndex = 6;
+                        navItemIndex = 5;
                         CURRENT_TAG = TAG_CONFIGURACOES;
                         break;
                     default:
