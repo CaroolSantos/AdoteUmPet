@@ -7,13 +7,6 @@
         android:title="@string/action_logout"
         app:showAsAction="never" />-->
 
-    <item
-        android:id="@+id/action_message"
-        android:orderInCategory="200"
-        android:title="Search"
-        android:icon="@drawable/ic_message"
-        app:showAsAction="ifRoom"
-        ></item>
 
     <item
         android:id="@+id/action_filter"
