@@ -341,24 +341,45 @@ public class ApiHttp {
             String jsonString = streamToString(conexao.getInputStream());
             JSONArray json = new JSONArray(jsonString);
 
-            /*for (int i = 0; i < json.length(); i++){
+            for (int i = 0; i < json.length(); i++){
                 JSONObject petJSON = json.getJSONObject(i);
-                Pet s = new Pet(petJSON.getInt("Id"),
-                        petJSON.getString("Name"),
-                        petJSON.getString("Phone"),
-                        petJSON.getString("Email"),
-                        petJSON.getString("Address"),
+                Pet s = new Pet(
+                        petJSON.getInt("Id"),
                         petJSON.getString("PhotoUrl"),
-                        petJSON.getInt("IdUserApp"),
-                        petJSON.getString("RegisterData"));
+                        petJSON.getString("Name"),
+                        petJSON.getString("IdSpecies"),
+                        petJSON.getString("Sex"),
+                        petJSON.getString("Status")
+                        );
                 pets.add(s);
-            }*/
+            }
         }
 
         return pets;
     }
 
-    //private Pet getPet(int Id){ }
+    private Pet getPet(int Id) throws Exception{
+        String url = BASE_URL + "/Pets/" + Integer.toString(Id);
+        HttpURLConnection conexao = abrirConexao(url,"GET",false);
+        Pet pet = new Pet();
+
+        if(conexao.getResponseCode() == HttpURLConnection.HTTP_OK){
+            InputStream is = conexao.getInputStream();
+            String s = streamToString(is);
+            is.close();
+
+            JSONObject json = new JSONObject(s);
+            Log.d("API RESPONSE",json.toString());
+            pet.Id = json.getInt("Id");
+            pet.urlImagem = json.getString("PhotoUrl");
+            pet.nome = json.getString("Name");
+            pet.especie = json.getString("IdSpecies");
+            pet.sexo = json.getString("Sex");
+            pet.tagPet = json.getString("Status");
+        }
+
+        return pet;
+    }
 
     private List<Shelter> getShelters() throws Exception{
         String url = BASE_URL + "/Shelters";
@@ -377,8 +398,8 @@ public class ApiHttp {
                         shelterJSON.getString("Email"),
                         shelterJSON.getString("Address"),
                         shelterJSON.getString("PhotoUrl"),
-                        shelterJSON.getInt("IdUserApp"),
-                        shelterJSON.getString("RegisterData"));
+                        shelterJSON.getString("Status")
+                );
                 shelters.add(s);
             }
         }
@@ -386,9 +407,28 @@ public class ApiHttp {
         return shelters;
     }
 
-    //private Shelter getShelter(int Id){
+    private Shelter getShelter(int Id) throws Exception{
+        String url = BASE_URL + "/Shelters/" + Integer.toString(Id);
+        HttpURLConnection conexao = abrirConexao(url,"GET",false);
+        Shelter shelter = new Shelter();
 
-    //}
+        if(conexao.getResponseCode() == HttpURLConnection.HTTP_OK){
+            InputStream is = conexao.getInputStream();
+            String s = streamToString(is);
+            is.close();
+
+            JSONObject json = new JSONObject(s);
+            Log.d("API RESPONSE",json.toString());
+            shelter.Id = json.getInt("Id");
+            shelter.Name = json.getString("Name");
+            shelter.Phone = json.getString("Phone");
+            shelter.Email = json.getString("Email");
+            shelter.Address = json.getString("Address");
+            shelter.Status = json.getString("Status");
+        }
+
+        return shelter;
+    }
 
     private String streamToString(InputStream is) throws IOException{
         byte[] bytes = new byte[1024];

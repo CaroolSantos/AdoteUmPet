@@ -5,7 +5,7 @@ package ufrpe.carolina.adoteumpet.entity;
  */
 
 public class Pet {
-    public int Id;
+    public Integer Id;
     public String urlImagem;
     public String nome;
     public String especie;
@@ -16,8 +16,9 @@ public class Pet {
         super();
     }
 
-    public Pet(String urlImagem, String nomePet, String especiePet, String sexoPet, String tagPet){
+    public Pet(Integer id, String urlImagem, String nomePet, String especiePet, String sexoPet, String tagPet){
         super();
+        this.Id = id;
         this.urlImagem = urlImagem;
         this.nome = nomePet;
         this.especie = especiePet;
