@@ -1,0 +1,29 @@
+page-login {
+    .login-content{
+        background-image: url('../assets/back.jpeg');
+        background-size: cover;
+    }
+
+    .label-logo{
+        color: #00D873;
+        
+        font-weight: bold;
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    .label-description{
+        color: #00D873;
+        font-size: 130%;
+        text-align: center;
+    }
+
+    .top-row{
+        height: 80%;
+    }
+
+    .bottom-row{
+        height: 20%;
+
+    }
+}
