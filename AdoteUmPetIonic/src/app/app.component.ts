@@ -6,7 +6,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { ListPage } from '../pages/list/list';
+import { CadastroPetPage } from '../pages/cadastro-pet/cadastro-pet';
+import { PerfilPage } from '../pages/perfil/perfil';
+import { AbrigosPage } from '../pages/abrigos/abrigos';
+import { CadastroAbrigoPage } from '../pages/cadastro-abrigo/cadastro-abrigo';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { ImagePicker } from '@ionic-native/image-picker';
 
 
 @Component({
@@ -29,7 +34,7 @@ export class MyApp {
       .then( function (data) {
         // user is previously logged and we have his data
         // we will let him access the app
-        env.nav.push(HomePage);
+        env.nav.push(LoginPage);
         splashScreen.hide();
       }, function (error) {
         //we don't have the user data so we will ask him to log in
@@ -44,8 +49,10 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Início', component: HomePage, icone: "paw" },
-      { title: 'Perfil', component: HomePage, icone: "contact" },
-      { title: 'Abrigos', component: ListPage, icone: "home" },
+      { title: 'Meu Perfil', component: PerfilPage, icone: "contact" },
+      { title: 'Cadastrar um Pet', component: CadastroPetPage, icone: "add-circle" },
+      { title: 'Abrigos', component: AbrigosPage, icone: "home" },
+      { title: 'Cadastrar um Abrigo', component: CadastroAbrigoPage, icone: "add-circle" },
       { title: 'Configurações', component: ListPage, icone: "settings" }
     ];
 

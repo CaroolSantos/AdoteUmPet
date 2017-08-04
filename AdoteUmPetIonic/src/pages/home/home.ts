@@ -7,8 +7,14 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
+  pet: string = "adocao";
+
   constructor(public navCtrl: NavController) {
 
+  }
+
+  abrirPerfilPet(id){
+    this.navCtrl.push('PerfilPetPage', {id: id})
   }
 
 }

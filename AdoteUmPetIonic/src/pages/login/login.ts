@@ -118,6 +118,10 @@ export class LoginPage {
 		}, function(error){
 			console.log(error);
 		});
-	}
+  }
+  
+  cadastroUsuario(id){
+    this.navCtrl.push('CadastroUsuarioPage', {id: id})
+  }
 
 }

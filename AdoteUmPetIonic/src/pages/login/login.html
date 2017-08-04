@@ -3,15 +3,35 @@
 <ion-content class="login-content" padding>
   <ion-row class="top-row">
     <ion-col>
-      <img src="./assets/icon.png" alt="">
+      <img class="img-app" src="./assets/icon.png" alt="">
       <h1 class="label-logo">Adote Um Pet</h1>
       <!--<p class="label-description">This app helps you discover and buy amazing things all in one place</p>-->
     </ion-col>
   </ion-row>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-input type="text" placeholder="E-mail"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="password" placeholder="Senha"></ion-input>
+    </ion-item>
+
+    <button ion-button block color="primary" (click)="login()">Entrar</button>
+
+  </ion-list>
+
+  <p text-center >OU</p>
+
   <ion-row class="bottom-row">
-    <ion-col class="login-button">
-      <button ion-button block color="danger" (click)="doGoogleLogin()">Entrar com Google+</button>
-      <button ion-button block (click)="doFbLogin()">Entrar com Facebook</button>
+    <ion-col col-6>
+      <button class="btn-redesocial" ion-button block color="danger" (click)="doGoogleLogin()">Entrar com Google+</button>
     </ion-col>
+    <ion-col col-6>
+      <button class="btn-redesocial" ion-button block color="fb" (click)="doFbLogin()">Entrar com Facebook</button>
+    </ion-col>
+      <button ion-button block clear (click)="cadastroUsuario()">Registrar uma nova conta</button>
   </ion-row>
 </ion-content>

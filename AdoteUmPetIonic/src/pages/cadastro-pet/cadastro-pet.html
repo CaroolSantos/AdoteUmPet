@@ -1,0 +1,145 @@
+<!--
+  Generated template for the CadastroPetPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>  
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Cadastrar um Pet</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+  <img src="./assets/icon.png" height="100" center >
+
+  <button ion-button class="btn-imagem" (click)="uploadFoto()">Upload de Imagem</button>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Selecione a espécie do Pet</ion-label>
+      <ion-select>
+        <ion-option value="cachorro">Cachorro</ion-option>
+        <ion-option value="gato">Gato</ion-option>
+    </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-list radio-group>
+    <ion-row>
+      <ion-col col-6>
+        <ion-item>
+          <ion-label>Para adoção</ion-label>
+          <ion-radio checked="true" value="adocao"></ion-radio>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6>
+        <ion-item>
+          <ion-label>Perdido</ion-label>
+          <ion-radio value="perdido"></ion-radio>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6>
+        <ion-item>
+          <ion-label>Macho</ion-label>
+          <ion-radio checked="true" value="macho"></ion-radio>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6>
+        <ion-item>
+          <ion-label>Fêmea</ion-label>
+          <ion-radio value="femea"></ion-radio>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Idade aproximada</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Raça do pet</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-list radio-group>
+    <ion-list-header>Porte do pet</ion-list-header>
+    <ion-row>
+      <ion-col col-4>
+        <ion-item>
+          <ion-label>Pequeno</ion-label>
+          <ion-radio checked="true" value="portePequeno"></ion-radio>
+        </ion-item>
+      </ion-col>
+      <ion-col col-4>
+        <ion-item>
+          <ion-label>Médio</ion-label>
+          <ion-radio value="porteMedio"></ion-radio>
+        </ion-item>
+      </ion-col>
+      <ion-col col-4>
+        <ion-item>
+          <ion-label>Grande</ion-label>
+          <ion-radio value="porteGrande"></ion-radio>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Nome</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Descrição</ion-label>
+      <ion-textarea></ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <ion-row>
+      <ion-col col-1>
+        <ion-icon name="call"></ion-icon>
+      </ion-col>
+
+      <ion-col col-11>
+        <ion-item>
+          <ion-input type="text" placeholder="Telefone"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-1>
+        <ion-icon name="mail"></ion-icon>
+      </ion-col>
+
+      <ion-col col-11>
+        <ion-item>
+          <ion-input type="text" placeholder="Email"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button full (click)="salvarPet()">Salvar</button>
+  </ion-toolbar>
+</ion-footer>

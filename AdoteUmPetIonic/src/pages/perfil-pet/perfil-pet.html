@@ -1,0 +1,80 @@
+<!--
+  Generated template for the PerfilPetPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Pefil do Pet</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="img-pet" >
+    <img src="./assets/imagens/york.jpg">
+    <h4 class ="nome-pet" text-center>Toddy</h4>
+    <ion-fab mini bottom right >
+      <button ion-fab color="white" class="fab-favorito">
+        <ion-icon name='star'></ion-icon>
+      </button>
+    </ion-fab>
+  </div>
+
+  <div padding>
+
+  <h6 text-justify>Este é o Toddy! Tem dois anos, é dócil, se dá bem com todo mundo, tem uma bolinha no umbigo, rabo cortado e tem microchip. Pesa entre 4 e 5 kg e está a procura de um lar.</h6>
+  <ion-row>
+    <ion-col col-6>
+      <p>Sexo: Macho</p>
+    </ion-col>
+
+    <ion-col col-6>
+      <p>Idade: 2 anos</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col col-6>
+      <p>Porte: Pequeno</p>
+    </ion-col>
+
+    <ion-col col-6>
+      <p>Raça: Yorkshire</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col col-1>
+      <ion-icon name="call"></ion-icon>
+    </ion-col>
+
+    <ion-col col-11>
+      <p>(81) 99999-9999</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col col-1>
+      <ion-icon name="mail"></ion-icon>
+    </ion-col>
+
+    <ion-col col-11>
+      <p>queroadotar@adoteumpet.com</p>
+    </ion-col>
+  </ion-row>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button icon-left full (click)="salvarPet()">
+      
+      <ion-icon name="paw"></ion-icon>
+      QUERO ADOTAR!
+    </button>
+  </ion-toolbar>
+</ion-footer>

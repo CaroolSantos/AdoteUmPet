@@ -1,6 +1,6 @@
 page-login {
     .login-content{
-        background-image: url('../assets/back.jpeg');
+        //background-image: url('../assets/back.jpeg');
         background-size: cover;
     }
 
@@ -9,7 +9,8 @@ page-login {
         
         font-weight: bold;
         text-align: center;
-        padding-top: 10px;
+        padding-top: 1px;
+        margin-bottom: 10px;
     }
 
     .label-description{
@@ -18,12 +19,20 @@ page-login {
         text-align: center;
     }
 
-    .top-row{
-        height: 80%;
-    }
-
     .bottom-row{
         height: 20%;
 
     }
+
+    .img-app{
+        height:30vh;
+        width: auto;
+        margin: auto;
+        display: block;
+    }
+
+    .btn-redesocial{
+        font-size: 10px;
+    }
+
 }
