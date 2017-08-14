@@ -1,15 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 
-/*
-  Generated class for the PetServicoProvider provider.
+let apiPetUrl = "http://localhost:53961/api/Pet";
 
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular DI.
-*/
 @Injectable()
 export class PetServicoProvider {
 
@@ -18,13 +14,16 @@ export class PetServicoProvider {
   }
 
   salvarPet(pet){
-     return this.http.post("", JSON.stringify(pet))
-      .map(res=>{res});
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post(apiPetUrl, pet, options)
+      .map(res =>res.json());
   }
 
 
   carregarPets(){
-    return this.http.get("")
+    return this.http.get(apiPetUrl)
       .map(res=>res.json())
       .catch(res=>{return Observable.throw(res)});
   }

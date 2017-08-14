@@ -14,7 +14,7 @@ import { HomePage } from '../home/home';
 })
 export class CadastroPetPage {
 
-  pet: any;
+  pet={};
   retornoApi: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private imagePicker: ImagePicker
@@ -49,14 +49,17 @@ export class CadastroPetPage {
   }
 
   salvarPet() {
+
+    console.log('INFO - info pets ' + JSON.stringify(this.pet));
     this.petServico.salvarPet(this.pet)
       .subscribe(
       data => {
+        console.log("INFO - sucesso ao salvar pet " + JSON.stringify(data));
         this.retornoApi = data;
         this.exibirAlert("Sucesso!", "Pet cadastrado com sucesso.");
 
-        console.log("INFO - sucesso ao salvar pet" + data);
-        this.navCtrl.setRoot(HomePage, { id: this.retornoApi.pet.id });
+        
+        this.navCtrl.setRoot(HomePage, { id: this.retornoApi.Id });
 
       },
       err => {

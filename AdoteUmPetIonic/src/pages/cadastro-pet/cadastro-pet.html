@@ -24,40 +24,42 @@
   <ion-list>
     <ion-item>
       <ion-label>Selecione a espécie do Pet</ion-label>
-      <ion-select>
-        <ion-option value="cachorro">Cachorro</ion-option>
-        <ion-option value="gato">Gato</ion-option>
+      <ion-select [(ngModel)]="pet.IdSpecies">
+        <ion-option value="1">Cachorro</ion-option>
+        <ion-option value="2">Gato</ion-option>
     </ion-select>
     </ion-item>
   </ion-list>
 
-  <ion-list radio-group>
+  <ion-list radio-group [(ngModel)]="pet.Status">
     <ion-row>
       <ion-col col-6>
-        <ion-item>
+        <ion-item text-wrap>
           <ion-label>Para adoção</ion-label>
-          <ion-radio checked="true" value="adocao"></ion-radio>
+          <ion-radio checked="true" value="true"></ion-radio>
         </ion-item>
       </ion-col>
       <ion-col col-6>
-        <ion-item>
+        <ion-item text-wrap>
           <ion-label>Perdido</ion-label>
-          <ion-radio value="perdido"></ion-radio>
+          <ion-radio value="false"></ion-radio>
         </ion-item>
       </ion-col>
     </ion-row>
-
+    </ion-list>
+    
+    <ion-list radio-group [(ngModel)]="pet.Sex">
     <ion-row>
       <ion-col col-6>
-        <ion-item>
-          <ion-label>Macho</ion-label>
-          <ion-radio checked="true" value="macho"></ion-radio>
+        <ion-item text-wrap>
+          <ion-label >Macho</ion-label>
+          <ion-radio checked="true" value="true"></ion-radio>
         </ion-item>
       </ion-col>
       <ion-col col-6>
-        <ion-item>
+        <ion-item text-wrap>
           <ion-label>Fêmea</ion-label>
-          <ion-radio value="femea"></ion-radio>
+          <ion-radio value="false"></ion-radio>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -66,77 +68,49 @@
   <ion-list>
     <ion-item>
       <ion-label floating>Idade aproximada</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="pet.Age"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Raça do pet</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="pet.Breed"></ion-input>
     </ion-item>
   </ion-list>
 
-  <ion-list radio-group>
-    <ion-list-header>Porte do pet</ion-list-header>
-    <ion-row>
-      <ion-col col-4>
-        <ion-item>
+  <ion-list radio-group [(ngModel)]="pet.Size">
+    <ion-list-header >Porte do pet</ion-list-header>
+    
+        <ion-item text-wrap>
           <ion-label>Pequeno</ion-label>
-          <ion-radio checked="true" value="portePequeno"></ion-radio>
+          <ion-radio checked="true" value="1"></ion-radio>
         </ion-item>
-      </ion-col>
-      <ion-col col-4>
-        <ion-item>
+      
+      
+        <ion-item text-wrap>
           <ion-label>Médio</ion-label>
-          <ion-radio value="porteMedio"></ion-radio>
+          <ion-radio value="2"></ion-radio>
         </ion-item>
-      </ion-col>
-      <ion-col col-4>
-        <ion-item>
+      
+        <ion-item text-wrap>
           <ion-label>Grande</ion-label>
-          <ion-radio value="porteGrande"></ion-radio>
+          <ion-radio value="3"></ion-radio>
         </ion-item>
-      </ion-col>
-    </ion-row>
+     
   </ion-list>
 
   <ion-list>
     <ion-item>
       <ion-label floating>Nome</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="pet.Name"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Descrição</ion-label>
-      <ion-textarea></ion-textarea>
+      <ion-textarea [(ngModel)]="pet.Description"></ion-textarea>
     </ion-item>
   </ion-list>
 
-  <ion-row>
-      <ion-col col-1>
-        <ion-icon name="call"></ion-icon>
-      </ion-col>
-
-      <ion-col col-11>
-        <ion-item>
-          <ion-input type="text" placeholder="Telefone"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col col-1>
-        <ion-icon name="mail"></ion-icon>
-      </ion-col>
-
-      <ion-col col-11>
-        <ion-item>
-          <ion-input type="text" placeholder="Email"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-
-
-</ion-content>
+  </ion-content>
 
 <ion-footer>
   <ion-toolbar>

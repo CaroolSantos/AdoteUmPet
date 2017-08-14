@@ -23,14 +23,17 @@
   <div [ngSwitch]="pet">
     <ion-list *ngSwitchCase="'adocao'">
 
-      <ion-card (click) = "abrirPerfilPet()">
+      <ion-card *ngFor="let pet of pets" (click) = "abrirPerfilPet()">
         <img src= "./assets/imagens/york.jpg"/>
         <ion-card-content>
           <ion-card-title>
-            Toddy
+            {{pet.Name}}
             </ion-card-title>
           <p>
-            Cachorro - Macho
+            {{pet.Species}} - {{pet.Sex}}
+          </p>
+          <p>
+            {{pet.DataRegistro}}
           </p>
         </ion-card-content>
         
@@ -50,75 +53,21 @@
         </ion-col>
       </ion-row>
       </ion-card>
-
-      <ion-card (click) = "abrirPerfilPet()">
-        <img src= "./assets/imagens/pinscher.jpg"/>
-        <ion-card-content>
-          <ion-card-title>
-            Rock
-            </ion-card-title>
-          <p>
-            Cachorro - Macho
-          </p>
-        </ion-card-content>
-
-        <ion-row no-padding>
-        <ion-col>
-          <button ion-button clear small color="danger" icon-start>
-            <ion-icon name='star'></ion-icon>
-            Favorite
-          </button>
-        </ion-col>
-
-        <ion-col text-right>
-          <button ion-button clear small color="danger" icon-start>
-            <ion-icon name='share-alt'></ion-icon>
-            Share
-          </button>
-        </ion-col>
-      </ion-row>
-      </ion-card>
-
-      <ion-card (click) = "abrirPerfilPet()">
-        <img src= "./assets/imagens/gata.jpg"/>
-        <ion-card-content>
-          <ion-card-title>
-            Hermione
-            </ion-card-title>
-          <p>
-            Gato - Fêmea
-          </p>
-        </ion-card-content>
-
-        <ion-row no-padding>
-        <ion-col>
-          <button ion-button clear small color="danger" icon-start>
-            <ion-icon name='star'></ion-icon>
-            Favorite
-          </button>
-        </ion-col>
-
-        <ion-col text-right>
-          <button ion-button clear small color="danger" icon-start>
-            <ion-icon name='share-alt'></ion-icon>
-            Share
-          </button>
-        </ion-col>
-      </ion-row>
-      </ion-card>
-        
     </ion-list>
 
     <ion-list *ngSwitchCase="'perdidos'">
 
-      <ion-card (click) = "abrirPerfilPet()">
+      <ion-card *ngFor="let pet of pets" (click) = "abrirPerfilPet()">
         <img src= "./assets/imagens/york.jpg"/>
         <ion-card-content>
           <ion-card-title>
-            Toddy
+            {{pet.Name}}
             </ion-card-title>
           <p>
-            Cachorro - Macho
+            {{pet.Species}} - {{pet.Sex}}
+          </p>
+          <p>
+            {{pet.DataRegistro}}
           </p>
         </ion-card-content>
         

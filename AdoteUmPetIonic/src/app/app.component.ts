@@ -34,11 +34,11 @@ export class MyApp {
       .then( function (data) {
         // user is previously logged and we have his data
         // we will let him access the app
-        env.nav.push(LoginPage);
+        env.nav.push(HomePage);
         splashScreen.hide();
       }, function (error) {
         //we don't have the user data so we will ask him to log in
-        env.nav.setRoot(LoginPage);
+        env.nav.setRoot(HomePage);
         splashScreen.hide();
       });
 
