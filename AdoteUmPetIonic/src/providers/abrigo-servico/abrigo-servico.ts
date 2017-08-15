@@ -1,15 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 
-/*
-  Generated class for the AbrigoServicoProvider provider.
+let apiAbrigoUrl = "http://localhost:53961/api/Shelter";
 
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular DI.
-*/
 @Injectable()
 export class AbrigoServicoProvider {
 
@@ -17,15 +13,18 @@ export class AbrigoServicoProvider {
     console.log('Hello AbrigoServicoProvider Provider');
   }
 
-  salvarAbrigo(abrigo){
-     return this.http.post("", JSON.stringify(abrigo))
-      .map(res=>{res});
+  salvarAbrigo(abrigo) {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post(apiAbrigoUrl, abrigo, options)
+      .map(res => res.json());
   }
 
-  carregarAbrigos(){
-    return this.http.get("")
-      .map(res=>res.json())
-      .catch(res=>{return Observable.throw(res)});
+  carregarAbrigos() {
+    return this.http.get(apiAbrigoUrl)
+      .map(res => res.json())
+      .catch(res => { return Observable.throw(res) });
   }
 
 }

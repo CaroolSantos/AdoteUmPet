@@ -1,28 +1,50 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { AbrigoServicoProvider } from '../../providers/abrigo-servico/abrigo-servico';
 
-/**
- * Generated class for the AbrigosPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+
 @IonicPage()
 @Component({
   selector: 'page-abrigos',
   templateUrl: 'abrigos.html',
 })
 export class AbrigosPage {
+  abrigos: any;
+  loader: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, public abrigoServico: AbrigoServicoProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AbrigosPage');
+    this.presentLoading();
+    this.abrigoServico.carregarAbrigos()
+      .subscribe(
+      data => {
+        this.abrigos = data;
+        console.log('abrigos ' + JSON.stringify(this.abrigos));
+        this.loader.dismiss();
+      },
+      err => {
+        console.log('[ERROR] ' + err);
+        this.loader.dismiss();
+      },
+      () => console.log("lista de abrigos carregada")
+      );
   }
 
   abrirPerfilAbrigo(id){
     this.navCtrl.push('PerfilAbrigoPage', {id: id})
   }
+
+  presentLoading() {
+
+    this.loader = this.loadingCtrl.create({
+      content: "Carregando lista de pets..."
+    });
+
+    this.loader.present();
+
+  }
+
 
 }

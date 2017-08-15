@@ -12,7 +12,7 @@ import { AbrigosPage } from '../abrigos/abrigos';
 })
 export class CadastroAbrigoPage {
 
-  abrigo: any;
+  abrigo={};
   retornoApi: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private imagePicker: ImagePicker, public abrigoServico: AbrigoServicoProvider, public alertCtrl: AlertController) {
@@ -46,14 +46,15 @@ export class CadastroAbrigoPage {
   }
 
   salvarAbrigo() {
+    console.log('INFO - info abrigos ' + JSON.stringify(this.abrigo));
     this.abrigoServico.salvarAbrigo(this.abrigo)
       .subscribe(
       data => {
+        console.log("INFO - sucesso ao salvar abrigo " + JSON.stringify(data));
         this.retornoApi = data;
         this.exibirAlert("Sucesso!", "Abrigo cadastrado com sucesso.");
 
-        console.log("INFO - sucesso ao salvar abrigo" + data);
-        this.navCtrl.setRoot(AbrigosPage, { id: this.retornoApi.abrigo.id });
+        this.navCtrl.setRoot(AbrigosPage, { id: this.retornoApi.Id });
 
       },
       err => {
