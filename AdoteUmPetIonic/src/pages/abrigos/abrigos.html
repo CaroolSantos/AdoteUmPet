@@ -12,7 +12,7 @@
 <ion-content>
 
   <ion-list>
-    <ion-item *ngFor="let abrigo of abrigos" (click)="abrirPerfilAbrigo()">
+    <ion-item *ngFor="let abrigo of abrigos" (click)="abrirPerfilAbrigo(abrigo.Id)">
       <ion-thumbnail item-start>
         <img src="./assets/imagens/abrigo_1.jpg">
       </ion-thumbnail>

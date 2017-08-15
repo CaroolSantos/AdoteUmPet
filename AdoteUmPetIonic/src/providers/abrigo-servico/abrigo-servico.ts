@@ -6,6 +6,7 @@ import 'rxjs/Rx';
 
 let apiAbrigoUrl = "http://localhost:53961/api/Shelter";
 
+
 @Injectable()
 export class AbrigoServicoProvider {
 
@@ -23,6 +24,13 @@ export class AbrigoServicoProvider {
 
   carregarAbrigos() {
     return this.http.get(apiAbrigoUrl)
+      .map(res => res.json())
+      .catch(res => { return Observable.throw(res) });
+  }
+
+  abrirAbrigo(Id){
+    var url = apiAbrigoUrl + "/" + Id;
+    return this.http.get(url)
       .map(res => res.json())
       .catch(res => { return Observable.throw(res) });
   }

@@ -17,7 +17,7 @@
 
   <div class="img-abrigo" >
     <img src="./assets/imagens/abrigo_1.jpg">
-    <h4 class ="nome-abrigo" text-center>AATAN</h4>
+    <h4 class ="nome-abrigo" text-center>{{abrigo.Name}}</h4>
   </div>
 
   <div padding>
@@ -28,7 +28,7 @@
       </ion-col>
 
       <ion-col col-11>
-        <p>(81) 98888-8888</p>
+        <p>{{abrigo.Phone}}</p>
       </ion-col>
     </ion-row>
 
@@ -38,7 +38,7 @@
       </ion-col>
 
       <ion-col col-11>
-        <p>aatan@adoteumpet.com</p>
+        <p>{{abrigo.Email}}</p>
       </ion-col>
     </ion-row>
 
@@ -48,13 +48,9 @@
       </ion-col>
 
       <ion-col col-11>
-        <p text-justify>Endereço: Av.Caxangá, 340 - Iputinga, Recife/PE</p>
+        <p text-justify>{{abrigo.Address}}</p>
       </ion-col>
     </ion-row>
-
-    
-  
-
   </div>
 
 </ion-content>

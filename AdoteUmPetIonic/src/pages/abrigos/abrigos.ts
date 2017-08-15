@@ -33,7 +33,7 @@ export class AbrigosPage {
   }
 
   abrirPerfilAbrigo(id){
-    this.navCtrl.push('PerfilAbrigoPage', {id: id})
+    this.navCtrl.push('PerfilAbrigoPage', {Id: id})
   }
 
   presentLoading() {
