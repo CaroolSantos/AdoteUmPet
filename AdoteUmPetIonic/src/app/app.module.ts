@@ -24,6 +24,7 @@ import { PetServicoProvider } from '../providers/pet-servico/pet-servico';
 import { HttpModule } from '@angular/http';
 import { AbrigoServicoProvider } from '../providers/abrigo-servico/abrigo-servico';
 import { UsuarioProvider } from '../providers/usuario/usuario';
+import { ContasServicoProvider } from '../providers/contas-servico/contas-servico';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBBFmk1qzJB1odXi3VgGfOhFvY7RY1Hm1A",
@@ -75,7 +76,8 @@ export const firebaseConfig = {
     PetServicoProvider,
     AbrigoServicoProvider,
     UsuarioProvider,
-    AngularFireModule    
+    AngularFireModule,
+    ContasServicoProvider    
   ]
 })
 export class AppModule {}

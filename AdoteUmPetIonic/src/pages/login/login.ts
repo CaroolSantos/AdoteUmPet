@@ -6,12 +6,7 @@ import { HomePage } from '../home/home';
 import { GooglePlus } from '@ionic-native/google-plus';
 
 
-/**
- * Generated class for the Login page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -120,8 +115,8 @@ export class LoginPage {
 		});
   }
   
-  cadastroUsuario(id){
-    this.navCtrl.push('CadastroUsuarioPage', {id: id})
+  abrirCadastroUsuario(){
+    this.navCtrl.push('CadastroUsuarioPage');
   }
 
 }
