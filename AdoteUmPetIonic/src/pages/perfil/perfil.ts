@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { UsuarioProvider } from '../../providers/usuario/usuario';
 
 /**
  * Generated class for the PerfilPage page.
@@ -13,12 +14,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'perfil.html',
 })
 export class PerfilPage {
+  loader:any;
+  pets: any;
+  abrigos:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, public usuarioServico: UsuarioProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PerfilPage');
+    this.presentLoading();
+    
+  }
+
+  presentLoading() {
+
+    this.loader = this.loadingCtrl.create({
+      content: "Carregando lista de pets..."
+    });
+
+    this.loader.present();
+
   }
 
 }

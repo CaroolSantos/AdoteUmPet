@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { AngularFireModule } from "angularfire2";
+
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -10,6 +12,7 @@ import { CadastroPetPage } from '../pages/cadastro-pet/cadastro-pet';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { AbrigosPage } from '../pages/abrigos/abrigos';
 import { CadastroAbrigoPage } from '../pages/cadastro-abrigo/cadastro-abrigo';
+import { ChatPage } from '../pages/chat/chat';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -20,6 +23,16 @@ import { ImagePicker } from '@ionic-native/image-picker';
 import { PetServicoProvider } from '../providers/pet-servico/pet-servico';
 import { HttpModule } from '@angular/http';
 import { AbrigoServicoProvider } from '../providers/abrigo-servico/abrigo-servico';
+import { UsuarioProvider } from '../providers/usuario/usuario';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyBBFmk1qzJB1odXi3VgGfOhFvY7RY1Hm1A",
+    authDomain: "adote-um-pet-381be.firebaseapp.com",
+    databaseURL: "https://adote-um-pet-381be.firebaseio.com",
+    projectId: "adote-um-pet-381be",
+    storageBucket: "",
+    messagingSenderId: "138464449951"
+}
 
 @NgModule({
   declarations: [
@@ -30,12 +43,14 @@ import { AbrigoServicoProvider } from '../providers/abrigo-servico/abrigo-servic
     CadastroPetPage,
     PerfilPage,
     AbrigosPage,
-    CadastroAbrigoPage
+    CadastroAbrigoPage,
+    ChatPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -46,7 +61,8 @@ import { AbrigoServicoProvider } from '../providers/abrigo-servico/abrigo-servic
     CadastroPetPage,
     PerfilPage,
     AbrigosPage,
-    CadastroAbrigoPage
+    CadastroAbrigoPage,
+    ChatPage
   ],
   providers: [
     StatusBar,
@@ -57,7 +73,9 @@ import { AbrigoServicoProvider } from '../providers/abrigo-servico/abrigo-servic
     ImagePicker,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     PetServicoProvider,
-    AbrigoServicoProvider
+    AbrigoServicoProvider,
+    UsuarioProvider,
+    AngularFireModule    
   ]
 })
 export class AppModule {}

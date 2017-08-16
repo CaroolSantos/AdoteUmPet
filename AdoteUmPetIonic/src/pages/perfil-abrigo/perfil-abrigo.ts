@@ -2,13 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { AbrigoServicoProvider } from '../../providers/abrigo-servico/abrigo-servico';
 
-
-/**
- * Generated class for the PerfilAbrigoPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-perfil-abrigo',
@@ -24,6 +17,7 @@ export class PerfilAbrigoPage {
   }
 
   ionViewDidLoad() {
+    this.presentLoading();
     this.id_Abrigo = this.navParams.get("Id");
     console.log('ionViewDidLoad PerfilAbrigoPage');
     this.abrigoServico.abrirAbrigo(this.id_Abrigo)
@@ -37,7 +31,7 @@ export class PerfilAbrigoPage {
         console.log('[ERROR] ' + err);
         this.loader.dismiss();
       },
-      () => console.log("lista de abrigos carregada")
+      () => console.log("perfil abrigo carregado")
       );
   }
     presentLoading() {

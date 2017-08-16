@@ -12,6 +12,8 @@ export class HomePage {
   pet: string = "adocao";
   loader: any;
   pets: any;
+  pets_perdidos: any;
+  pets_adocao:any;
 
   constructor(public navCtrl: NavController, public loadingCtrl: LoadingController, public petServico: PetServicoProvider) {
 
@@ -23,6 +25,8 @@ export class HomePage {
       .subscribe(
       data => {
         this.pets = data;
+        this.pets_adocao = this.pets.filter(x=> x.Status=="Adoção");
+        this.pets_perdidos = this.pets.filter(x=> x.Status=="Perdido");
         console.log('pets ' + JSON.stringify(this.pets));
         this.loader.dismiss();
       },
@@ -35,7 +39,7 @@ export class HomePage {
   }
 
   abrirPerfilPet(id){
-    this.navCtrl.push('PerfilPetPage', {id: id})
+    this.navCtrl.push('PerfilPetPage', {Id: id})
   }
 
   presentLoading() {
@@ -47,5 +51,6 @@ export class HomePage {
     this.loader.present();
 
   }
+
 
 }
