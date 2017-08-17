@@ -25,6 +25,8 @@ import { HttpModule } from '@angular/http';
 import { AbrigoServicoProvider } from '../providers/abrigo-servico/abrigo-servico';
 import { UsuarioProvider } from '../providers/usuario/usuario';
 import { ContasServicoProvider } from '../providers/contas-servico/contas-servico';
+import { EmailComposer } from '@ionic-native/email-composer';
+import { CallNumber } from '@ionic-native/call-number';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBBFmk1qzJB1odXi3VgGfOhFvY7RY1Hm1A",
@@ -77,7 +79,9 @@ export const firebaseConfig = {
     AbrigoServicoProvider,
     UsuarioProvider,
     AngularFireModule,
-    ContasServicoProvider    
+    ContasServicoProvider,
+    CallNumber,
+    EmailComposer    
   ]
 })
 export class AppModule {}

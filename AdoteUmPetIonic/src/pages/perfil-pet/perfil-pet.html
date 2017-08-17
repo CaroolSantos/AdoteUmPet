@@ -10,7 +10,7 @@
 <ion-content>
   <div class="img-pet" >
     <img src="./assets/imagens/york.jpg">
-    <h4 class ="nome-pet" text-center>{{pet.Name}}</h4>
+    <h4 class ="nome-pet" text-center>{{pet.name}}</h4>
     <ion-fab mini bottom right >
       <button ion-fab color="white" class="fab-favorito">
         <ion-icon name='star'></ion-icon>
@@ -65,7 +65,7 @@
 
 <ion-footer>
   <ion-toolbar>
-    <button ion-button icon-left full (click)="salvarPet()">
+    <button ion-button icon-left full (click)="presentActionSheet()">
       
       <ion-icon name="paw"></ion-icon>
       QUERO ADOTAR!
