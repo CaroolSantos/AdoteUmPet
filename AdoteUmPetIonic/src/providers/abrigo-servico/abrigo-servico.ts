@@ -14,12 +14,17 @@ export class AbrigoServicoProvider {
     console.log('Hello AbrigoServicoProvider Provider');
   }
 
-  salvarAbrigo(abrigo) {
-    let headers = new Headers({ 'Content-Type': 'application/json' });
+  salvarAbrigo(abrigo, token) {
+    let headers = new Headers({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token });
     let options = new RequestOptions({ headers: headers });
 
     return this.http.post(apiAbrigoUrl, abrigo, options)
-      .map(res => res.json());
+      .map(res => res.json())
+      .catch(e => {
+        if (e.status === 401) {
+          return Observable.throw('Unauthorized');
+        }
+      })
   }
 
   carregarAbrigos() {

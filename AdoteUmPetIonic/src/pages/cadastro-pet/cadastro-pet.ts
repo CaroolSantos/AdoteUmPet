@@ -15,7 +15,6 @@ import { LoginPage } from '../login/login';
 export class CadastroPetPage {
 
   pet = {};
-  retornoApi: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private imagePicker: ImagePicker
     , public petServico: PetServicoProvider, public alertCtrl: AlertController,

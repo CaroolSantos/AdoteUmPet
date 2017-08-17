@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { AbrigoServicoProvider } from '../../providers/abrigo-servico/abrigo-servico';
+import { ContasServicoProvider } from '../../providers/contas-servico/contas-servico';
+import { NativeStorage } from '@ionic-native/native-storage';
 import { AbrigosPage } from '../abrigos/abrigos';
-
+import { LoginPage } from '../login/login';
 
 @IonicPage()
 @Component({
@@ -13,9 +15,9 @@ import { AbrigosPage } from '../abrigos/abrigos';
 export class CadastroAbrigoPage {
 
   abrigo={};
-  retornoApi: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private imagePicker: ImagePicker, public abrigoServico: AbrigoServicoProvider, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private imagePicker: ImagePicker, public abrigoServico: AbrigoServicoProvider, 
+    public alertCtrl: AlertController, public storage: NativeStorage, public accountService: ContasServicoProvider) {
   }
 
   uploadFoto() {
@@ -47,18 +49,51 @@ export class CadastroAbrigoPage {
 
   salvarAbrigo() {
     console.log('INFO - info abrigos ' + JSON.stringify(this.abrigo));
-    this.abrigoServico.salvarAbrigo(this.abrigo)
-      .subscribe(
-      data => {
-        console.log("INFO - sucesso ao salvar abrigo " + JSON.stringify(data));
-        this.retornoApi = data;
-        this.exibirAlert("Sucesso!", "Abrigo cadastrado com sucesso.");
+    this.storage.getItem('access_token')
+      .then(data => {
+        //chama serviço para salvar abrigo enviando access_token
+        console.log('INFO - salvar abrigo access_token ' + data);
+        this.abrigoServico.salvarAbrigo(this.abrigo, data)
+          .subscribe(
+          data => {
+            console.log("INFO - sucesso ao salvar abrigo " + JSON.stringify(data));
+            this.exibirAlert("Sucesso!", "Abrigo cadastrado com sucesso.");
 
-        this.navCtrl.setRoot(AbrigosPage, { id: this.retornoApi.Id });
+            this.navCtrl.setRoot(AbrigosPage, { id: data.id });
 
       },
       err => {
-        this.exibirAlert("Erro!", "Ocorreu um erro ao tentar salvar o abrigo, tente novamente.");
+        console.log('ERROR - problema ao salvar abrigo ' + err);
+
+            if (err === 'Unauthorized') {
+              //access_token expirou, pegar novos tokens com refresh_token
+              this.storage.getItem('refresh_token')
+                .then(
+                data => {
+                  this.accountService.getToken(data)
+                    .subscribe(data => {
+                      //sobrescreve access e refresh token
+                      this.storage.setItem('access_token', data.access_token);
+                      this.storage.setItem('refresh_token', data.refresh_token);
+                      this.storage.setItem('username', data.userName)
+
+                      this.salvarAbrigo();
+
+                    }, err => {
+                      //precisa autenticar novamente para atualizar tokens
+                      this.exibirAlert('Usuário não autenticado', 'Suas credenciais expiraram, por favor realize o login novamente');
+                      this.navCtrl.setRoot(LoginPage);
+                    })
+                },
+                err => {
+                  //caso não possua mais refresh_token usuário precisa logar novamente
+                  this.exibirAlert('Usuário não autenticado', 'Suas credenciais expiraram, por favor realize o login novamente');
+                  this.navCtrl.setRoot(LoginPage);
+                })
+
+            }else{
+              this.exibirAlert("Erro!", "Ocorreu um erro ao tentar salvar o abrigo, tente novamente.");
+            }
       },
       () => console.log("serviço finalizado")
       );
