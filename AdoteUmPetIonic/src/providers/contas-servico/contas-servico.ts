@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions, Headers } from '@angular/http';
+import { Http, RequestOptions, Headers, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 
@@ -18,19 +18,25 @@ export class ContasServicoProvider {
   registerUser(user) {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(registerUserUrl, JSON.stringify(user), options)
-      .map(res => res.json());
+    return this.http.post(registerUserUrl, JSON.stringify(user), options);
   }
 
   login(credentials) {
     //todo ver como passar body com x-www-
-    let body = JSON.stringify({
-      grant_type: 'password',
-      UserName: credentials.Email,
-      Password: credentials.Password,
-      client_id: 'ngAuthApp'
-    });
-    let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
+    // let body = JSON.stringify({
+    //   grant_type: 'password',
+    //   UserName: credentials.Email,
+    //   Password: credentials.Password,
+    //   client_id: 'ngAuthApp'
+    // });
+    let urlSearchParams = new URLSearchParams();
+    urlSearchParams.append('grant_type', 'password');
+    urlSearchParams.append('UserName', 'credentials.Email');
+    urlSearchParams.append('Password', 'credentials.Password');
+    urlSearchParams.append('client_id', 'ngAuthApp');
+    let body = urlSearchParams.toString()
+    console.log('INFO - login > contas-servico ' + body);
+    let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
     return this.http.post(loginUserUrl, body, options)
