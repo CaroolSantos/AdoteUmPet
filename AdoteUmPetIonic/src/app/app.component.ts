@@ -41,7 +41,7 @@ export class MyApp {
           }
           
         }, function (error) {
-          env.nav.setRoot(HomePage);
+          env.nav.setRoot(LoginPage);
           splashScreen.hide();
         });
 
