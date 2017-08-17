@@ -14,9 +14,9 @@ import { LoginPage } from '../login/login';
 })
 export class CadastroAbrigoPage {
 
-  abrigo={};
+  abrigo = {};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private imagePicker: ImagePicker, public abrigoServico: AbrigoServicoProvider, 
+  constructor(public navCtrl: NavController, public navParams: NavParams, private imagePicker: ImagePicker, public abrigoServico: AbrigoServicoProvider,
     public alertCtrl: AlertController, public storage: NativeStorage, public accountService: ContasServicoProvider) {
   }
 
@@ -61,9 +61,9 @@ export class CadastroAbrigoPage {
 
             this.navCtrl.setRoot(AbrigosPage, { id: data.id });
 
-      },
-      err => {
-        console.log('ERROR - problema ao salvar abrigo ' + err);
+          },
+          err => {
+            console.log('ERROR - problema ao salvar abrigo ' + err);
 
             if (err === 'Unauthorized') {
               //access_token expirou, pegar novos tokens com refresh_token
@@ -91,22 +91,22 @@ export class CadastroAbrigoPage {
                   this.navCtrl.setRoot(LoginPage);
                 })
 
-            }else{
+            } else {
               this.exibirAlert("Erro!", "Ocorreu um erro ao tentar salvar o abrigo, tente novamente.");
             }
-      },
-      () => console.log("serviço finalizado")
-      );
-
+          },
+          () => console.log("serviço finalizado")
+          );
+      })
   }
 
-  exibirAlert(titulo, subtitulo){
+  exibirAlert(titulo, subtitulo) {
     let alert = this.alertCtrl.create({
-          title: titulo,
-          subTitle: subtitulo,
-          buttons: ['OK']
-        });
-        alert.present();
+      title: titulo,
+      subTitle: subtitulo,
+      buttons: ['OK']
+    });
+    alert.present();
 
   }
 

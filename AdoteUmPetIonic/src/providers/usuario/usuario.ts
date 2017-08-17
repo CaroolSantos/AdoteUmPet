@@ -1,18 +1,29 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/Rx';
 
-/*
-  Generated class for the UsuarioProvider provider.
+let userProfileUrl = 'http://adoteumpetwebservice.azurewebsites.net/api/UserProfile';
 
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular DI.
-*/
 @Injectable()
 export class UsuarioProvider {
 
+  
   constructor(public http: Http) {
     console.log('Hello UsuarioProvider Provider');
   }
 
+  getProfile(token){
+    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.get(userProfileUrl,options)
+      .map(res=>res.json())
+      .catch(e => {
+        if (e.status === 401) {
+          return Observable.throw('Unauthorized');
+        }
+      })
+  }
 }

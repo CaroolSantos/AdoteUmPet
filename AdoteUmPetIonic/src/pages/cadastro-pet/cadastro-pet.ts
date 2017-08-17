@@ -16,8 +16,11 @@ export class CadastroPetPage {
 
   pet = {};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private imagePicker: ImagePicker
-    , public petServico: PetServicoProvider, public alertCtrl: AlertController,
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private imagePicker: ImagePicker,
+    public petServico: PetServicoProvider, 
+    public alertCtrl: AlertController,
     public storage: NativeStorage,
     public accountService: ContasServicoProvider) {
   }

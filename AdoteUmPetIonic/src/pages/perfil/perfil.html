@@ -11,15 +11,15 @@
 
 
 <ion-content>
-  
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="./assets/images/user.jpg">
-      </ion-avatar>
-      <h2>Olá, Antonio</h2>
-      <p>Email...</p>
-    </ion-item>
-  
+
+  <ion-item>
+    <ion-avatar item-start>
+      <img src="./assets/imagens/icon_avatar.png">
+    </ion-avatar>
+    <h2>Olá, {{profile.name}}</h2>
+    <p>{{profile.email}}</p>
+  </ion-item>
+
 
   <ion-toolbar no-border-bottom>
     <ion-segment [(ngModel)]="tipo">
@@ -33,31 +33,26 @@
   </ion-toolbar>
 
   <div [ngSwitch]="tipo">
-    <ion-list *ngSwitchCase="'pet'">
+    <ion-list *ngSwitchCase="'meusPets'">
 
-      <ion-card *ngFor="let pet of pets" (click)="abrirPerfilPet(pet.Id)">
+      <ion-card *ngFor="let pet of profile?.pets" (click)="abrirPerfilPet(pet.id)">
         <img src="./assets/imagens/york.jpg" />
         <ion-card-content>
           <ion-card-title>
-            {{pet.Name}}
+            {{pet.name}}
           </ion-card-title>
           <p>
-            {{pet.Species}} - {{pet.Sex}}
+            <span [class.passaro]="pet.species == 'Pássaro'" [class.gato]="pet.species == 'Gato'" [class.cachorro]="pet.species == 'Cachorro'">{{pet.species}}</span>
+            <span [class.female]="pet.sex == 'Fêmea'" [class.male]="pet.sex == 'Macho'">{{pet.sex}}</span>
           </p>
-          <p>
-            {{pet.DataRegistro}}
+          <p class="data">
+            cadastrado em {{pet.dataRegistro}}
           </p>
         </ion-card-content>
-        <ion-row no-padding>
-          <ion-col>
-            <button ion-button clear small color="danger" icon-start>
-            <ion-icon name='star'></ion-icon>
-            Favorito
-          </button>
-          </ion-col>
 
+        <ion-row no-padding>
           <ion-col text-right>
-            <button ion-button clear small color="danger" icon-start>
+            <button ion-button clear small color="danger" icon-start (click)="share($event)">
             <ion-icon name='share-alt'></ion-icon>
             Compartilhar
           </button>
@@ -66,33 +61,17 @@
       </ion-card>
     </ion-list>
 
-    <ion-list *ngSwitchCase="'abrigo'">
+    <ion-list *ngSwitchCase="'meusAbrigos'">
+      <ion-item *ngFor="let abrigo of profile?.shelters" (click)="abrirPerfilAbrigo(abrigo.id)">
+        <ion-thumbnail item-start>
+          <img src="./assets/imagens/abrigo_1.jpg">
+        </ion-thumbnail>
+        <h2>{{abrigo.name}}</h2>
+        <p>{{abrigo.address}}</p>
+        <p class="dataCadastro">{{abrigo.registerDate}}</p>
+        <button ion-button clear item-end><ion-icon name="arrow-forward"></ion-icon></button>
+      </ion-item>
 
-      <ion-card *ngFor="let abrigo of abrigos" (click)="abrirPerfilAbrigo(abrigo.Id)">
-        <img src="./assets/imagens/york.jpg" />
-        <ion-card-content>
-          <ion-card-title>
-            {{abrigo.Name}}
-          </ion-card-title>
-          <p>{{abrigo.Address}}</p>
-          <p class="dataCadastro">{{abrigo.RegisterDate}}</p>
-        </ion-card-content>
-        <ion-row no-padding>
-          <ion-col>
-            <button ion-button clear small color="danger" icon-start>
-            <ion-icon name='star'></ion-icon>
-            Favorito
-          </button>
-          </ion-col>
-
-          <ion-col text-right>
-            <button ion-button clear small color="danger" icon-start>
-            <ion-icon name='share-alt'></ion-icon>
-            Compartilhar
-          </button>
-          </ion-col>
-        </ion-row>
-      </ion-card>
     </ion-list>
   </div>
 </ion-content>
