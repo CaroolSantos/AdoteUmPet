@@ -4,7 +4,7 @@ import { Facebook } from '@ionic-native/facebook';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { HomePage } from '../home/home';
 import { GooglePlus } from '@ionic-native/google-plus';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @IonicPage()
@@ -14,15 +14,22 @@ import { GooglePlus } from '@ionic-native/google-plus';
 })
 export class LoginPage {
  FB_APP_ID: number = 1685597175088590;
+  credentials = {};
+  loginForm:FormGroup;
 
   constructor(
     public navCtrl: NavController,
     public loadingCtrl: LoadingController,
     public fb: Facebook,
     public nativeStorage: NativeStorage,
-    public googlePlus: GooglePlus
+    public googlePlus: GooglePlus,
+    public formBuilder: FormBuilder
     ) {
     // this.fb.browserInit(this.FB_APP_ID, "v2.8");
+    this.loginForm = formBuilder.group({
+      Email: ['', Validators.compose([Validators.required, Validators.email])],
+      Password: ['', Validators.compose([Validators.required])]
+    });
   }
 
   doFbLogin(){
@@ -117,6 +124,12 @@ export class LoginPage {
   
   abrirCadastroUsuario(){
     this.navCtrl.push('CadastroUsuarioPage');
+  }
+
+  login(){
+    if(this.loginForm.valid){
+      console.log('INFO - form válido ' + JSON.stringify(this.credentials));
+    }
   }
 
 }

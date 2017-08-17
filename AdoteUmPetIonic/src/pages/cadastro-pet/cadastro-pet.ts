@@ -51,22 +51,22 @@ export class CadastroPetPage {
   salvarPet() {
 
     console.log('INFO - info pets ' + JSON.stringify(this.pet));
-    this.petServico.salvarPet(this.pet)
-      .subscribe(
-      data => {
-        console.log("INFO - sucesso ao salvar pet " + JSON.stringify(data));
-        this.retornoApi = data;
-        this.exibirAlert("Sucesso!", "Pet cadastrado com sucesso.");
+    // this.petServico.salvarPet(this.pet)
+    //   .subscribe(
+    //   data => {
+    //     console.log("INFO - sucesso ao salvar pet " + JSON.stringify(data));
+    //     this.retornoApi = data;
+    //     this.exibirAlert("Sucesso!", "Pet cadastrado com sucesso.");
 
         
-        this.navCtrl.setRoot(HomePage, { id: this.retornoApi.Id });
+    //     this.navCtrl.setRoot(HomePage, { id: this.retornoApi.Id });
 
-      },
-      err => {
-        this.exibirAlert("Erro!", "Ocorreu um erro ao tentar salvar o pet, tente novamente.");
-      },
-      () => console.log("serviço finalizado")
-      );
+    //   },
+    //   err => {
+    //     this.exibirAlert("Erro!", "Ocorreu um erro ao tentar salvar o pet, tente novamente.");
+    //   },
+    //   () => console.log("serviço finalizado")
+    //   );
 
   }
 
