@@ -22,20 +22,14 @@ export class ContasServicoProvider {
   }
 
   login(credentials) {
-    //todo ver como passar body com x-www-
-    // let body = JSON.stringify({
-    //   grant_type: 'password',
-    //   UserName: credentials.Email,
-    //   Password: credentials.Password,
-    //   client_id: 'ngAuthApp'
-    // });
+   
     console.log(JSON.stringify(credentials));
     let urlSearchParams = new URLSearchParams();
     urlSearchParams.append('grant_type', 'password');
     urlSearchParams.append('UserName', credentials.Email);
     urlSearchParams.append('Password', credentials.Password);
     urlSearchParams.append('client_id', 'ngAuthApp');
-    let body = urlSearchParams.toString()
+    let body = urlSearchParams.toString();
     console.log('INFO - login > contas-servico ' + body);
     let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
     let options = new RequestOptions({ headers: headers });
@@ -55,13 +49,15 @@ export class ContasServicoProvider {
   //     ".expires": "Wed, 16 Aug 2017 09:54:11 GMT"
   //  }
 
-  getToken() {
-    //todo ver como passar body com x-www-
-    let body = JSON.stringify({
-      grant_type: 'refresh_token',
-      refresh_token: '',
-      client_id: 'ngAuthApp'
-    });
+  getToken(refresh_token) {
+   
+    let urlSearchParams = new URLSearchParams();
+    urlSearchParams.append('grant_type', 'refresh_token');
+    urlSearchParams.append('refresh_token', refresh_token);
+    urlSearchParams.append('client_id', 'ngAuthApp');
+    let body = urlSearchParams.toString();
+    console.log('INFO - getToken > contas-servico ' + body);
+
     let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
