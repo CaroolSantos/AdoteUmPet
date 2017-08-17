@@ -58,10 +58,11 @@
             {{pet.name}}
             </ion-card-title>
           <p>
-            {{pet.species}} - {{pet.sex}}
+            <span [class.passaro]="pet.species == 'Pássaro'" [class.gato]="pet.species == 'Gato'" [class.cachorro]="pet.species == 'Cachorro'">{{pet.species}}</span>  
+            <span [class.female]="pet.sex == 'Fêmea'" [class.male]="pet.sex == 'Macho'">{{pet.sex}}</span>
           </p>
-          <p>
-            {{pet.dataRegistro}}
+          <p class="data">
+            cadastrado em {{pet.dataRegistro}}
           </p>
         </ion-card-content>
           <ion-row no-padding>

@@ -98,15 +98,16 @@ export class CadastroAbrigoPage {
       () => console.log("serviço finalizado")
       );
 
+    })
   }
 
-  exibirAlert(titulo, subtitulo){
+  exibirAlert(titulo, subtitulo) {
     let alert = this.alertCtrl.create({
-          title: titulo,
-          subTitle: subtitulo,
-          buttons: ['OK']
-        });
-        alert.present();
+      title: titulo,
+      subTitle: subtitulo,
+      buttons: ['OK']
+    });
+    alert.present();
 
   }
 
