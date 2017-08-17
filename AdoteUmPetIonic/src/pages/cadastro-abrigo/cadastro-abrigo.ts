@@ -97,6 +97,7 @@ export class CadastroAbrigoPage {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       },
       () => console.log("serviço finalizado")
       );
@@ -107,12 +108,17 @@ export class CadastroAbrigoPage {
 >>>>>>> b0a77c23e1429ec6a7bdf5452a4cbd5166af3edb
 =======
 >>>>>>> b0a77c23e1429ec6a7bdf5452a4cbd5166af3edb
+=======
+>>>>>>> b0a77c23e1429ec6a7bdf5452a4cbd5166af3edb
           },
           () => console.log("serviço finalizado")
           );
       })
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> b0a77c23e1429ec6a7bdf5452a4cbd5166af3edb
+=======
 >>>>>>> b0a77c23e1429ec6a7bdf5452a4cbd5166af3edb
 =======
 >>>>>>> b0a77c23e1429ec6a7bdf5452a4cbd5166af3edb
