@@ -51,6 +51,7 @@ export class CadastroUsuarioPage {
                 //salva acces token e refresh token
                 this.storage.setItem('access_token', data.access_token);
                 this.storage.setItem('refresh_token', data.refresh_token);
+                this.storage.setItem('username',data.userName)
                 this.navCtrl.setRoot(HomePage);
               },
               err => {

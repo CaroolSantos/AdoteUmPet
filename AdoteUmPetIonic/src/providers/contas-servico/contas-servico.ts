@@ -18,7 +18,7 @@ export class ContasServicoProvider {
   registerUser(user) {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(registerUserUrl, user, options)
+    return this.http.post(registerUserUrl, JSON.stringify(user), options)
       .map(res => res.json());
   }
 
