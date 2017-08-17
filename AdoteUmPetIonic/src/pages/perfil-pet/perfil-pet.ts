@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController, LoadingController
 import { PetServicoProvider } from '../../providers/pet-servico/pet-servico';
 import { CallNumber } from '@ionic-native/call-number';
 import { EmailComposer } from '@ionic-native/email-composer';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 
 
@@ -21,7 +22,7 @@ export class PerfilPetPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, 
     public petServico: PetServicoProvider, public actionSheetCtrl: ActionSheetController, private callNumber: CallNumber,
-    public alertCtrl: AlertController, private emailComposer: EmailComposer) {
+    public alertCtrl: AlertController, private emailComposer: EmailComposer, private sharingVar: SocialSharing) {
   }
 
   ionViewDidLoad() {
@@ -112,5 +113,16 @@ export class PerfilPetPage {
     });
     actionSheet.present();
   }
+
+  share(){
+    this.sharingVar.shareViaFacebook("Mensagem de teste", "https://drive.google.com/file/d/0B0uHzB9w3CQuMEZ1Q1lyWUVXNG8/view?usp=sharing",null)
+    .then(()=>{
+        alert("Successo ao compartilhar!");
+      },
+      ()=>{
+         alert("Falha! Tente novamente.")
+      })
+  }
+
 
 }

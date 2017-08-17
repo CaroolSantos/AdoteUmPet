@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>Pefil do Pet</ion-title>
+    <ion-title>Perfil do Pet</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -12,8 +12,8 @@
     <img src="./assets/imagens/york.jpg">
     <h4 class ="nome-pet" text-center>{{pet.name}}</h4>
     <ion-fab mini bottom right >
-      <button ion-fab color="white" class="fab-favorito">
-        <ion-icon name='star'></ion-icon>
+      <button ion-fab color="white" class="fab-favorito" (click)="share()">
+        <ion-icon name='share'></ion-icon>
       </button>
     </ion-fab>
   </div>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
 import { PetServicoProvider } from '../../providers/pet-servico/pet-servico';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class HomePage {
   pets_perdidos: any;
   pets_adocao:any;
 
-  constructor(public navCtrl: NavController, public loadingCtrl: LoadingController, public petServico: PetServicoProvider) {
+  constructor(public navCtrl: NavController, public loadingCtrl: LoadingController, public petServico: PetServicoProvider, private sharingVar: SocialSharing) {
 
   }
 
@@ -53,6 +54,18 @@ export class HomePage {
 
     this.loader.present();
 
+  }
+
+  share(e){
+    e.preventDefault();
+    e.stopPropagation();
+    this.sharingVar.shareViaFacebook("Mensagem de teste", "https://drive.google.com/file/d/0B0uHzB9w3CQuMEZ1Q1lyWUVXNG8/view?usp=sharing",null)
+    .then(()=>{
+        alert("Successo ao compartilhar!");
+      },
+      ()=>{
+         alert("Falha! Tente novamente.")
+      })
   }
 
 

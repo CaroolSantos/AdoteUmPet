@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { AngularFireModule } from "angularfire2";
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 
 import { MyApp } from './app.component';
@@ -81,7 +82,8 @@ export const firebaseConfig = {
     AngularFireModule,
     ContasServicoProvider,
     CallNumber,
-    EmailComposer    
+    EmailComposer,
+    SocialSharing    
   ]
 })
 export class AppModule {}
