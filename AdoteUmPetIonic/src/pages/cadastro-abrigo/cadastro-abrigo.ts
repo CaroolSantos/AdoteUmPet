@@ -95,16 +95,22 @@ export class CadastroAbrigoPage {
               this.exibirAlert("Erro!", "Ocorreu um erro ao tentar salvar o abrigo, tente novamente.");
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
       },
       () => console.log("serviço finalizado")
       );
 
     })
 =======
+=======
+>>>>>>> b0a77c23e1429ec6a7bdf5452a4cbd5166af3edb
           },
           () => console.log("serviço finalizado")
           );
       })
+<<<<<<< HEAD
+>>>>>>> b0a77c23e1429ec6a7bdf5452a4cbd5166af3edb
+=======
 >>>>>>> b0a77c23e1429ec6a7bdf5452a4cbd5166af3edb
   }
 

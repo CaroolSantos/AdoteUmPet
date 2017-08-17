@@ -76,8 +76,11 @@
       "locator": "ios"
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
+=======
+>>>>>>> b0a77c23e1429ec6a7bdf5452a4cbd5166af3edb
   ],
   "description": "AdoteUmPet: An Ionic project",
   "cordova": {
