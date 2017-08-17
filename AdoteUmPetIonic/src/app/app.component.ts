@@ -20,18 +20,23 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any;
-
+  username = "";
   pages: Array<{ title: string, component: any, icone: string }>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public storage: NativeStorage) {
     platform.ready().then(() => {
       let env = this;
-
-      storage.getItem('user')
+      
+      storage.getItem('access_token')
         .then(function (data) {
           if(data){
-            console.log('usuario local ' + data);
-            env.nav.push(LoginPage);
+            console.log('INFO inicio do app access_token ' + data);
+            storage.getItem('username')
+              .then((data)=>{
+                console.log('INFO username carregado ' + data);
+                env.username = data;
+              })
+            env.nav.push(HomePage);
             splashScreen.hide();
           }
           

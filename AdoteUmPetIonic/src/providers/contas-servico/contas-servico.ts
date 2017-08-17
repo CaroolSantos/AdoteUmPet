@@ -29,14 +29,15 @@ export class ContasServicoProvider {
     //   Password: credentials.Password,
     //   client_id: 'ngAuthApp'
     // });
+    console.log(JSON.stringify(credentials));
     let urlSearchParams = new URLSearchParams();
     urlSearchParams.append('grant_type', 'password');
-    urlSearchParams.append('UserName', 'credentials.Email');
-    urlSearchParams.append('Password', 'credentials.Password');
+    urlSearchParams.append('UserName', credentials.Email);
+    urlSearchParams.append('Password', credentials.Password);
     urlSearchParams.append('client_id', 'ngAuthApp');
     let body = urlSearchParams.toString()
     console.log('INFO - login > contas-servico ' + body);
-    let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' });
+    let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
     return this.http.post(loginUserUrl, body, options)
