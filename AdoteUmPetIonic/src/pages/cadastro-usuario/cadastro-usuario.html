@@ -1,48 +1,61 @@
-
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>Cadastro de usuário</ion-title>
+    <ion-title>Cadastro</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-  <ion-list>
-    <ion-item>
-      <ion-label floating>Nome</ion-label>
-      <ion-input [(ngModel)]="user.Name" type="text"></ion-input>
-    </ion-item>
+<ion-content>
+  <ion-list no-lines>
+    <form [formGroup]="registerForm">
+      <ion-item>
+        <ion-label floating>Nome</ion-label>
+        <ion-input formControlName="name" [class.invalid]="!registerForm.controls.name.valid && (registerForm.controls.name.dirty)"
+          [(ngModel)]="user.Name" type="text"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!registerForm.controls.name.valid && registerForm.controls.name.dirty">
+        <p>Preencha o seu nome</p>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>E-mail</ion-label>
+        <ion-input formControlName="Email" [class.invalid]="!registerForm.controls.Email.valid && (registerForm.controls.Email.dirty)"
+          [(ngModel)]="user.Email" type="email"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!registerForm.controls.Email.valid && registerForm.controls.Email.dirty">
+        <p>Forneça um e-mail válido</p>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Telefone</ion-label>
+        <ion-input formControlName="PhoneNumber" [(ngModel)]="user.PhoneNumber" type="text"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label floating>Email</ion-label>
-      <ion-input [(ngModel)]="user.Email" type="email"></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label floating>Senha</ion-label>
+        <ion-input formControlName="Password" [class.invalid]="!registerForm.controls.Password.valid && (registerForm.controls.Password.dirty)" [(ngModel)]="user.Password" type="password"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!registerForm.controls.Password.valid && registerForm.controls.Password.dirty">
+        <p>Preencha a senha</p>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Confirmar Senha</ion-label>
+        <ion-input formControlName="ConfirmPassword" [(ngModel)]="user.ConfirmPassword" type="password"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label floating>Telefone</ion-label>
-      <ion-input [(ngModel)]="user.PhoneNumber" type="text"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-input [(ngModel)]="user.Password" type="password" placeholder="Senha"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-input [(ngModel)]="user.ConfirmPassword" type="password" placeholder="Confirme sua senha"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label floating>Cidade</ion-label>
-      <ion-input [(ngModel)]="user.City" type="text"></ion-input>
-    </ion-item>
-
+      <ion-item>
+        <ion-label floating>Cidade</ion-label>
+        <ion-input formControlName="City" [(ngModel)]="user.City" type="text"></ion-input>
+      </ion-item>
+    </form>
   </ion-list>
+
 </ion-content>
+
+
 
 <ion-footer>
   <ion-toolbar>
-    <button ion-button full (click)="registrarUsuario()">Registrar</button>
+    <button ion-button full (click)="registerUser()">Registrar</button>
   </ion-toolbar>
 </ion-footer>

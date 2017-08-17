@@ -1,29 +1,35 @@
-
-
 <ion-content class="login-content" padding>
   <ion-row class="top-row">
     <ion-col>
       <img class="img-app" src="./assets/icon.png" alt="">
       <h1 class="label-logo">Adote Um Pet</h1>
-      <!--<p class="label-description">This app helps you discover and buy amazing things all in one place</p>-->
     </ion-col>
   </ion-row>
 
-  <ion-list>
+  <ion-list no-lines>
+    <form [formGroup]="loginForm">
+      <ion-item>
+        <ion-label floating>E-mail</ion-label>
+        <ion-input formControlName="Email" type="email" [class.invalid]="!loginForm.controls.Email.valid && (loginForm.controls.Email.dirty)"
+          [(ngModel)]="credentials.Email"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!loginForm.controls.Email.valid && loginForm.controls.Email.dirty">
+        <p>Forneça um e-mail válido</p>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Senha</ion-label>
+        <ion-input formControlName="Password" type="password" [class.invalid]="!loginForm.controls.Password.valid && (loginForm.controls.Password.dirty)"
+          [(ngModel)]="credentials.Password"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!loginForm.controls.Password.valid && loginForm.controls.Password.dirty">
+        <p>Preencha a senha</p>
+      </ion-item>
 
-    <ion-item>
-      <ion-input type="text" placeholder="E-mail"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-input type="password" placeholder="Senha"></ion-input>
-    </ion-item>
-
-    <button ion-button block color="primary" (click)="login()">Entrar</button>
-
+    </form>
+    <button ion-button block color="primary" (click)="login()" class="btnlogin">Entrar</button>
   </ion-list>
 
-  <p text-center >OU</p>
+  <p text-center>OU</p>
 
   <ion-row class="bottom-row">
     <ion-col col-6>
@@ -32,6 +38,6 @@
     <ion-col col-6>
       <button class="btn-redesocial" ion-button block color="fb" (click)="doFbLogin()">Entrar com Facebook</button>
     </ion-col>
-      <button ion-button block clear (click)="abrirCadastroUsuario()">Registrar uma nova conta</button>
+    <button ion-button block clear (click)="abrirCadastroUsuario()">Registrar uma nova conta</button>
   </ion-row>
 </ion-content>
