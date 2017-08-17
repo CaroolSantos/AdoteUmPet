@@ -7,7 +7,7 @@
   </ion-navbar>
 
   <ion-toolbar no-border-bottom>
-    <ion-segment [(ngModel)]="pet">
+    <ion-segment [(ngModel)]="petfiltro">
       <ion-segment-button value="adocao">
         Para Adoção
       </ion-segment-button>
@@ -20,20 +20,20 @@
 
 <ion-content>
 
-  <div [ngSwitch]="pet">
-    <ion-list *ngSwitchCase="adocao">
+  <div [ngSwitch]="petfiltro">
+    <ion-list *ngSwitchCase="'adocao'">
 
-      <ion-card *ngFor="let pet of pets_adocao" (click) = "abrirPerfilPet(pet.Id)">
+      <ion-card *ngFor="let pet of pets_adocao" (click) = "abrirPerfilPet(pet.id)">
         <img src= "./assets/imagens/york.jpg"/>
         <ion-card-content>
           <ion-card-title>
-            {{pet.Name}}
-            </ion-card-title>
+            {{pet.name}}
+          </ion-card-title>
           <p>
-            {{pet.Species}} - {{pet.Sex}}
+            {{pet.species}} - {{pet.sex}}
           </p>
           <p>
-            {{pet.DataRegistro}}
+            {{pet.dataRegistro}}
           </p>
         </ion-card-content>
         
@@ -55,19 +55,19 @@
       </ion-card>
     </ion-list>
 
-    <ion-list *ngSwitchCase="perdidos">
+    <ion-list *ngSwitchCase="'perdidos'">
 
-      <ion-card *ngFor="let pet of pets_perdidos" (click) = "abrirPerfilPet(pet.Id)">
+      <ion-card *ngFor="let pet of pets_perdidos" (click) = "abrirPerfilPet(pet.id)">
         <img src= "./assets/imagens/york.jpg"/>
         <ion-card-content>
           <ion-card-title>
-            {{pet.Name}}
+            {{pet.name}}
             </ion-card-title>
           <p>
-            {{pet.Species}} - {{pet.Sex}}
+            {{pet.species}} - {{pet.sex}}
           </p>
           <p>
-            {{pet.DataRegistro}}
+            {{pet.dataRegistro}}
           </p>
         </ion-card-content>
         

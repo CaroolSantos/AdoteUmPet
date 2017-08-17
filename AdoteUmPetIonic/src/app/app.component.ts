@@ -31,12 +31,12 @@ export class MyApp {
         .then(function (data) {
           if(data){
             console.log('usuario local ' + data);
-            env.nav.push(LoginPage);
+            env.nav.push(HomePage);
             splashScreen.hide();
           }
           
         }, function (error) {
-          env.nav.setRoot(LoginPage);
+          env.nav.setRoot(HomePage);
           splashScreen.hide();
         });
 

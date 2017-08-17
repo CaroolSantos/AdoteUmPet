@@ -33,13 +33,13 @@ export class AbrigosPage {
   }
 
   abrirPerfilAbrigo(id){
-    this.navCtrl.push('PerfilAbrigoPage', {Id: id})
+    this.navCtrl.push('PerfilAbrigoPage', {id: id})
   }
 
   presentLoading() {
 
     this.loader = this.loadingCtrl.create({
-      content: "Carregando lista de pets..."
+      content: "Carregando lista de abrigos..."
     });
 
     this.loader.present();

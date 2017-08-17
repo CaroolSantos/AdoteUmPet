@@ -56,8 +56,8 @@ export class PetServicoProvider {
       .catch(res => { return Observable.throw(res) });
   }
 
-  abrirPet(Id) {
-    var url = apiPetUrl + "/" + Id;
+  abrirPet(id) {
+    var url = apiPetUrl + "/" + id;
     return this.http.get(url)
       .map(res => res.json())
       .catch(res => { return Observable.throw(res) });

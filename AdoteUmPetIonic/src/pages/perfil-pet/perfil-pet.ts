@@ -18,7 +18,7 @@ export class PerfilPetPage {
 
   ionViewDidLoad() {
     this.presentLoading();
-    this.id_Pet = this.navParams.get("Id");
+    this.id_Pet = this.navParams.get("id");
     console.log('ionViewDidLoad PerfilPetPage');
  
     this.petServico.abrirPet(this.id_Pet)

@@ -9,7 +9,7 @@ import { PetServicoProvider } from '../../providers/pet-servico/pet-servico';
 })
 export class HomePage {
 
-  pet: string = "adocao";
+  petfiltro: string = "adocao";
   loader: any;
   pets: any;
   pets_perdidos: any;
@@ -25,10 +25,13 @@ export class HomePage {
       .subscribe(
       data => {
         this.pets = data;
-        this.pets_adocao = this.pets.filter(x=> x.Status=="Adoção");
-        this.pets_perdidos = this.pets.filter(x=> x.Status=="Perdido");
+        this.pets_adocao = this.pets.filter(x=> x.status=="Adoção");
+        console.log('INFO pets adoção ' + JSON.stringify(this.pets_adocao));
+        this.pets_perdidos = this.pets.filter(x=> x.status=="Perdido");
+        console.log('INFO pets perdidos ' + JSON.stringify(this.pets_perdidos));
         console.log('pets ' + JSON.stringify(this.pets));
         this.loader.dismiss();
+        this.petfiltro = "adocao";
       },
       err => {
         console.log('[ERROR] ' + err);
@@ -39,7 +42,7 @@ export class HomePage {
   }
 
   abrirPerfilPet(id){
-    this.navCtrl.push('PerfilPetPage', {Id: id})
+    this.navCtrl.push('PerfilPetPage', {id: id})
   }
 
   presentLoading() {

@@ -12,13 +12,13 @@
 <ion-content>
 
   <ion-list>
-    <ion-item *ngFor="let abrigo of abrigos" (click)="abrirPerfilAbrigo(abrigo.Id)">
+    <ion-item *ngFor="let abrigo of abrigos" (click)="abrirPerfilAbrigo(abrigo.id)">
       <ion-thumbnail item-start>
         <img src="./assets/imagens/abrigo_1.jpg">
       </ion-thumbnail>
-      <h2>{{abrigo.Name}}</h2>
-      <p>{{abrigo.Address}}</p>
-      <p class="dataCadastro">{{abrigo.RegisterDate}}</p>
+      <h2>{{abrigo.name}}</h2>
+      <p>{{abrigo.address}}</p>
+      <p class="dataCadastro">{{abrigo.registerDate}}</p>
       <button ion-button clear item-end><ion-icon name="arrow-forward"></ion-icon></button>
     </ion-item>
   </ion-list>

@@ -23,14 +23,14 @@ export class PerfilPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PerfilPage');
-    this.presentLoading();
+   // this.presentLoading();
     
   }
 
   presentLoading() {
 
     this.loader = this.loadingCtrl.create({
-      content: "Carregando lista de pets..."
+      content: "Carregando perfil..."
     });
 
     this.loader.present();

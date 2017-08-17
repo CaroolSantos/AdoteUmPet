@@ -33,7 +33,7 @@
   </ion-toolbar>
 
   <div [ngSwitch]="tipo">
-    <ion-list *ngSwitchCase="pet">
+    <ion-list *ngSwitchCase="'pet'">
 
       <ion-card *ngFor="let pet of pets" (click)="abrirPerfilPet(pet.Id)">
         <img src="./assets/imagens/york.jpg" />
@@ -66,7 +66,7 @@
       </ion-card>
     </ion-list>
 
-    <ion-list *ngSwitchCase="abrigo">
+    <ion-list *ngSwitchCase="'abrigo'">
 
       <ion-card *ngFor="let abrigo of abrigos" (click)="abrirPerfilAbrigo(abrigo.Id)">
         <img src="./assets/imagens/york.jpg" />

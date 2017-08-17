@@ -18,7 +18,7 @@ export class PerfilAbrigoPage {
 
   ionViewDidLoad() {
     this.presentLoading();
-    this.id_Abrigo = this.navParams.get("Id");
+    this.id_Abrigo = this.navParams.get("id");
     console.log('ionViewDidLoad PerfilAbrigoPage');
     this.abrigoServico.abrirAbrigo(this.id_Abrigo)
     .subscribe(

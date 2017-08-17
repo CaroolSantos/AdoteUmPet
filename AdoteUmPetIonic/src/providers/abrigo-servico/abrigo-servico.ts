@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 
-let apiAbrigoUrl = "http://localhost:53961/api/Shelter";
+let apiAbrigoUrl = "http://adoteumpetwebservice.azurewebsites.net/api/Shelter";
 
 
 @Injectable()
@@ -28,8 +28,8 @@ export class AbrigoServicoProvider {
       .catch(res => { return Observable.throw(res) });
   }
 
-  abrirAbrigo(Id){
-    var url = apiAbrigoUrl + "/" + Id;
+  abrirAbrigo(id){
+    var url = apiAbrigoUrl + "/" + id;
     return this.http.get(url)
       .map(res => res.json())
       .catch(res => { return Observable.throw(res) });
