@@ -15,37 +15,19 @@ export class PetServicoProvider {
     console.log('Hello PetServicoProvider Provider');
   }
 
-  salvarPet(pet) {
-    let returnObject = {
-      type: '',
-      msg: ''
-    };
-
-    this.storage.getItem('access_token')
-      .then((data) => {
-        let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + data});
+  salvarPet(pet,token) {
+   
+        let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token});
         let options = new RequestOptions({ headers: headers });
 
         this.http.post(apiPetUrl, pet, options)
           .map(res => res.json())
-          .subscribe(
-            data => {
-
-            },
-            err => {
-              //todo caso retorne 401 unauthorized pegar novo token com refreshtoken
-              this.storage.getItem('refresh_token')
-                .then(data=>{
-                  if(data){
-
-                  }else{
-                    //não possui refresh token, vai precisar reautenticar usuário
-                    return 
-                  }
-                })
+          .catch(e => {
+            if(e.status === 401){
+              return Observable.throw('Unauthorized');
             }
-          )
-      })
+          })
+    
 
   }
 
@@ -56,8 +38,8 @@ export class PetServicoProvider {
       .catch(res => { return Observable.throw(res) });
   }
 
-  abrirPet(id) {
-    var url = apiPetUrl + "/" + id;
+  abrirPet(Id) {
+    var url = apiPetUrl + "/" + Id;
     return this.http.get(url)
       .map(res => res.json())
       .catch(res => { return Observable.throw(res) });
