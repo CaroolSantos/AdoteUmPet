@@ -1,10 +1,11 @@
 # AdoteUmPet
 A ideia do aplicativo é ser um centralizador de animais disponíveis para adoção ajudando-os assim a encontrar um novo lar, podendo divulgar também quando algum pet se perder para que outras pessoas por perto sejam notificadas e possam ajudar na busca do animal perdido.
+
 Usuários alvo:
-Pessoas interessadas em adotar um animal de estimação.
-1) Donos de abrigos de animais.
-2) Pessoas que encontraram algum animal abandonado na rua.
-3) Pessoas que perderam algum animal.
+1) Pessoas interessadas em adotar um animal de estimação.
+2) Donos de abrigos de animais.
+3) Pessoas que encontraram algum animal abandonado na rua.
+4) Pessoas que perderam algum animal.
 
 Funcionalidades:
 1) Cadastro de usuários através de uma rede social e acesso a seus dados básicos de contato.
