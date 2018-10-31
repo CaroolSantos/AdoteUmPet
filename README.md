@@ -5,6 +5,7 @@ Pessoas interessadas em adotar um animal de estimação.
 1) Donos de abrigos de animais.
 2) Pessoas que encontraram algum animal abandonado na rua.
 3) Pessoas que perderam algum animal.
+
 Funcionalidades:
 1) Cadastro de usuários através de uma rede social e acesso a seus dados básicos de contato.
 2) Listar animais e abrigos mais próximos de acordo com a localização atual do usuário.
