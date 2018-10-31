@@ -1,18 +1,79 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary" no-border-bottom>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Adote um Pet</ion-title>
   </ion-navbar>
+
+  <ion-toolbar no-border-bottom>
+    <ion-segment [(ngModel)]="petfiltro">
+      <ion-segment-button value="adocao">
+        Para Adoção
+      </ion-segment-button>
+      <ion-segment-button value="perdidos">
+        Perdidos
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <div [ngSwitch]="petfiltro">
+    <ion-list *ngSwitchCase="'adocao'">
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+      <ion-card *ngFor="let pet of pets_adocao" (click) = "abrirPerfilPet(pet.id)">
+        <img src= "./assets/imagens/york.jpg"/>
+        <ion-card-content>
+          <ion-card-title>
+            {{pet.name}}
+          </ion-card-title>
+          <p>
+            <span [class.passaro]="pet.species == 'Pássaro'" [class.gato]="pet.species == 'Gato'" [class.cachorro]="pet.species == 'Cachorro'">{{pet.species}}</span>  
+            <span [class.female]="pet.sex == 'Fêmea'" [class.male]="pet.sex == 'Macho'">{{pet.sex}}</span>
+          </p>
+          <p class="data">
+            cadastrado em {{pet.dataRegistro}}
+          </p>
+        </ion-card-content>
+        
+        <ion-row no-padding>
+        <ion-col text-right>
+          <button ion-button clear small color="danger" icon-start (click)="share($event)">
+            <ion-icon name='share-alt'></ion-icon>
+            Compartilhar
+          </button>
+        </ion-col>
+      </ion-row>
+      </ion-card>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'perdidos'">
+
+      <ion-card *ngFor="let pet of pets_perdidos" (click) = "abrirPerfilPet(pet.id)">
+        <img src= "./assets/imagens/york.jpg"/>
+        <ion-card-content>
+          <ion-card-title>
+            {{pet.name}}
+            </ion-card-title>
+          <p>
+            <span [class.passaro]="pet.species == 'Pássaro'" [class.gato]="pet.species == 'Gato'" [class.cachorro]="pet.species == 'Cachorro'">{{pet.species}}</span>  
+            <span [class.female]="pet.sex == 'Fêmea'" [class.male]="pet.sex == 'Macho'">{{pet.sex}}</span>
+          </p>
+          <p class="data">
+            cadastrado em {{pet.dataRegistro}}
+          </p>
+        </ion-card-content>
+          <ion-row no-padding>
+          <ion-col text-right>
+            <button  ion-button clear small color="danger" icon-start (click)="share($event)">
+              <ion-icon  name='share-alt'></ion-icon>
+              Compartilhar
+            </button>
+          </ion-col>
+          </ion-row>
+      </ion-card>
+    </ion-list>
+  </div>
 </ion-content>
