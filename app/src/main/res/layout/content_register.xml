@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_main2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="ufrpe.carolina.adoteumpet.activity.RegisterActivity"
+    tools:showIn="@layout/activity_register"
+    android:background="@drawable/background_register">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            >
+
+            <TextView
+                android:text="@string/nome_cadastro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/nomecadastro"
+                android:textColor="#FFF"/>
+
+            <EditText
+                android:id="@+id/edt_nome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/nomecadastro"
+                android:layout_marginTop="7dp"
+                android:paddingLeft="7dp"
+                android:background="@drawable/shape_edittext_rounded_borders"
+                android:ems="10"
+                android:hint="@string/nome_cadastro"
+                android:inputType="textPersonName"
+
+                android:textColorHint="@color/colorHint"
+                android:textCursorDrawable="@drawable/color_cursor" />
+
+            <TextView
+                android:layout_below="@+id/edt_nome"
+                android:layout_marginTop="15dp"
+                android:text="@string/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/emailcadastro"
+                android:textColor="#FFF"/>
+
+            <EditText
+                android:layout_below="@+id/emailcadastro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:textColorHint="@color/colorHint"
+                android:hint="@string/txt_email"
+                android:ems="10"
+                android:layout_marginTop="7dp"
+                android:paddingLeft="7dp"
+                android:background="@drawable/shape_edittext_rounded_borders"
+                android:id="@+id/edt_email"
+                android:textColor="#000"
+                android:textCursorDrawable="@drawable/color_cursor"
+                />
+
+            <TextView
+                android:text="@string/telefone_cadastro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/telefonecadastro"
+                android:layout_below="@+id/edt_email"
+                android:layout_marginTop="15dp"
+                android:textColor="#FFF"/>
+
+            <EditText
+                android:layout_below="@+id/telefonecadastro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:textColorHint="@color/colorHint"
+                android:ems="10"
+                android:hint="@string/telefone_cadastro"
+                android:layout_marginTop="7dp"
+                android:paddingLeft="7dp"
+                android:background="@drawable/shape_edittext_rounded_borders"
+                android:id="@+id/edt_telefone"
+                android:textColor="#000"
+                android:textCursorDrawable="@drawable/color_cursor"/>
+
+            <TextView
+                android:layout_below="@+id/edt_telefone"
+                android:text="@string/senha_cadastro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/senhacadastro"
+                android:layout_marginTop="15dp"
+                android:textColor="#FFF"/>
+
+            <EditText
+                android:layout_below="@+id/senhacadastro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/edt_senha"
+                android:layout_marginTop="7dp"
+                android:paddingLeft="7dp"
+                android:background="@drawable/shape_edittext_rounded_borders"
+
+                android:textColor="#000"
+                android:textCursorDrawable="@drawable/color_cursor"/>/>
+
+            <TextView
+                android:layout_below="@+id/edt_senha"
+                android:text="@string/senha_confirmacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/senhaconfirmacao"
+                android:layout_marginTop="15dp"
+                android:textColor="#FFF"/>
+
+            <EditText
+                android:layout_below="@+id/senhaconfirmacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:layout_marginTop="7dp"
+                android:id="@+id/edt_confirmacaosenha"
+                android:textColor="#000"
+                android:paddingLeft="7dp"
+                android:background="@drawable/shape_edittext_rounded_borders"
+                android:textCursorDrawable="@drawable/color_cursor"/>/>
+
+            <TextView
+                android:layout_below="@+id/edt_confirmacaosenha"
+                android:text="@string/data_nascimento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/datanasccadastro"
+                android:layout_marginTop="15dp"
+                android:textColor="#FFF"/>
+
+            <EditText
+                android:layout_below="@+id/datanasccadastro"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:ems="10"
+                android:id="@+id/edt_dt_nascimento"
+                android:layout_marginTop="7dp"
+                android:textColor="#000"
+                android:paddingLeft="7dp"
+                android:background="@drawable/shape_edittext_rounded_borders"
+                android:textCursorDrawable="@drawable/color_cursor"/>
+
+            <TextView
+                android:id="@+id/txt_estado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/estado"
+                android:layout_below="@+id/edt_dt_nascimento"
+                android:textColor="#fff"
+                android:layout_marginTop="15dp"/>
+
+            <EditText
+                android:id="@+id/edt_estado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_estado"
+                android:background="@drawable/shape_edittext_rounded_borders"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:hint="@string/estado"
+                android:paddingLeft="7dp"
+                android:textColorHint="@color/colorHint"
+                android:layout_marginTop="7dp"/>
+
+            <TextView
+                android:id="@+id/txt_cidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cidade"
+                android:layout_below="@+id/edt_estado"
+                android:textColor="#fff"
+                android:layout_marginTop="15dp"/>
+
+            <EditText
+                android:id="@+id/edt_cidade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_cidade"
+                android:paddingLeft="7dp"
+                android:background="@drawable/shape_edittext_rounded_borders"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:hint="@string/cidade"
+                android:textColorHint="@color/colorHint"
+                android:layout_marginTop="7dp"/>
+
+            <RadioGroup
+                android:layout_width="374dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/edt_cidade"
+                android:id="@+id/opcoes_sexo"
+                android:layout_marginTop="15dp">
+
+                <RadioButton
+                    android:text="@string/sexo_feminino"
+                    android:textColor="#FFF"
+                    android:buttonTint="#fff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sexofeminino"
+                    android:layout_weight="1" />
+
+                <RadioButton
+                    android:text="@string/sexo_masculino"
+                    android:textColor="#FFF"
+                    android:buttonTint="#fff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sexomasculino"
+                    android:layout_weight="1" />
+            </RadioGroup>
+
+            <Button
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_below="@+id/opcoes_sexo"
+                android:text="@string/btn_registrar"
+                android:textStyle="bold"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_registrar"
+                android:background="@color/colorBtn"
+                style="@style/Widget.AppCompat.Button.Colored"/>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
